@@ -1,25 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/navbar';
+import Sidebar from './components/sidebar';
+import Crash from './components/crash';
+import Roulette from './components/roulette';
+import React, { useState} from 'react';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+  const [game, setGame] = useState(0);
+  const pullGame = (game) => {
+    setGame(game);
+  }
+    
+  const renderGame = game => (game ?  <Roulette /> : <Crash/>);
+  const Content = ({game}) => <div>{renderGame(game)}</div>
+
+    return (
+      <div className="App flex flex-col">
+        <Navbar />
+        <div className="w-full h-screen bg-slate-600 flex divide-x divide-gray-500">
+          <Sidebar func={pullGame}/>
+          <div className="flex">
+            <Content game={game} />
+          </div>
+          
+        </div>
+      </div>
+    );
 }
 
 export default App;
