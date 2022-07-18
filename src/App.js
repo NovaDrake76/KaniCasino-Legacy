@@ -12,7 +12,7 @@ function App() {
     setGame(game);
   }
     
-  const renderGame = game => (game ?  <Roulette /> : <Crash/>);
+  const renderGame = game => (game ?  <Crash/> : <Roulette/>);
   const Content = ({game}) => <div>{renderGame(game)}</div>
 
     return (
