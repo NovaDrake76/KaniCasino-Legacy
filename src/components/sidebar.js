@@ -1,19 +1,24 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState } from "react";
 
 const Sidebar = (props) => {
     const [game, setGame] = useState(0);
     
-    useEffect(() => {
+    const pullGame = (game) => {
+
+        if (window.location.pathname === '/roulette') {
+            setGame(1);
+        } else if (window.location.pathname === '/crash') {
+            setGame(0);
+        }
         props.func(game);
     }
-    , [game]);
     
     return(
         <div className="w-1/6 flex flex-col gap-3 border-gray-500 items-start p-5">
-        <button onClick={() => {setGame(1); }}>Crash</button>
-        <button onClick={() => {setGame(0); }}>Roulette</button>
+        <button onClick={() => {pullGame(1); window.history.replaceState(null, "KaniCasino - Crash", "/crash")}}>Crash</button>
+        <button onClick={() => {pullGame(0); window.history.replaceState(null, "KaniCasino - Roulette", "/roulette")}}>Roulette</button>
       </div>
     )
 }
 
-export default Sidebar;
+export default Sidebar; 
