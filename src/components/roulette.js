@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const prizes = [
-  {
+  {"case": [{
     name: '1st',
     image: 'https://i.ibb.co/6Z6Xm9d/good-1.png',
     probability: 0.1,
@@ -30,22 +30,13 @@ const prizes = [
     name: '6st',
     image: 'https://i.ibb.co/64k8D1c/good-5.png',
     probability: 0.2,
-  },
+  },]}
 ];
 
 
 const Roulette = () => {
+  const [container, setContainer] = useState(0);
   const [prize, setPrize] = useState(null);
-
-  const getRandomPrize = () => {
-    setPrize(prizes[Math.floor(Math.random() * prizes.length)]);
-    document.getElementById('spin').disabled = true;
-    setTimeout(() => {
-      document.getElementById('spin').disabled = false;
-
-    }, 2000);
-    }
-
   let prizeRenderAux;
 
   if (prize) {
@@ -55,14 +46,33 @@ const Roulette = () => {
     </div>
   }
 
+  const getRandomPrize = () => {
+    document.getElementById('spin').disabled = true;
+
+    setPrize(prizes[container].case[Math.floor(Math.random() * prizes[container].case.length)]);
+
+    setTimeout(() => {
+      document.getElementById('spin').disabled = false;
+
+    }, 1000);
+    }
+
+  useEffect(() => {
+    getRandomPrize();
+  }, [container]);
+  
+
 
   return (
     <>
       <div className="flex flex-col justify-center gap-4">
         <div className='flex'>Roulette</div>
-          <button id='spin' onClick={getRandomPrize} >Spin</button>
-                   {prizeRenderAux}
+        <div className="flex">
+        <button onClick={getRandomPrize}>Case 1</button>
 
+        </div>
+          <button id='spin' onClick={getRandomPrize} >Spin</button>
+            {prizeRenderAux}
       </div>
     </>
   );
