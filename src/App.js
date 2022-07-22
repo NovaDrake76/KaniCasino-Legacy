@@ -23,9 +23,9 @@ function App() {
   const Content = ({game}) => <div>{renderGame(game)}</div>
 
     return (
-      <div className="App flex flex-col">
+      <div className="flex flex-col App">
         <Navbar />
-        <div className="w-full h-screen bg-slate-600 flex divide-x divide-gray-500">
+        <div className="flex w-full h-screen divide-x divide-gray-500 bg-slate-600">
           <Sidebar func={pullGame}/>
           <div className="flex">
             <Content game={game} />
