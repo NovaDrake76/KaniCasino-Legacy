@@ -24,7 +24,7 @@ function App() {
   return (
     <div className="flex flex-col App">
       <Navbar />
-      <div className="flex w-full h-screen divide-x divide-gray-500 bg-slate-600">
+      <div className="flex w-full min-h-screen divide-x divide-gray-500 bg-slate-600">
         <Sidebar func={pullGame} />
         <div className="">
           <Content game={game} />
