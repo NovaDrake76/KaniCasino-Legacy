@@ -190,8 +190,10 @@ const Roulette = () => {
   if (prizeDefined === true) {
     prizeRenderAux = (
       <div className="flex flex-col justify-center align-center">
-        <div className="flex w-[350px] self-center overflow-hidden gap-1">
-          {prizeRoulette}
+        <div className="self-center overflow-hidden">
+          <div className="flex w-[350px]  gap-1 hover:-translate-x-52 delay-75	ease-linear	duration-300	">
+            {prizeRoulette}
+          </div>
         </div>
         <h2>You won a {prize.name}!</h2>
         <img
