@@ -146,6 +146,7 @@ const Roulette = () => {
   let prizeRoulette
   let prizeRouletteAux
   let prizeInfo
+  let possiblePrizes
 
   const getRandomPrize = () => {
     setPrizeDefined(false)
@@ -222,7 +223,7 @@ const Roulette = () => {
       <div className="flex flex-col items-center justify-center">
         <h2>You won a {prize.name}!</h2>
         <img
-          className="w-[150px] h-[150px] object-max-w-xs self-center rounded"
+          className="w-[250px] h-[250px] object-max-w-xs self-center rounded"
           src={`${prize.image}`}
           alt={`${prize.name}`}
         />{" "}
@@ -244,6 +245,18 @@ const Roulette = () => {
     )
   }
 
+  possiblePrizes = prizes[container].case.map((prize, index) => {
+    return (
+      <img
+      className="w-[110px] h-[110px]  object-cover rounded"
+      src={`${prize.image}`}
+      alt={`${prize.name}`}
+      key={index}
+    />
+    )
+  })
+
+
   return (
     <>
       <div className="flex flex-col justify-center w-screen md:w-[80vw] gap-4 p-5 max-w-[1280px]">
@@ -252,7 +265,7 @@ const Roulette = () => {
         <div className="flex flex-col gap-3">
           <h2 className="text-2xl font-bold">{prizes[container].name}</h2>
           <div className="w-3/4 bg-slate-500 flex self-center  h-[2px]" />
-          <div className="flex flex-col items-center gap-4 md:flex-row">
+          <div className="flex flex-col gap-4 md:flex-row">
             <img
               className="min-w-[120px] h-[120px] md:min-w-[300px] md:h-[300px] object-cover rounded"
               src={`${prizes[container].image}`}
@@ -260,18 +273,29 @@ const Roulette = () => {
             />
             <div className="flex flex-col justify-center w-full gap-4 align-center">
               {prizeRenderAux}
+             <div className="flex gap-4">
+             </div>
 
               <div className="flex justify-center">
                 <button
-                  className="w-1/4 px-12 py-2 bg-blue-600 rounded"
+                  className="flex justify-center w-1/4 px-12 py-2 bg-blue-600 rounded"
                   id="spin"
                   onClick={getRandomPrize}
                 >
                   Spin
                 </button>
               </div>
+
+
             </div>
+
           </div>
+          <div className="flex flex-col justify-center gap-5 mt-20">
+            <h2>Case Content:</h2>
+            <div className="w-3/4 bg-slate-500 flex self-center  h-[2px]" />
+
+              <div className="flex flex-wrap justify-center gap-5">{possiblePrizes}</div>
+              </div>
         </div>
       </div>
     </>
