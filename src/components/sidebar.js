@@ -12,6 +12,8 @@ const Sidebar = (props) => {
     props.func(game)
   }
 
+  console.log(game)
+
   return (
     <div className="flex-col items-start hidden w-1/6 gap-3 p-5 border-gray-500 md:flex">
       <button
