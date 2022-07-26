@@ -137,6 +137,7 @@ const Roulette = () => {
   const [prize, setPrize] = useState(null)
   const [prizeDefined, setPrizeDefined] = useState(false)
   const [prizeRouletteSpin, setPrizeRouletteSpin] = useState("")
+  const [showPrize, setShowPrize] = useState(false)
   // const [randomPixelNumber, setRandomPixelNumber] = useState(
   //   Math.floor(Math.random() * (50 - 10 + 1)) + 10
   // )
@@ -148,6 +149,7 @@ const Roulette = () => {
 
   const getRandomPrize = () => {
     setPrizeDefined(false)
+    setShowPrize(false)
     setPrizeRouletteSpin("-translate-x-[0px] duration-[10ms]")
 
     document.getElementById("spin").disabled = true
@@ -161,13 +163,19 @@ const Roulette = () => {
     setPrizeDefined(true)
 
     setTimeout(() => {
-      setPrizeRouletteSpin("-translate-x-[5940px] duration-[5000ms]")
+      setPrizeRouletteSpin("-translate-x-[6080px] sm:-translate-x-[6000px]  md:-translate-x-[6050px] xl:-translate-x-[5960px] 2xl:-translate-x-[5900px] duration-[5000ms]")
     }, 0)
 
     setTimeout(() => {
       document.getElementById("spin").disabled = false
     }, 300)
+
+    setTimeout(() => {
+      setShowPrize(true)
+    }, 5500)
   }
+  
+
 
   caseRender = prizes.map((prize, index) => {
     return (
@@ -209,7 +217,8 @@ const Roulette = () => {
       )
     })
 
-    prizeInfo = (
+
+      prizeInfo = (
       <div className="flex flex-col items-center justify-center">
         <h2>You won a {prize.name}!</h2>
         <img
@@ -219,25 +228,25 @@ const Roulette = () => {
         />{" "}
       </div>
     )
-
+    
     prizeRenderAux = (
       <div className="flex flex-col justify-center gap-5 align-center">
-        <div className=" overflow-hidden w-[200px] md:w-[600px] self-center flex">
-          <div className="absolute z-10 w-1 h-36 bg-gray-400 ml-[22%] -mt-2" />
+        <div className=" overflow-hidden w-[80vw] md:w-[40vw]  self-center flex">
+          <div className="absolute z-10 w-1 h-36 bg-gray-400 ml-[38%] md:ml-[20%] -mt-2" />
           <div
             className={`flex gap-1   ${prizeRouletteSpin} ease-[cubic-bezier(0.1, 0, 0.2, 1)]	`}
           >
             {prizeRoulette}
           </div>
         </div>
-        {prizeInfo}
+        {showPrize && prizeInfo}
       </div>
     )
   }
 
   return (
     <>
-      <div className="flex flex-col justify-center  md:w-[80vw] gap-4 p-5 ">
+      <div className="flex flex-col justify-center w-screen md:w-[80vw] gap-4 p-5 max-w-[1280px]">
         <h1 className="flex justify-center">Roulette</h1>
         <div className="flex flex-col gap-5 md:flex-row ">{caseRender}</div>
         <div className="flex flex-col gap-3">
