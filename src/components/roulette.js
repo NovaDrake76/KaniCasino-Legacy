@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 
 const prizes = [
   {
@@ -136,12 +136,20 @@ const Roulette = () => {
   const [container, setContainer] = useState(0)
   const [prize, setPrize] = useState(null)
   const [prizeDefined, setPrizeDefined] = useState(false)
+  const [prizeRouletteSpin, setPrizeRouletteSpin] = useState("")
+  // const [randomPixelNumber, setRandomPixelNumber] = useState(
+  //   Math.floor(Math.random() * (50 - 10 + 1)) + 10
+  // )
   let prizeRenderAux
   let caseRender
   let prizeRoulette
+  let prizeRouletteAux
+  let prizeInfo
 
   const getRandomPrize = () => {
     setPrizeDefined(false)
+    setPrizeRouletteSpin("-translate-x-[0px] duration-[10ms]")
+
     document.getElementById("spin").disabled = true
 
     setPrize(
@@ -151,6 +159,10 @@ const Roulette = () => {
     )
 
     setPrizeDefined(true)
+
+    setTimeout(() => {
+      setPrizeRouletteSpin("-translate-x-[5940px] duration-[5000ms]")
+    }, 0)
 
     setTimeout(() => {
       document.getElementById("spin").disabled = false
@@ -177,24 +189,28 @@ const Roulette = () => {
     )
   })
 
-  prizeRoulette = prizes[container].case.map((prize, index) => {
-    return (
-      <img
-        className="min-w-[70px] h-[70px] object-fill rounded"
-        src={`${prize.image}`}
-        alt={`${prize.name}`}
-      />
-    )
-  })
+  if (prizeDefined) {
+    prizeRouletteAux = Array.from({ length: 45 }, () => {
+      return prizes[container].case[
+        Math.floor(Math.random() * prizes[container].case.length)
+      ]
+    })
 
-  if (prizeDefined === true) {
-    prizeRenderAux = (
-      <div className="flex flex-col justify-center align-center">
-        <div className="self-center overflow-hidden">
-          <div className="flex w-[350px]  gap-1 hover:-translate-x-52 delay-75	ease-linear	duration-300	">
-            {prizeRoulette}
-          </div>
-        </div>
+    prizeRouletteAux[40] = prize
+
+    prizeRoulette = prizeRouletteAux.map((prize, index) => {
+      return (
+        <img
+          className="min-w-[150px] h-[120px] object-fill rounded"
+          src={`${prize.image}`}
+          alt={`${prize.name}`}
+          key={index}
+        />
+      )
+    })
+
+    prizeInfo = (
+      <div className="flex flex-col items-center justify-center">
         <h2>You won a {prize.name}!</h2>
         <img
           className="w-[150px] h-[150px] object-max-w-xs self-center rounded"
@@ -203,19 +219,33 @@ const Roulette = () => {
         />{" "}
       </div>
     )
+
+    prizeRenderAux = (
+      <div className="flex flex-col justify-center gap-5 align-center">
+        <div className=" overflow-hidden w-[200px] md:w-[600px] self-center flex">
+          <div className="absolute z-10 w-1 h-36 bg-gray-400 ml-[22%] -mt-2" />
+          <div
+            className={`flex gap-1   ${prizeRouletteSpin} ease-[cubic-bezier(0.1, 0, 0.2, 1)]	`}
+          >
+            {prizeRoulette}
+          </div>
+        </div>
+        {prizeInfo}
+      </div>
+    )
   }
 
   return (
     <>
-      <div className="flex flex-col justify-center w-[80vw] gap-4 p-5 ">
+      <div className="flex flex-col justify-center  md:w-[80vw] gap-4 p-5 ">
         <h1 className="flex justify-center">Roulette</h1>
-        <div className="flex gap-5 ">{caseRender}</div>
+        <div className="flex flex-col gap-5 md:flex-row ">{caseRender}</div>
         <div className="flex flex-col gap-3">
           <h2 className="text-2xl font-bold">{prizes[container].name}</h2>
           <div className="w-3/4 bg-slate-500 flex self-center  h-[2px]" />
-          <div className="flex items-center gap-3">
+          <div className="flex flex-col items-center gap-4 md:flex-row">
             <img
-              className="min-w-[300px] h-[300px] object-cover rounded"
+              className="min-w-[120px] h-[120px] md:min-w-[300px] md:h-[300px] object-cover rounded"
               src={`${prizes[container].image}`}
               alt={`${prizes[container].name}`}
             />
