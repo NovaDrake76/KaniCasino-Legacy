@@ -12,36 +12,50 @@ const prizes = [
           "https://images.dog.ceo/breeds/mountain-bernese/n02107683_4494.jpg",
         probability: 0.1,
         id: 1,
+        color: "yellow",
       },
       {
         name: "Dog",
         image: "https://images.dog.ceo/breeds/terrier-wheaten/n02098105_97.jpg",
-        probability: 0.1,
+        probability: 0.2,
         id: 2,
+        color: "red",
       },
       {
         name: "Dog",
         image: "https://images.dog.ceo/breeds/african/n02116738_1739.jpg",
         probability: 0.2,
         id: 3,
+        color: "red",
       },
       {
         name: "Dog",
         image: "https://images.dog.ceo/breeds/weimaraner/n02092339_6209.jpg",
-        probability: 0.2,
+        probability: 0.3,
         id: 4,
+        color: "purple",
       },
       {
         name: "Dog",
         image: "https://images.dog.ceo/breeds/hound-ibizan/n02091244_2838.jpg",
-        probability: 0.2,
+        probability: 0.4,
         id: 5,
+        color: "blue",
       },
       {
         name: "Dog",
         image: "https://images.dog.ceo/breeds/pug/n02110958_10186.jpg",
-        probability: 0.2,
+        probability: 0.4,
         id: 6,
+        color: "blue",
+      },
+      {
+        name: "Dog",
+        image:
+          "https://images.dog.ceo/breeds/ovcharka-caucasian/IMG_20200205_163615.jpg",
+        probability: 0.4,
+        id: 7,
+        color: "blue",
       },
     ],
   },
@@ -55,42 +69,48 @@ const prizes = [
         image:
           "https://en.touhouwiki.net/images/thumb/c/c8/Th18Reimu.png/278px-Th18Reimu.png",
         probability: 0.1,
-        id: 7,
+        id: 8,
+        color: "yellow",
       },
       {
         name: "Marisa",
         image:
           "https://en.touhouwiki.net/images/thumb/c/cd/Th18Marisa.png/278px-Th18Marisa.png",
-        probability: 0.1,
-        id: 8,
+        probability: 0.2,
+        id: 9,
+        color: "red",
       },
       {
         name: "Cirno",
         image:
           "https://en.touhouwiki.net/images/thumb/d/d5/Th14Cirno.png/235px-Th14Cirno.png",
         probability: 0.2,
-        id: 9,
+        id: 10,
+        color: "red",
       },
       {
         name: "Patchouli",
         image:
           "https://en.touhouwiki.net/images/thumb/9/99/Th105Patchouli.png/275px-Th105Patchouli.png",
-        probability: 0.2,
-        id: 10,
+        probability: 0.3,
+        id: 11,
+        color: "purple",
       },
       {
         name: "Sakuya",
         image:
           "https://en.touhouwiki.net/images/thumb/6/62/Th18Sakuya.png/276px-Th18Sakuya.png",
-        probability: 0.2,
-        id: 11,
+        probability: 0.4,
+        id: 12,
+        color: "blue",
       },
       {
-        name: "Yuyuko",
+        name: "Remilia",
         image:
           "https://en.touhouwiki.net/images/thumb/e/e7/Th105Remilia.png/275px-Th105Remilia.png",
-        probability: 0.2,
-        id: 12,
+        probability: 0.4,
+        id: 13,
+        color: "blue",
       },
     ],
   },
@@ -102,31 +122,50 @@ const prizes = [
         name: "Lulu",
         image: "https://i.imgur.com/cXQ3ouo.png",
         probability: 0.1,
+        id: 14,
+        color: "yellow",
       },
       {
         name: "Flamengo",
         image: "https://i.imgur.com/gWRTVsj.png",
-        probability: 0.1,
+        probability: 0.2,
+        id: 15,
+        color: "yelloredw",
       },
       {
         name: "Neko Arc",
         image: "https://i.imgur.com/w1ZWflp.png",
         probability: 0.2,
+        id: 16,
+        color: "red",
       },
       {
         name: "Nando",
         image: "https://i.imgur.com/ghHRL4M.png",
         probability: 0.2,
+        id: 17,
+        color: "red",
       },
       {
         name: "Gahara",
         image: "https://i.imgur.com/d8idpfd.png",
-        probability: 0.2,
+        probability: 0.3,
+        id: 18,
+        color: "purple",
       },
       {
         name: "Gaguejadora",
         image: "https://i.imgur.com/X8oYaV7.png",
-        probability: 0.2,
+        probability: 0.4,
+        id: 19,
+        color: "blue",
+      },
+      {
+        name: "mt foda",
+        image: "https://i.imgur.com/FxYdtSW.png",
+        probability: 0.4,
+        id: 19,
+        color: "blue",
       },
     ],
   },
@@ -141,6 +180,7 @@ const Roulette = () => {
   // const [randomPixelNumber, setRandomPixelNumber] = useState(
   //   Math.floor(Math.random() * (50 - 10 + 1)) + 10
   // )
+
   let prizeRenderAux
   let caseRender
   let prizeRoulette
@@ -164,7 +204,9 @@ const Roulette = () => {
     setPrizeDefined(true)
 
     setTimeout(() => {
-      setPrizeRouletteSpin("-translate-x-[6080px] sm:-translate-x-[6000px]  md:-translate-x-[6050px] xl:-translate-x-[5960px] 2xl:-translate-x-[5900px] duration-[5000ms]")
+      setPrizeRouletteSpin(
+        "-translate-x-[6080px] sm:-translate-x-[6000px]  md:-translate-x-[6050px] xl:-translate-x-[5960px] 2xl:-translate-x-[5900px] duration-[5000ms]"
+      )
     }, 0)
 
     setTimeout(() => {
@@ -175,8 +217,6 @@ const Roulette = () => {
       setShowPrize(true)
     }, 5500)
   }
-  
-
 
   caseRender = prizes.map((prize, index) => {
     return (
@@ -210,7 +250,7 @@ const Roulette = () => {
     prizeRoulette = prizeRouletteAux.map((prize, index) => {
       return (
         <img
-          className="min-w-[150px] h-[120px] object-fill rounded"
+          className={`min-w-[150px] h-[120px] object-fill rounded border-b-4 border-${prize.color}-500`}
           src={`${prize.image}`}
           alt={`${prize.name}`}
           key={index}
@@ -218,8 +258,7 @@ const Roulette = () => {
       )
     })
 
-
-      prizeInfo = (
+    prizeInfo = (
       <div className="flex flex-col items-center justify-center">
         <h2>You won a {prize.name}!</h2>
         <img
@@ -229,13 +268,13 @@ const Roulette = () => {
         />{" "}
       </div>
     )
-    
+
     prizeRenderAux = (
       <div className="flex flex-col justify-center gap-5 align-center">
         <div className=" overflow-hidden w-[80vw] md:w-[40vw]  self-center flex">
           <div className="absolute z-10 w-1 h-36 bg-gray-400 ml-[38%] md:ml-[20%] -mt-2" />
           <div
-            className={`flex gap-1   ${prizeRouletteSpin} ease-[cubic-bezier(0.1, 0, 0.2, 1)]	`}
+            className={`flex gap-1  ${prizeRouletteSpin} ease-[cubic-bezier(0.1, 0, 0.2, 1)]	`}
           >
             {prizeRoulette}
           </div>
@@ -248,14 +287,13 @@ const Roulette = () => {
   possiblePrizes = prizes[container].case.map((prize, index) => {
     return (
       <img
-      className="w-[110px] h-[110px]  object-cover rounded"
-      src={`${prize.image}`}
-      alt={`${prize.name}`}
-      key={index}
-    />
+        className="w-[110px] h-[110px]  object-fill rounded"
+        src={`${prize.image}`}
+        alt={`${prize.name}`}
+        key={index}
+      />
     )
   })
-
 
   return (
     <>
@@ -273,8 +311,7 @@ const Roulette = () => {
             />
             <div className="flex flex-col justify-center w-full gap-4 align-center">
               {prizeRenderAux}
-             <div className="flex gap-4">
-             </div>
+              <div className="flex gap-4"></div>
 
               <div className="flex justify-center">
                 <button
@@ -285,17 +322,16 @@ const Roulette = () => {
                   Spin
                 </button>
               </div>
-
-
             </div>
-
           </div>
           <div className="flex flex-col justify-center gap-5 mt-20">
             <h2>Case Content:</h2>
             <div className="w-3/4 bg-slate-500 flex self-center  h-[2px]" />
 
-              <div className="flex flex-wrap justify-center gap-5">{possiblePrizes}</div>
-              </div>
+            <div className="flex flex-wrap justify-center gap-5">
+              {possiblePrizes}
+            </div>
+          </div>
         </div>
       </div>
     </>
