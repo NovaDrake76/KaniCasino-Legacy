@@ -3,9 +3,23 @@ import Navbar from "./components/navbar"
 import Sidebar from "./components/sidebar"
 import Crash from "./components/crash"
 import Roulette from "./components/roulette"
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
+import { gapi } from "gapi-script"
+
+const clientId =
+  "1013639015004-4qhnf7ocuabkob525tpoddastpi47ico.apps.googleusercontent.com"
 
 function App() {
+  useEffect(() => {
+    function start() {
+      gapi.client.init({
+        clientId: clientId,
+        scope: "",
+      })
+    }
+    gapi.load("client:auth2", start)
+  }, [])
+
   let gameAux = 0
   if (window.location.pathname === "/roulette") {
     gameAux = 0
