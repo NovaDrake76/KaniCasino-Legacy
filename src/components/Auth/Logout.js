@@ -6,6 +6,7 @@ const clientId =
 
 function Logout() {
   const onSuccess = () => {
+    localStorage.removeItem("info")
     console.log("[Logout Sucess]")
   }
 

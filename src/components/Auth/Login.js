@@ -1,12 +1,19 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { GoogleLogin } from "react-google-login"
 
 const clientId =
   "1013639015004-4qhnf7ocuabkob525tpoddastpi47ico.apps.googleusercontent.com"
 
 function Login() {
+  const [info, setInfo] = useState([])
+
+  useEffect(() => {
+    localStorage.setItem("info", JSON.stringify(info))
+    console.log("[Login] info: ", info)
+  }, [info])
+
   const onSuccess = (res) => {
-    console.log("[Login Sucess] currentUser: ", res.profileObj)
+    setInfo(res.profileObj)
   }
 
   const onFailure = (res) => {

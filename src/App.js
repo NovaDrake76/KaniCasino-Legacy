@@ -28,6 +28,15 @@ function App() {
   }
 
   const [game, setGame] = useState(gameAux)
+  const [info, setInfo] = useState([])
+
+  //setinfo from localstorage
+  useEffect(() => {
+    if (localStorage.getItem("info")) {
+      setInfo(JSON.parse(localStorage.getItem("info")))
+    }
+  }, [])
+
   const pullGame = (game) => {
     setGame(game)
   }
@@ -37,7 +46,7 @@ function App() {
 
   return (
     <div className="flex flex-col App">
-      <Navbar />
+      <Navbar data={info} />
       <div className="flex w-full min-h-screen divide-x divide-gray-500 bg-slate-600">
         <Sidebar func={pullGame} />
         <div className="">
