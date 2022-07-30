@@ -14,10 +14,21 @@ function Login() {
 
   const onSuccess = (res) => {
     setInfo(res.profileObj)
+    componentDidMount()
   }
 
   const onFailure = (res) => {
     console.log("[Login Failure] currentUser: ", res)
+  }
+
+  function componentDidMount() {
+    const reloadCount = sessionStorage.getItem("reloadCount")
+    if (reloadCount < 1) {
+      sessionStorage.setItem("reloadCount", String(reloadCount + 1))
+      window.location.reload()
+    } else {
+      sessionStorage.removeItem("reloadCount")
+    }
   }
 
   return (

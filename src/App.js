@@ -38,7 +38,7 @@ function App() {
         setInfo(JSON.parse(localStorage.getItem("info")))
       }
     }, 1500)
-  }, [info])
+  }, [])
 
   navbarRender = <Navbar data={info} />
 
