@@ -1,22 +1,40 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import Login from "./Auth/Login"
 import Logout from "./Auth/Logout"
-let isLoggedIn
 
 function Navbar(info) {
-  if (info.data.email) {
-    isLoggedIn = true
-  } else {
-    isLoggedIn = false
-  }
+  const [loggedIn, setLoggedIn] = useState(false)
+  const [userInfo, setUserInfo] = useState("")
 
-  function renderLogin() {
-    if (isLoggedIn) {
-      return <Logout />
+  useEffect(() => {
+    if (info.data.email) {
+      setLoggedIn(true)
     } else {
-      return <Login />
+      setLoggedIn(false)
     }
-  }
+  }, [info])
+
+  useEffect(() => {
+    function renderLogin() {
+      if (loggedIn === true) {
+        console.log("logado")
+        setUserInfo(
+          <div className="flex">
+            <img
+              src={info.data.imageUrl}
+              alt="profile"
+              className="w-12 h-12 rounded-full"
+            />
+            <Logout />
+          </div>
+        )
+      } else {
+        console.log("não logado")
+        setUserInfo(<Login />)
+      }
+    }
+    return renderLogin()
+  }, [loggedIn])
 
   return (
     <nav className="flex justify-between w-full h-16 p-6 text-base bg-slate-700">
@@ -29,12 +47,11 @@ function Navbar(info) {
         <h1 className="font-bold ">KaniCasino</h1>
       </div>
       <div className="items-center hidden gap-6 md:flex">
-        {renderLogin()}
         <div className="flex gap-2 px-5 py-2 border border-gray-500 rounded">
           <span className="text-gray-400">$</span>
           <span className="font-semibold">0.00</span>
         </div>
-        <button className="px-5 py-2 bg-green-600 rounded">Deposit</button>
+        {userInfo}
       </div>
     </nav>
   )

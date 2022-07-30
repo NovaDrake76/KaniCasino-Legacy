@@ -9,7 +9,7 @@ function Login() {
 
   useEffect(() => {
     localStorage.setItem("info", JSON.stringify(info))
-    console.log("[Login] info: ", info)
+    console.log("[Login Success] ", info)
   }, [info])
 
   const onSuccess = (res) => {
@@ -18,6 +18,12 @@ function Login() {
 
   const onFailure = (res) => {
     console.log("[Login Failure] currentUser: ", res)
+  }
+
+  const refreshPage = () => {
+    setTimeout(() => {
+      window.location.reload()
+    }, 200)
   }
 
   return (

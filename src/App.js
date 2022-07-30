@@ -6,6 +6,8 @@ import Roulette from "./components/roulette"
 import React, { useState, useEffect } from "react"
 import { gapi } from "gapi-script"
 
+let navbarRender
+
 const clientId =
   "1013639015004-4qhnf7ocuabkob525tpoddastpi47ico.apps.googleusercontent.com"
 
@@ -30,12 +32,15 @@ function App() {
   const [game, setGame] = useState(gameAux)
   const [info, setInfo] = useState([])
 
-  //setinfo from localstorage
   useEffect(() => {
-    if (localStorage.getItem("info")) {
-      setInfo(JSON.parse(localStorage.getItem("info")))
-    }
-  }, [])
+    setTimeout(() => {
+      if (localStorage.getItem("info") !== null) {
+        setInfo(JSON.parse(localStorage.getItem("info")))
+      }
+    }, 1500)
+  }, [info])
+
+  navbarRender = <Navbar data={info} />
 
   const pullGame = (game) => {
     setGame(game)
@@ -46,10 +51,10 @@ function App() {
 
   return (
     <div className="flex flex-col App">
-      <Navbar data={info} />
+      {navbarRender}
       <div className="flex w-full min-h-screen divide-x divide-gray-500 bg-slate-600">
         <Sidebar func={pullGame} />
-        <div className="">
+        <div>
           <Content game={game} />
         </div>
       </div>
