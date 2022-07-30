@@ -34,7 +34,7 @@ function Navbar(info) {
       }
     }
     return renderLogin()
-  }, [loggedIn])
+  }, [loggedIn, info.data.imageUrl])
 
   return (
     <nav className="flex justify-between w-full h-16 p-6 text-base bg-slate-700">

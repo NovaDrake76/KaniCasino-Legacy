@@ -20,12 +20,6 @@ function Login() {
     console.log("[Login Failure] currentUser: ", res)
   }
 
-  const refreshPage = () => {
-    setTimeout(() => {
-      window.location.reload()
-    }, 200)
-  }
-
   return (
     <div id="SignInButton">
       <GoogleLogin
