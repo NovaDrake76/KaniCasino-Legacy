@@ -9,12 +9,12 @@ function Login() {
 
   useEffect(() => {
     localStorage.setItem("info", JSON.stringify(info))
-    console.log("[Login Success] ", info)
   }, [info])
 
   const onSuccess = (res) => {
     setInfo(res.profileObj)
     componentDidMount()
+    console.log("[Login Success] ", res)
   }
 
   const onFailure = (res) => {
