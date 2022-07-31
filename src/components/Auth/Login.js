@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { GoogleLogin } from "react-google-login"
+import AxiosKani from "../../utils/axiosKani"
 
 const clientId =
   "1013639015004-4qhnf7ocuabkob525tpoddastpi47ico.apps.googleusercontent.com"
@@ -14,7 +15,20 @@ function Login() {
   const onSuccess = (res) => {
     setInfo(res.profileObj)
     componentDidMount()
-    console.log("[Login Success] ", res)
+    AxiosKani.create()
+      .post(
+        "/login/google",
+        JSON.stringify({
+          idToken: res.tokenId,
+        })
+      )
+      .then((res) => {
+        localStorage.setItem("token", res.data.data.token)
+        console.log(res)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
   }
 
   const onFailure = (res) => {

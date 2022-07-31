@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import Login from "./Auth/Login"
 import Logout from "./Auth/Logout"
 
-function Navbar(info) {
+const Navbar = (info) => {
   const [loggedIn, setLoggedIn] = useState(false)
   const [userInfo, setUserInfo] = useState("")
 
@@ -17,19 +17,20 @@ function Navbar(info) {
   useEffect(() => {
     function renderLogin() {
       if (loggedIn === true) {
-        console.log("logado")
         setUserInfo(
           <div className="flex">
             <img
               src={info.data.imageUrl}
               alt="profile"
-              className="w-12 h-12 rounded-full"
+              className="w-12 h-12 rounded-full cursor-pointer"
+              onClick={() => {
+                window.location.href = "/profile"
+              }}
             />
             <Logout />
           </div>
         )
       } else {
-        console.log("não logado")
         setUserInfo(<Login />)
       }
     }

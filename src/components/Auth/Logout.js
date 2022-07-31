@@ -8,7 +8,6 @@ const clientId =
 function Logout() {
   const onSuccess = () => {
     localStorage.removeItem("info")
-    console.log("[Logout Sucess]")
     window.location.reload(false)
   }
 

@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import AxiosKani from "../utils/axiosKani"
 
 const prizes = [
   {
@@ -177,6 +178,7 @@ const Roulette = () => {
   const [prizeDefined, setPrizeDefined] = useState(false)
   const [prizeRouletteSpin, setPrizeRouletteSpin] = useState("")
   const [showPrize, setShowPrize] = useState(false)
+  const [spining, setSpining] = useState(false)
   // const [randomPixelNumber, setRandomPixelNumber] = useState(
   //   Math.floor(Math.random() * (50 - 10 + 1)) + 10
   // )
@@ -189,41 +191,59 @@ const Roulette = () => {
   let possiblePrizes
 
   const getRandomPrize = () => {
+    setSpining(true)
     setPrizeDefined(false)
     setShowPrize(false)
     setPrizeRouletteSpin("-translate-x-[0px] duration-[10ms]")
 
     document.getElementById("spin").disabled = true
+    document.getElementById("cases").disabled = true
 
-    setPrize(
+    const randomPrize =
       prizes[container].case[
         Math.floor(Math.random() * prizes[container].case.length)
       ]
-    )
+    setPrize(randomPrize)
+
+    AxiosKani.create(localStorage.getItem("token"))
+      .post(
+        "/inventory",
+        JSON.stringify({
+          name: randomPrize.name,
+        })
+      )
+      .then((res) => {
+        console.log(res)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
 
     setPrizeDefined(true)
 
     setTimeout(() => {
       setPrizeRouletteSpin(
-        "-translate-x-[6080px] sm:-translate-x-[6000px]  md:-translate-x-[6050px] xl:-translate-x-[5960px] 2xl:-translate-x-[5900px] duration-[5000ms]"
+        "-translate-x-[6080px] sm:-translate-x-[6000px]  md:-translate-x-[6050px] xl:-translate-x-[5960px] 2xl:-translate-x-[5900px] 3xl:-translate-x-[5820px] duration-[5000ms]"
       )
     }, 0)
 
     setTimeout(() => {
-      document.getElementById("spin").disabled = false
-    }, 300)
-
-    setTimeout(() => {
       setShowPrize(true)
-    }, 5500)
+      document.getElementById("spin").disabled = false
+      document.getElementById("cases").disabled = false
+      setSpining(false)
+    }, 5900)
   }
 
   caseRender = prizes.map((prize, index) => {
     return (
       <div
+        id="cases"
         onClick={() => {
-          setContainer(index)
-          setPrizeDefined(false)
+          if (spining === false) {
+            setContainer(index)
+            setPrizeDefined(false)
+          }
         }}
         key={index}
         className="flex flex-col items-center justify-center cursor-pointer"
@@ -248,9 +268,13 @@ const Roulette = () => {
     prizeRouletteAux[40] = prize
 
     prizeRoulette = prizeRouletteAux.map((prize, index) => {
+      let className =
+        "min-w-[150px] h-[120px] object-fill rounded border-b-4 border-" +
+        prize.color +
+        "-500"
       return (
         <img
-          className={`min-w-[150px] h-[120px] object-fill rounded border-b-4 border-${prize.color}-500`}
+          className={className}
           src={`${prize.image}`}
           alt={`${prize.name}`}
           key={index}
@@ -297,7 +321,7 @@ const Roulette = () => {
 
   return (
     <>
-      <div className="flex flex-col justify-center w-screen md:w-[80vw] gap-4 p-5 max-w-[1280px]">
+      <div className="flex flex-col justify-center  w-screen md:w-[80vw] gap-4 p-5 max-w-[1280px]">
         <h1 className="flex justify-center">Roulette</h1>
         <div className="flex flex-col gap-5 md:flex-row ">{caseRender}</div>
         <div className="flex flex-col gap-3">
