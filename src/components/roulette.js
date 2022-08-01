@@ -131,7 +131,7 @@ const prizes = [
         image: "https://i.imgur.com/gWRTVsj.png",
         probability: 0.2,
         id: 15,
-        color: "yelloredw",
+        color: "yellow",
       },
       {
         name: "Neko Arc",
@@ -268,13 +268,9 @@ const Roulette = () => {
     prizeRouletteAux[40] = prize
 
     prizeRoulette = prizeRouletteAux.map((prize, index) => {
-      let className =
-        "min-w-[150px] h-[120px] object-fill rounded border-b-4 border-" +
-        prize.color +
-        "-500"
       return (
         <img
-          className={className}
+          className={`min-w-[150px] h-[120px] object-fill rounded border-b-4 border-${prize.color}-500`}
           src={`${prize.image}`}
           alt={`${prize.name}`}
           key={index}
