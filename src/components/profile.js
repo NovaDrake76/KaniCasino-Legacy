@@ -1,10 +1,12 @@
 import AxiosKani from "../utils/axiosKani"
 import { useState, useEffect } from "react"
+import Cases from ".././cases.json"
 
 function Profile() {
   const info = JSON.parse(localStorage.getItem("info"))
   const token = localStorage.getItem("token")
   const [inventory, setInventory] = useState([])
+  const prizes = Cases.prizes
 
   useEffect(() => {
     AxiosKani.create(token)
@@ -32,9 +34,24 @@ function Profile() {
           </div>
         </div>
         <div className="flex flex-wrap gap-4">
-          {inventory.map((key) => (
-            <div>{key}</div>
-          ))}
+          {inventory.map((key) => {
+            let imageLink
+            for (const i of prizes) {
+              for (const j of i.case) {
+                if (j.name === key) imageLink = j.image
+              }
+            }
+            return (
+              <div className="flex flex-col items-center gap-2">
+                <img
+                  src={imageLink}
+                  alt="case"
+                  className="w-32 h-32 rounded "
+                />
+                <p className="text-sm">{key}</p>
+              </div>
+            )
+          })}
         </div>
       </div>
     </div>
