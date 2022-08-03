@@ -17,7 +17,7 @@ function Profile() {
       .catch((err) => {
         console.log(err)
       })
-  }, [])
+  }, [token])
 
   return (
     <div>
