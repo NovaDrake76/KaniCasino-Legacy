@@ -5,49 +5,49 @@
       "image": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/22475212-6b9c-42c8-9e9e-ec412980781f/depngmn-3d94a57d-8ebb-4029-968c-62f3cf7562d2.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzIyNDc1MjEyLTZiOWMtNDJjOC05ZTllLWVjNDEyOTgwNzgxZlwvZGVwbmdtbi0zZDk0YTU3ZC04ZWJiLTQwMjktOTY4Yy02MmYzY2Y3NTYyZDIuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.8Co9s_iMUicAV_sf9oiiYCwnymx0VMaMhzEW_6IV3c8",
       "case": [
         {
-          "name": "Dog",
+          "name": "Dog 1",
           "image": "https://images.dog.ceo/breeds/mountain-bernese/n02107683_4494.jpg",
           "probability": 0.1,
           "id": 1,
           "color": "yellow"
         },
         {
-          "name": "Dog",
+          "name": "Dog 2",
           "image": "https://images.dog.ceo/breeds/terrier-wheaten/n02098105_97.jpg",
           "probability": 0.2,
           "id": 2,
           "color": "red"
         },
         {
-          "name": "Dog",
+          "name": "Dog 3",
           "image": "https://images.dog.ceo/breeds/african/n02116738_1739.jpg",
           "probability": 0.2,
           "id": 3,
           "color": "red"
         },
         {
-          "name": "Dog",
+          "name": "Dog 4",
           "image": "https://images.dog.ceo/breeds/weimaraner/n02092339_6209.jpg",
           "probability": 0.3,
           "id": 4,
           "color": "purple"
         },
         {
-          "name": "Dog",
+          "name": "Dog 5",
           "image": "https://images.dog.ceo/breeds/hound-ibizan/n02091244_2838.jpg",
           "probability": 0.4,
           "id": 5,
           "color": "blue"
         },
         {
-          "name": "Dog",
+          "name": "Dog 6",
           "image": "https://images.dog.ceo/breeds/pug/n02110958_10186.jpg",
           "probability": 0.4,
           "id": 6,
           "color": "blue"
         },
         {
-          "name": "Dog",
+          "name": "Dog 7",
           "image": "https://images.dog.ceo/breeds/ovcharka-caucasian/IMG_20200205_163615.jpg",
           "probability": 0.4,
           "id": 7,

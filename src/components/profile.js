@@ -19,43 +19,47 @@ function Profile() {
       })
   }, [token])
 
-  return (
-    <div>
-      <div className="flex flex-col p-5">
-        <div className="flex gap-4">
-          <img
-            src={info.imageUrl}
-            alt="profile"
-            className="w-32 h-32 rounded-full"
-          />
-          <div className="flex flex-col justify-center">
-            <h1 className="text-2xl">{info.name}</h1>
-            <p className="text-sm">{info.email}</p>
+  if (info === null) {
+    return <div>Loading...</div>
+  } else {
+    return (
+      <div>
+        <div className="flex flex-col p-5 gap-4">
+          <div className="flex gap-4">
+            <img
+              src={info.imageUrl}
+              alt="profile"
+              className="w-32 h-32 rounded-full"
+            />
+            <div className="flex flex-col justify-center">
+              <h1 className="text-2xl">{info.name}</h1>
+              <p className="text-sm">{info.email}</p>
+            </div>
+          </div>
+          <div className="flex flex-wrap gap-4">
+            {inventory.map((key) => {
+              let imageLink
+              for (const i of prizes) {
+                for (const j of i.case) {
+                  if (j.name === key) imageLink = j.image
+                }
+              }
+              return (
+                <div key={key} className="flex flex-col items-center gap-2">
+                  <img
+                    src={imageLink}
+                    alt="case"
+                    className="w-32 h-32 rounded"
+                  />
+                  <p className="text-sm">{key}</p>
+                </div>
+              )
+            })}
           </div>
         </div>
-        <div className="flex flex-wrap gap-4">
-          {inventory.map((key) => {
-            let imageLink
-            for (const i of prizes) {
-              for (const j of i.case) {
-                if (j.name === key) imageLink = j.image
-              }
-            }
-            return (
-              <div className="flex flex-col items-center gap-2">
-                <img
-                  src={imageLink}
-                  alt="case"
-                  className="w-32 h-32 rounded "
-                />
-                <p className="text-sm">{key}</p>
-              </div>
-            )
-          })}
-        </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
 
 export default Profile

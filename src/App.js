@@ -47,13 +47,10 @@ function App() {
 
   const renderGame = (game) => {
     if (game === 0) {
-      console.log("roulette")
       return <Roulette />
     } else if (game === 1) {
-      console.log("crash")
       return <Crash />
     } else if (game === 2) {
-      console.log("profile")
       return <Profile />
     }
   }

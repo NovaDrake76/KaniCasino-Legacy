@@ -5,10 +5,14 @@ import Logout from "./Auth/Logout"
 const Navbar = (info) => {
   const [loggedIn, setLoggedIn] = useState(false)
   const [userInfo, setUserInfo] = useState("")
+  const [profilePic, setProfilePic] = useState(
+    "https://www.gravatar.com/avatar/"
+  )
 
   useEffect(() => {
     if (info.data.email) {
       setLoggedIn(true)
+      setProfilePic(info.data.imageUrl)
     } else {
       setLoggedIn(false)
     }
@@ -20,7 +24,7 @@ const Navbar = (info) => {
         setUserInfo(
           <div className="flex">
             <img
-              src={info.data.imageUrl}
+              src={profilePic}
               alt="profile"
               className="w-12 h-12 rounded-full cursor-pointer"
               onClick={() => {
@@ -35,7 +39,7 @@ const Navbar = (info) => {
       }
     }
     return renderLogin()
-  }, [loggedIn, info.data.imageUrl])
+  }, [loggedIn, profilePic])
 
   return (
     <nav className="flex justify-between w-full h-16 p-6 text-base bg-slate-700">
