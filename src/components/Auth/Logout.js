@@ -9,7 +9,6 @@ function Logout() {
   const onSuccess = () => {
     localStorage.removeItem("info")
     localStorage.removeItem("token")
-
     window.location.reload(false)
   }
 

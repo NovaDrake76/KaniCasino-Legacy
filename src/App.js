@@ -31,15 +31,6 @@ function App() {
   }
 
   const [game, setGame] = useState(gameAux)
-  const [info, setInfo] = useState([])
-
-  useEffect(() => {
-    setTimeout(() => {
-      if (localStorage.getItem("info") !== null) {
-        setInfo(JSON.parse(localStorage.getItem("info")))
-      }
-    }, 1500)
-  }, [])
 
   const pullGame = (game) => {
     setGame(game)
@@ -59,7 +50,7 @@ function App() {
 
   return (
     <div className="flex flex-col App">
-      <Navbar data={info} func={pullGame} />
+      <Navbar func={pullGame} />
       <div className="flex w-full min-h-screen divide-x divide-gray-500 bg-slate-600">
         <Sidebar func={pullGame} />
         <div>

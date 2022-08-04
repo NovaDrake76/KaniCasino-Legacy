@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import { GoogleLogin } from "react-google-login"
 import AxiosKani from "../../utils/axiosKani"
 
@@ -6,15 +6,13 @@ const clientId =
   "1013639015004-4qhnf7ocuabkob525tpoddastpi47ico.apps.googleusercontent.com"
 
 function Login() {
-  const [info, setInfo] = useState([])
-
-  useEffect(() => {
-    localStorage.setItem("info", JSON.stringify(info))
-  }, [info])
-
   const onSuccess = (res) => {
-    setInfo(res.profileObj)
-    componentDidMount()
+    localStorage.setItem("info", JSON.stringify(res.profileObj))
+
+    //wait 1 second
+    setTimeout(() => {
+      window.location.reload()
+    }, 500)
     AxiosKani.create()
       .post(
         "/login/google",
@@ -35,14 +33,15 @@ function Login() {
     console.log("[Login Failure] currentUser: ", res)
   }
 
-  function componentDidMount() {
-    const reloadCount = sessionStorage.getItem("reloadCount")
-    if (reloadCount < 1) {
-      sessionStorage.setItem("reloadCount", String(reloadCount + 1))
-    } else {
-      sessionStorage.removeItem("reloadCount")
-    }
-  }
+  // function componentDidMount() {
+  //   const reloadCount = sessionStorage.getItem("reloadCount")
+  //   if (reloadCount < 1) {
+  //     sessionStorage.setItem("reloadCount", String(reloadCount + 1))
+  //     window.location.reload()
+  //   } else {
+  //     sessionStorage.removeItem("reloadCount")
+  //   }
+  // }
 
   return (
     <div id="SignInButton">

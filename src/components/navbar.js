@@ -2,21 +2,21 @@ import React, { useState, useEffect } from "react"
 import Login from "./Auth/Login"
 import Logout from "./Auth/Logout"
 
-const Navbar = (info) => {
+const Navbar = () => {
   const [loggedIn, setLoggedIn] = useState(false)
   const [userInfo, setUserInfo] = useState("")
+  const [info, setInfo] = useState([])
   const [profilePic, setProfilePic] = useState(
     "https://www.gravatar.com/avatar/"
   )
 
   useEffect(() => {
-    if (info.data.email) {
+    if (localStorage.getItem("token")) {
       setLoggedIn(true)
-      setProfilePic(info.data.imageUrl)
-    } else {
-      setLoggedIn(false)
+      setInfo(JSON.parse(localStorage.getItem("info")))
+      setProfilePic(JSON.parse(localStorage.getItem("info")).imageUrl)
     }
-  }, [info])
+  }, [])
 
   useEffect(() => {
     function renderLogin() {
@@ -39,7 +39,7 @@ const Navbar = (info) => {
       }
     }
     return renderLogin()
-  }, [loggedIn, profilePic])
+  }, [loggedIn, profilePic, info])
 
   return (
     <nav className="flex justify-between w-full h-16 p-6 text-base bg-slate-700">
