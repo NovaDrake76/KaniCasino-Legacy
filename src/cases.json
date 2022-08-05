@@ -157,6 +157,155 @@
           "color": "blue"
         }
       ]
+    },
+    {
+      "name": "CS:GO Case",
+      "image": "https://i.imgur.com/0kU0h9R.png",
+      "case": [
+        {
+          "name": "Hand Wraps | CAUTION!",
+          "image": "https://i.imgur.com/Da6iz0H.png",
+          "probability":  0.002558,
+          "id": 37,
+          "color": "yellow"
+        },
+        {
+          "name": "Moto Gloves | Finish Line",
+          "image": "https://i.imgur.com/qHNKlju.png",
+          "probability":  0.002558,
+          "id": 38,
+          "color": "yellow"
+        },
+        {
+          "name": "Specialist Gloves | Field Agent",
+          "image": "https://i.imgur.com/hO7ADqO.png",
+          "probability":  0.002558,
+          "id": 39,
+          "color": "yellow"
+        },
+        {
+          "name": "AWP | Chromatic Aberration",
+          "image": "https://i.imgur.com/mJ3BOJF.png",
+          "probability":  0.006394,
+          "id": 35,
+          "color": "red"
+        },
+        {
+          "name": "USP-S | Printstream",
+          "image": "https://i.imgur.com/ciidR6H.png",
+          "probability":  0.006394,
+          "id": 36,
+          "color": "red"
+        },
+        {
+          "name": "P250 | Visions",
+          "image": "https://i.imgur.com/fqVXf2m.png",
+          "probability": 0.031969,
+          "id": 32,
+          "color": "pink"
+        },
+        {
+          "name": "Sawed-Off | Kiss♥Love",
+          "image": "https://i.imgur.com/iMkF7PJ.png",
+          "probability":  0.031969,
+          "id": 33,
+          "color": "pink"
+        },
+        {
+          "name": "AK-47 | Ice Coaled",
+          "image": "https://i.imgur.com/QCryJFA.png",
+          "probability":  0.031969,
+          "id": 34,
+          "color": "pink"
+        },
+        {
+          "name":"M249 | Downtown",
+          "image":"https://i.imgur.com/huCLB0m.png",
+          "probability": 0.159847,
+          "id": 27,
+          "color": "purple"
+        },
+        {
+          "name":"P90 | Vent Rush",
+          "image":"https://i.imgur.com/iPUCAMz.png",
+          "probability": 0.159847,
+          "id": 28,
+          "color": "purple"
+        },
+        {
+          "name": "SG 553 | Dragon Tech",
+          "image": "https://i.imgur.com/PaLl7yn.png",
+          "probability": 0.159847,
+          "id": 29,
+          "color": "purple"
+        },
+        {
+          "name":"R8 Revolver | Crazy 8",
+          "image":"https://i.imgur.com/2q3YHWI.png",
+          "probability": 0.159847,
+          "id": 30,
+          "color": "purple"
+        },
+        {
+          "name": "Dual Berettas | Flora Carnivora",
+          "image": "https://i.imgur.com/koJ6d1z.png",
+          "probability": 0.159847,
+          "id": 31,
+          "color": "purple"
+        },
+        {
+          "name": "MAC-10 | Monkeyflage",
+          "image": "https://i.imgur.com/oHDDacj.png",
+          "probability": 0.799233,
+          "id": 20,
+          "color": "blue"
+        },
+        {
+          "name": "UMP-45 | Roadblock",
+          "image": "https://i.imgur.com/eFxa0Xo.png",
+          "probability": 0.799233,
+          "id": 21,
+          "color": "blue"
+        },
+        {
+          "name": "Galil AR | Destroyer",
+          "image": "https://i.imgur.com/As5BDSe.png",
+          "probability": 0.799233,
+          "id": 22,
+          "color": "blue"
+        },
+        {
+          "name": "Negev | Drop Me",
+          "image": "https://i.imgur.com/45qC70I.png",
+          "probability": 0.799233,
+          "id": 23,
+          "color": "blue"
+        },
+        {
+          "name":"FAMAS | Meow 36",
+          "image": "https://i.imgur.com/uv3cBiT.png",
+          "probability": 0.799233,
+          "id": 24,
+          "color": "blue"
+        },
+        {
+          "name": "M4A4 | Poly Mag",
+          "image": "https://i.imgur.com/e4X2iRy.png",
+          "probability": 0.799233,
+          "id": 25,
+          "color": "blue"
+        },
+        {
+          "name":"Glock-18 | Winterized",
+          "image":"https://i.imgur.com/qCjfupN.png",
+          "probability": 0.799233,
+          "id": 26,
+          "color": "blue"
+        }
+
+
+        
+      ]
     }
   ]
 }

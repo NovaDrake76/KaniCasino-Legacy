@@ -20,6 +20,7 @@ const Roulette = () => {
   let prizeRouletteAux
   let prizeInfo
   let possiblePrizes
+  let probability
 
   const getRandomPrize = () => {
     setSpining(true)
@@ -30,9 +31,16 @@ const Roulette = () => {
     document.getElementById("spin").disabled = true
     document.getElementById("cases").disabled = true
 
+    probability = prizes[container].case.map((item) => item.probability * 100)
+
+    console.log(probability)
+
     const randomPrize =
       prizes[container].case[
-        Math.floor(Math.random() * prizes[container].case.length)
+        Math.floor(
+          probability[Math.floor(Math.random() * probability.length)] *
+            prizes[container].case.length
+        )
       ]
     setPrize(randomPrize)
 
@@ -101,7 +109,7 @@ const Roulette = () => {
     prizeRoulette = prizeRouletteAux.map((prize, index) => {
       return (
         <img
-          className={`min-w-[150px] h-[120px] object-fill rounded border-b-4 border-${prize.color}-500`}
+          className={`min-w-[150px] bg-gray-400 bg-opacity-25 bg- h-[120px] object-fill rounded border-b-4 border-${prize.color}-500`}
           src={`${prize.image}`}
           alt={`${prize.name}`}
           key={index}
@@ -113,7 +121,7 @@ const Roulette = () => {
       <div className="flex flex-col items-center justify-center">
         <h2>You won a {prize.name}!</h2>
         <img
-          className="w-[250px] h-[250px] object-max-w-xs self-center rounded"
+          className="w-[300px]  h-[250px] object-max-w-xs self-center rounded"
           src={`${prize.image}`}
           alt={`${prize.name}`}
         />{" "}
@@ -138,7 +146,7 @@ const Roulette = () => {
   possiblePrizes = prizes[container].case.map((prize, index) => {
     return (
       <img
-        className="w-[110px] h-[110px]  object-fill rounded"
+        className={`w-[150px] h-[110px] border-b-4 border-${prize.color}-500 bg-gray-400 bg-opacity-25 object-fill rounded`}
         src={`${prize.image}`}
         alt={`${prize.name}`}
         key={index}
