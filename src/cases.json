@@ -2,54 +2,55 @@
   "prizes": [
     {
       "name": "Dogs Case",
+      "description": "A case full of dogs",
       "image": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/22475212-6b9c-42c8-9e9e-ec412980781f/depngmn-3d94a57d-8ebb-4029-968c-62f3cf7562d2.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzIyNDc1MjEyLTZiOWMtNDJjOC05ZTllLWVjNDEyOTgwNzgxZlwvZGVwbmdtbi0zZDk0YTU3ZC04ZWJiLTQwMjktOTY4Yy02MmYzY2Y3NTYyZDIuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.8Co9s_iMUicAV_sf9oiiYCwnymx0VMaMhzEW_6IV3c8",
       "case": [
         {
           "name": "Dog 1",
           "image": "https://images.dog.ceo/breeds/mountain-bernese/n02107683_4494.jpg",
-          "probability": 0.1,
+          "probability": 5,
           "id": 1,
           "color": "yellow"
         },
         {
           "name": "Dog 2",
           "image": "https://images.dog.ceo/breeds/terrier-wheaten/n02098105_97.jpg",
-          "probability": 0.2,
+          "probability": 10,
           "id": 2,
           "color": "red"
         },
         {
           "name": "Dog 3",
           "image": "https://images.dog.ceo/breeds/african/n02116738_1739.jpg",
-          "probability": 0.2,
+          "probability": 20,
           "id": 3,
           "color": "red"
         },
         {
           "name": "Dog 4",
           "image": "https://images.dog.ceo/breeds/weimaraner/n02092339_6209.jpg",
-          "probability": 0.3,
+          "probability": 30,
           "id": 4,
           "color": "purple"
         },
         {
           "name": "Dog 5",
           "image": "https://images.dog.ceo/breeds/hound-ibizan/n02091244_2838.jpg",
-          "probability": 0.4,
+          "probability": 40,
           "id": 5,
           "color": "blue"
         },
         {
           "name": "Dog 6",
           "image": "https://images.dog.ceo/breeds/pug/n02110958_10186.jpg",
-          "probability": 0.4,
+          "probability": 70,
           "id": 6,
           "color": "blue"
         },
         {
           "name": "Dog 7",
           "image": "https://images.dog.ceo/breeds/ovcharka-caucasian/IMG_20200205_163615.jpg",
-          "probability": 0.4,
+          "probability": 100,
           "id": 7,
           "color": "blue"
         }
@@ -57,102 +58,104 @@
     },
     {
       "name": "Scarlet Case",
+      "description": "yooo Reimu check this out",
       "image": "https://i.kym-cdn.com/entries/icons/facebook/000/038/773/clownpiece.jpg",
       "case": [
         {
           "name": "Reimu",
           "image": "https://en.touhouwiki.net/images/thumb/c/c8/Th18Reimu.png/278px-Th18Reimu.png",
-          "probability": 0.1,
+          "probability": 50,
           "id": 8,
           "color": "yellow"
         },
         {
           "name": "Marisa",
           "image": "https://en.touhouwiki.net/images/thumb/c/cd/Th18Marisa.png/278px-Th18Marisa.png",
-          "probability": 0.2,
+          "probability": 100,
           "id": 9,
           "color": "red"
         },
         {
           "name": "Cirno",
           "image": "https://en.touhouwiki.net/images/thumb/d/d5/Th14Cirno.png/235px-Th14Cirno.png",
-          "probability": 0.2,
+          "probability": 200,
           "id": 10,
           "color": "red"
         },
         {
           "name": "Patchouli",
           "image": "https://en.touhouwiki.net/images/thumb/9/99/Th105Patchouli.png/275px-Th105Patchouli.png",
-          "probability": 0.3,
+          "probability": 500,
           "id": 11,
           "color": "purple"
         },
         {
           "name": "Sakuya",
           "image": "https://en.touhouwiki.net/images/thumb/6/62/Th18Sakuya.png/276px-Th18Sakuya.png",
-          "probability": 0.4,
+          "probability": 700,
           "id": 12,
           "color": "blue"
         },
         {
           "name": "Remilia",
           "image": "https://en.touhouwiki.net/images/thumb/e/e7/Th105Remilia.png/275px-Th105Remilia.png",
-          "probability": 0.4,
+          "probability": 1000,
           "id": 13,
           "color": "blue"
         }
       ]
     },
     {
-      "name": "Case 3",
+      "name": "VIP Case",
+      "description": "Flamengo kkkkkkkk",
       "image": "https://i.imgur.com/Y8NPlJ2.png",
       "case": [
         {
           "name": "Lulu",
           "image": "https://i.imgur.com/cXQ3ouo.png",
-          "probability": 0.1,
+          "probability": 10,
           "id": 14,
           "color": "yellow"
         },
         {
           "name": "Flamengo",
           "image": "https://i.imgur.com/gWRTVsj.png",
-          "probability": 0.2,
+          "probability": 20,
           "id": 15,
           "color": "yellow"
         },
         {
           "name": "Neko Arc",
           "image": "https://i.imgur.com/w1ZWflp.png",
-          "probability": 0.2,
+          "probability": 35,
           "id": 16,
           "color": "red"
         },
         {
           "name": "Nando",
           "image": "https://i.imgur.com/ghHRL4M.png",
-          "probability": 0.2,
+          "probability": 50,
           "id": 17,
           "color": "red"
         },
         {
           "name": "Gahara",
           "image": "https://i.imgur.com/d8idpfd.png",
-          "probability": 0.3,
+          "probability": 70,
           "id": 18,
           "color": "purple"
         },
         {
           "name": "Gaguejadora",
           "image": "https://i.imgur.com/X8oYaV7.png",
-          "probability": 0.4,
+          "probability": 85,
           "id": 19,
           "color": "blue"
         },
         {
           "name": "mt foda",
           "image": "https://i.imgur.com/FxYdtSW.png",
-          "probability": 0.4,
+          "probability": 100,
           "id": 19,
           "color": "blue"
         }
@@ -160,145 +163,146 @@
     },
     {
       "name": "CS:GO Case",
+      "description": "it's so s1mple *dies from cringe*",
       "image": "https://i.imgur.com/0kU0h9R.png",
       "case": [
         {
           "name": "Hand Wraps | CAUTION!",
           "image": "https://i.imgur.com/Da6iz0H.png",
-          "probability":  6.540462,
+          "probability":  50,
           "id": 37,
           "color": "yellow"
         },
         {
           "name": "Moto Gloves | Finish Line",
           "image": "https://i.imgur.com/qHNKlju.png",
-          "probability":  6.537904,
+          "probability":  100,
           "id": 38,
           "color": "yellow"
         },
         {
           "name": "Specialist Gloves | Field Agent",
           "image": "https://i.imgur.com/hO7ADqO.png",
-          "probability":  6.535346,
+          "probability":  150,
           "id": 39,
           "color": "yellow"
         },
         {
           "name": "AWP | Chromatic Aberration",
           "image": "https://i.imgur.com/mJ3BOJF.png",
-          "probability":  6.532788,
+          "probability":  250,
           "id": 35,
           "color": "red"
         },
         {
           "name": "USP-S | Printstream",
           "image": "https://i.imgur.com/ciidR6H.png",
-          "probability":   6.526394,
+          "probability":  500,
           "id": 36,
           "color": "red"
         },
         {
           "name": "P250 | Visions",
           "image": "https://i.imgur.com/fqVXf2m.png",
-          "probability": 6.52,
+          "probability": 800,
           "id": 32,
           "color": "pink"
         },
         {
           "name": "Sawed-Off | Kiss♥Love",
           "image": "https://i.imgur.com/iMkF7PJ.png",
-          "probability":  6.46,
+          "probability":  1200,
           "id": 33,
           "color": "pink"
         },
         {
           "name": "AK-47 | Ice Coaled",
           "image": "https://i.imgur.com/QCryJFA.png",
-          "probability":  6.43,
+          "probability": 1600,
           "id": 34,
           "color": "pink"
         },
         {
           "name":"M249 | Downtown",
           "image":"https://i.imgur.com/huCLB0m.png",
-          "probability": 6.40,
+          "probability": 2000,
           "id": 27,
           "color": "purple"
         },
         {
           "name":"P90 | Vent Rush",
           "image":"https://i.imgur.com/iPUCAMz.png",
-          "probability": 6.24,
+          "probability": 2400,
           "id": 28,
           "color": "purple"
         },
         {
           "name": "SG 553 | Dragon Tech",
           "image": "https://i.imgur.com/PaLl7yn.png",
-          "probability": 6.08,
+          "probability": 2800,
           "id": 29,
           "color": "purple"
         },
         {
           "name":"R8 Revolver | Crazy 8",
           "image":"https://i.imgur.com/2q3YHWI.png",
-          "probability": 5.92,
+          "probability": 3200,
           "id": 30,
           "color": "purple"
         },
         {
           "name": "Dual Berettas | Flora Carnivora",
           "image": "https://i.imgur.com/koJ6d1z.png",
-          "probability": 5.76,
+          "probability": 3600,
           "id": 31,
           "color": "purple"
         },
         {
           "name": "MAC-10 | Monkeyflage",
           "image": "https://i.imgur.com/oHDDacj.png",
-          "probability": 5.6,
+          "probability": 4000,
           "id": 20,
           "color": "blue"
         },
         {
           "name": "UMP-45 | Roadblock",
           "image": "https://i.imgur.com/eFxa0Xo.png",
-          "probability": 4.8,
+          "probability": 5000,
           "id": 21,
           "color": "blue"
         },
         {
           "name": "Galil AR | Destroyer",
           "image": "https://i.imgur.com/As5BDSe.png",
-          "probability": 4.0,
+          "probability": 6000,
           "id": 22,
           "color": "blue"
         },
         {
           "name": "Negev | Drop Me",
           "image": "https://i.imgur.com/45qC70I.png",
-          "probability": 3.2,
+          "probability": 7000,
           "id": 23,
           "color": "blue"
         },
         {
           "name":"FAMAS | Meow 36",
           "image": "https://i.imgur.com/uv3cBiT.png",
-          "probability": 2.4,
+          "probability": 8000,
           "id": 24,
           "color": "blue"
         },
         {
           "name": "M4A4 | Poly Mag",
           "image": "https://i.imgur.com/e4X2iRy.png",
-          "probability": 1.6,
+          "probability": 9000,
           "id": 25,
           "color": "blue"
         },
         {
           "name":"Glock-18 | Winterized",
           "image":"https://i.imgur.com/qCjfupN.png",
-          "probability": 0.8,
+          "probability": 10000,
           "id": 26,
           "color": "blue"
         }

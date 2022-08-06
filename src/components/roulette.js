@@ -9,9 +9,6 @@ const Roulette = () => {
   const [prizeRouletteSpin, setPrizeRouletteSpin] = useState("")
   const [showPrize, setShowPrize] = useState(false)
   const [spining, setSpining] = useState(false)
-  // const [randomPixelNumber, setRandomPixelNumber] = useState(
-  //   Math.floor(Math.random() * (50 - 10 + 1)) + 10
-  // )
   const prizes = Cases.prizes
 
   let prizeRenderAux
@@ -20,6 +17,9 @@ const Roulette = () => {
   let prizeRouletteAux
   let prizeInfo
   let possiblePrizes
+  let probability
+  let randomNumber
+  let rouletteContainer
 
   const getRandomPrize = () => {
     setSpining(true)
@@ -30,17 +30,32 @@ const Roulette = () => {
     document.getElementById("spin").disabled = true
     document.getElementById("cases").disabled = true
 
-    const randomPrize =
-      prizes[container].case[
-        Math.floor(Math.random() * Math.floor(prizes[container].case.length))
-      ]
-    setPrize(randomPrize)
+    probability = prizes[container].case.map((item) => [
+      item.probability * 10,
+      item,
+    ])
+
+    randomNumber =
+      Math.floor(
+        Math.random() *
+          (probability[probability.length - 1][0] - probability[0][0] + 1)
+      ) + probability[0][0]
+
+    for (let i = 0; i < probability.length; i++) {
+      if (randomNumber <= probability[i][0]) {
+        prizeRenderAux = probability[i][1]
+        console.log(prizeRenderAux)
+
+        break
+      }
+    }
+    setPrize(prizeRenderAux)
 
     AxiosKani.create(localStorage.getItem("token"))
       .post(
         "/inventory",
         JSON.stringify({
-          name: randomPrize.name,
+          name: prizeRenderAux.name,
         })
       )
       .then((res) => {
@@ -56,13 +71,13 @@ const Roulette = () => {
       setPrizeRouletteSpin(
         "-translate-x-[6080px] sm:-translate-x-[6000px]  md:-translate-x-[6050px] xl:-translate-x-[5960px] 2xl:-translate-x-[5900px] 3xl:-translate-x-[5820px] duration-[5000ms]"
       )
-    }, 0)
+    }, 1)
 
     setTimeout(() => {
+      setSpining(false)
       setShowPrize(true)
       document.getElementById("spin").disabled = false
       document.getElementById("cases").disabled = false
-      setSpining(false)
     }, 5900)
   }
 
@@ -116,12 +131,12 @@ const Roulette = () => {
           className="w-[300px]  h-[250px] object-max-w-xs self-center rounded"
           src={`${prize.image}`}
           alt={`${prize.name}`}
-        />{" "}
+        />
       </div>
     )
 
-    prizeRenderAux = (
-      <div className="flex flex-col justify-center gap-5 align-center">
+    if (spining) {
+      rouletteContainer = (
         <div className=" overflow-hidden w-[80vw] md:w-[40vw]  self-center flex">
           <div className="absolute z-10 w-1 h-36 bg-gray-400 ml-[38%] md:ml-[20%] -mt-2" />
           <div
@@ -130,6 +145,12 @@ const Roulette = () => {
             {prizeRoulette}
           </div>
         </div>
+      )
+    }
+
+    prizeRenderAux = (
+      <div className="flex flex-col justify-center gap-5 align-center">
+        {rouletteContainer}
         {showPrize && prizeInfo}
       </div>
     )
@@ -155,11 +176,14 @@ const Roulette = () => {
           <h2 className="text-2xl font-bold">{prizes[container].name}</h2>
           <div className="w-3/4 bg-slate-500 flex self-center  h-[2px]" />
           <div className="flex flex-col gap-4 md:flex-row">
-            <img
-              className="min-w-[120px] h-[120px] md:min-w-[300px] md:h-[300px] object-cover rounded"
-              src={`${prizes[container].image}`}
-              alt={`${prizes[container].name}`}
-            />
+            <div className="flex flex-col gap-2">
+              <img
+                className="min-w-[120px] h-[120px] md:min-w-[300px] md:h-[300px] object-cover rounded"
+                src={`${prizes[container].image}`}
+                alt={`${prizes[container].name}`}
+              />
+              <span className="text-xl ">{prizes[container].description}</span>
+            </div>
             <div className="flex flex-col justify-center w-full gap-4 align-center">
               {prizeRenderAux}
               <div className="flex gap-4"></div>
