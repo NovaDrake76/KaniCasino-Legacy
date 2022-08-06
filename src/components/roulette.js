@@ -20,7 +20,6 @@ const Roulette = () => {
   let prizeRouletteAux
   let prizeInfo
   let possiblePrizes
-  let probability
 
   const getRandomPrize = () => {
     setSpining(true)
