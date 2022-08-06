@@ -31,16 +31,9 @@ const Roulette = () => {
     document.getElementById("spin").disabled = true
     document.getElementById("cases").disabled = true
 
-    probability = prizes[container].case.map((item) => item.probability * 100)
-
-    console.log(probability)
-
     const randomPrize =
       prizes[container].case[
-        Math.floor(
-          probability[Math.floor(Math.random() * probability.length)] *
-            prizes[container].case.length
-        )
+        Math.floor(Math.random() * Math.floor(prizes[container].case.length))
       ]
     setPrize(randomPrize)
 
