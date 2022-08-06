@@ -31,24 +31,29 @@ const Roulette = () => {
     document.getElementById("spin").disabled = true
     document.getElementById("cases").disabled = true
 
-    probability = prizes[container].case.map((item) => item.probability * 100)
+    probability = prizes[container].case.map((item) => item.probability * 1000)
 
-    console.log(probability)
+    let randomNumber =
+      Math.floor(
+        Math.random() *
+          (probability[probability.length - 1] - probability[0] + 1)
+      ) + probability[0]
 
-    const randomPrize =
-      prizes[container].case[
-        Math.floor(
-          probability[Math.floor(Math.random() * probability.length)] *
-            prizes[container].case.length
-        )
-      ]
-    setPrize(randomPrize)
+    //get a prize from the array of prizes depending on the random number generated above and the probability of each prize in the array
+    for (let i = 0; i < probability.length; i++) {
+      if (randomNumber <= probability[i]) {
+        prizeRenderAux = prizes[container].case[i]
+        break
+      }
+    }
+    console.log(prizeRenderAux)
+    setPrize(prizeRenderAux)
 
     AxiosKani.create(localStorage.getItem("token"))
       .post(
         "/inventory",
         JSON.stringify({
-          name: randomPrize.name,
+          name: prizeRenderAux.name,
         })
       )
       .then((res) => {
