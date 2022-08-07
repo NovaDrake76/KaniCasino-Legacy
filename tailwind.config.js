@@ -2,12 +2,21 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   safelist: [
+    "bg-roulette",
+    "bg-crash",
+    "bg-coinFlip",
     {
       pattern: /border-.*-500/,
     },
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        roulette: "url('https://i.imgur.com/tbxjBTj.png')",
+        crash: "url('https://i.imgur.com/3ozEyQR.png')",
+        coinFlip: "url('https://i.imgur.com/OanlCtl.png')",
+      },
+    },
     screens: {
       sm: "590px",
 
