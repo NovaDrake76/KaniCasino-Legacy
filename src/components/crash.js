@@ -14,7 +14,12 @@ const Crash = () => {
     return () => clearInterval(interval)
   }, [count])
 
-  return <div>{count}</div>
+  return (
+    <div className="flex flex-col">
+      <span>In development...</span>
+      {count}
+    </div>
+  )
 }
 
 export default Crash

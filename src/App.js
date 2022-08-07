@@ -56,9 +56,9 @@ function App() {
   return (
     <div className="flex flex-col App">
       <Navbar func={pullGame} />
-      <div className="flex w-full min-h-screen divide-x divide-gray-500 bg-slate-600">
+      <div className="flex w-full h-[calc(100vh-64px)] divide-x divide-gray-500 bg-slate-600">
         <Sidebar func={pullGame} />
-        <div>
+        <div className="flex justify-center w-full overflow-scroll">
           <Content game={game} />
         </div>
       </div>

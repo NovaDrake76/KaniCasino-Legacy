@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react"
 import Login from "./Auth/Login"
 import Logout from "./Auth/Logout"
+// import AxiosKani from "../utils/axiosKani"
 
 const Navbar = () => {
   const [loggedIn, setLoggedIn] = useState(false)
   const [userInfo, setUserInfo] = useState("")
   const [info, setInfo] = useState([])
+  // const token = localStorage.getItem("token")
   const [profilePic, setProfilePic] = useState(
     "https://www.gravatar.com/avatar/"
   )
@@ -17,6 +19,17 @@ const Navbar = () => {
       setProfilePic(JSON.parse(localStorage.getItem("info")).imageUrl)
     }
   }, [])
+
+  // useEffect(() => {
+  //   AxiosKani.create(token)
+  //     .get("/user/me", {})
+  //     .then((res) => {
+  //       setInfo(res.data)
+  //     })
+  //     .catch((err) => {
+  //       console.log(err)
+  //     })
+  // }, [token])
 
   useEffect(() => {
     function renderLogin() {
@@ -42,7 +55,7 @@ const Navbar = () => {
   }, [loggedIn, profilePic, info])
 
   return (
-    <nav className="flex justify-between w-full h-16 p-6 text-base bg-slate-700">
+    <nav className="flex justify-between w-full h-16 p-6 text-base  bg-slate-700">
       <div
         className="flex items-center cursor-pointer"
         onClick={() => {

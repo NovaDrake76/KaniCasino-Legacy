@@ -9,10 +9,9 @@ function Login() {
   const onSuccess = (res) => {
     localStorage.setItem("info", JSON.stringify(res.profileObj))
 
-    //wait 1 second
-    setTimeout(() => {
-      window.location.reload()
-    }, 500)
+    // setTimeout(() => {
+    //   window.location.reload()
+    // }, 800)
     AxiosKani.create()
       .post(
         "/login/google",
@@ -22,7 +21,6 @@ function Login() {
       )
       .then((res) => {
         localStorage.setItem("token", res.data.data.token)
-        console.log(res)
       })
       .catch((err) => {
         console.log(err)
