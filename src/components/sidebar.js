@@ -32,7 +32,7 @@ const Sidebar = (props) => {
       <button
         className={`flex ${
           open ? "justify-center" : "justify-start"
-        } w-full text-3xl hover:text-white`}
+        } w-full text-3xl hover:text-white `}
         onClick={toggleSidebar}
       >
         <GiHamburgerMenu />

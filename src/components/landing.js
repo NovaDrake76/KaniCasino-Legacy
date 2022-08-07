@@ -43,11 +43,13 @@ const Landing = () => {
         showArrows={false}
         infiniteLoop={true}
         showThumbs={false}
-        className="max-w-screen-lg "
+        className="hidden max-w-screen-lg xl:flex"
       >
         {renderCarouselImages}
       </Carousel>
-      <div className="flex justify-center gap-8">{renderGames}</div>
+      <div className="flex flex-col justify-center gap-8 xl:flex-row">
+        {renderGames}
+      </div>
     </div>
   )
 }

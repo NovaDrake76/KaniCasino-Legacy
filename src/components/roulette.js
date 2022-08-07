@@ -92,10 +92,9 @@ const Roulette = () => {
           }
         }}
         key={index}
-        className="flex flex-col items-center justify-center cursor-pointer"
       >
         <img
-          className="w-[100px] h-[100px] object-cover rounded"
+          className="w-[100px] h-[100px] object-cover rounded cursor-pointer"
           src={`${prizes[index].image}`}
           alt={`${prizes[index].name}`}
         />
@@ -135,18 +134,18 @@ const Roulette = () => {
       </div>
     )
 
-    if (spining) {
-      rouletteContainer = (
-        <div className=" overflow-hidden w-[80vw] md:w-[40vw]  self-center flex">
-          <div className="absolute z-10 w-1 h-36 bg-gray-400 ml-[38%] md:ml-[20%] -mt-2" />
-          <div
-            className={`flex gap-1  ${prizeRouletteSpin} ease-[cubic-bezier(0.1, 0, 0.2, 1)]	`}
-          >
-            {prizeRoulette}
-          </div>
+    // if (spining) {
+    rouletteContainer = (
+      <div className="relative overflow-hidden w-[80vw] md:w-[40vw]  self-center flex">
+        <div className="absolute z-10 w-[2px] h-36 bg-blue-200 ml-[38%] md:ml-[50%] -mt-2" />
+        <div
+          className={`flex gap-1  ${prizeRouletteSpin} ease-[cubic-bezier(0.1, 0, 0.2, 1)]	`}
+        >
+          {prizeRoulette}
         </div>
-      )
-    }
+      </div>
+    )
+    // }
 
     prizeRenderAux = (
       <div className="flex flex-col justify-center gap-5 align-center">
@@ -170,8 +169,10 @@ const Roulette = () => {
   return (
     <>
       <div className="flex flex-col justify-center  w-screen md:w-[80vw] gap-4 p-5 max-w-[1280px]">
-        <h1 className="flex justify-center">Roulette</h1>
-        <div className="flex flex-col gap-5 md:flex-row ">{caseRender}</div>
+        <h2 className="flex text-xl">New and trending cases</h2>
+        <div className="flex flex-wrap items-center justify-center gap-5 md:justify-start md:flex-row">
+          {caseRender}
+        </div>
         <div className="flex flex-col gap-3">
           <h2 className="text-2xl font-bold">{prizes[container].name}</h2>
           <div className="w-3/4 bg-slate-500 flex self-center  h-[2px]" />
@@ -190,7 +191,7 @@ const Roulette = () => {
 
               <div className="flex justify-center">
                 <button
-                  className="flex justify-center w-1/4 px-12 py-2 bg-blue-600 rounded"
+                  className="flex justify-center w-1/4 px-12 py-2 transition-all duration-200 bg-blue-600 rounded hover:bg-blue-500"
                   id="spin"
                   onClick={getRandomPrize}
                 >
