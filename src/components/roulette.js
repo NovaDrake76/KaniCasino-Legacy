@@ -69,7 +69,7 @@ const Roulette = () => {
 
     setTimeout(() => {
       setPrizeRouletteSpin(
-        "-translate-x-[6080px] sm:-translate-x-[6000px]  md:-translate-x-[6050px] xl:-translate-x-[5960px] 2xl:-translate-x-[5900px] 3xl:-translate-x-[5820px] duration-[5000ms]"
+        "-translate-x-[6080px] sm:-translate-x-[6000px]  md:-translate-x-[6050px] xl:-translate-x-[5960px] 2xl:-translate-x-[5900px] 3xl:-translate-x-[5820px] 4xl:-translate-x-[5760px] duration-[5000ms]"
       )
     }, 1)
 
@@ -176,7 +176,7 @@ const Roulette = () => {
           <h2 className="text-2xl font-bold">{prizes[container].name}</h2>
           <div className="w-3/4 bg-slate-500 flex self-center  h-[2px]" />
           <div className="flex flex-col gap-4 md:flex-row">
-            <div className="flex flex-col gap-2 items-center">
+            <div className="flex flex-col items-center gap-2">
               <img
                 className="w-[120px] h-[120px] md:min-w-[300px] md:h-[300px] object-cover rounded "
                 src={`${prizes[container].image}`}
