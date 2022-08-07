@@ -176,9 +176,9 @@ const Roulette = () => {
           <h2 className="text-2xl font-bold">{prizes[container].name}</h2>
           <div className="w-3/4 bg-slate-500 flex self-center  h-[2px]" />
           <div className="flex flex-col gap-4 md:flex-row">
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-2 items-center">
               <img
-                className="min-w-[120px] h-[120px] md:min-w-[300px] md:h-[300px] object-cover rounded"
+                className="w-[120px] h-[120px] md:min-w-[300px] md:h-[300px] object-cover rounded "
                 src={`${prizes[container].image}`}
                 alt={`${prizes[container].name}`}
               />
@@ -194,7 +194,7 @@ const Roulette = () => {
                   id="spin"
                   onClick={getRandomPrize}
                 >
-                  Spin
+                  {spining ? "Spinning..." : "Spin"}
                 </button>
               </div>
             </div>

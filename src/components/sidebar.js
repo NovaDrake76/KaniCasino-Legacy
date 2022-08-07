@@ -7,7 +7,7 @@ const Sidebar = (props) => {
     if (window.location.pathname === "/roulette") {
       setGame(1)
     } else if (window.location.pathname === "/crash") {
-      setGame(0)
+      setGame(2)
     }
     props.func(game)
   }
@@ -18,7 +18,7 @@ const Sidebar = (props) => {
     <div className="flex-col items-start hidden w-1/6 gap-3 p-5 border-gray-500 md:flex">
       <button
         onClick={() => {
-          pullGame(1)
+          pullGame(2)
           window.history.replaceState(null, "KaniCasino - Crash", "/crash")
         }}
       >
@@ -26,7 +26,7 @@ const Sidebar = (props) => {
       </button>
       <button
         onClick={() => {
-          pullGame(0)
+          pullGame(1)
           window.history.replaceState(
             null,
             "KaniCasino - Roulette",

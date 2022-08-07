@@ -43,7 +43,12 @@ const Navbar = () => {
 
   return (
     <nav className="flex justify-between w-full h-16 p-6 text-base bg-slate-700">
-      <div className="flex items-center">
+      <div
+        className="flex items-center cursor-pointer"
+        onClick={() => {
+          window.location.href = "/"
+        }}
+      >
         <img
           src="https://gametora.com/images/umamusume/og/default.png"
           alt="site logo"
