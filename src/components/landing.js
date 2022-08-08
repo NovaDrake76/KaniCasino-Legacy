@@ -43,7 +43,10 @@ const Landing = () => {
     return (
       <div
         key={game.name}
-        className={`flex items-end p-4  rounded w-80 h-52 bg-${game.image}`}
+        className={`flex items-end p-4  rounded w-80 h-52 bg-${game.image} cursor-pointer`}
+        onClick={() => {
+          window.location.href = `/${game.image}`
+        }}
       >
         <span className="text-xl font-semibold">{game.name}</span>
       </div>

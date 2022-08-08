@@ -7,11 +7,6 @@ const clientId =
 
 function Login() {
   const onSuccess = (res) => {
-    localStorage.setItem("info", JSON.stringify(res.profileObj))
-
-    // setTimeout(() => {
-    //   window.location.reload()
-    // }, 800)
     AxiosKani.create()
       .post(
         "/login/google",
@@ -25,6 +20,9 @@ function Login() {
       .catch((err) => {
         console.log(err)
       })
+    setTimeout(() => {
+      window.location.reload()
+    }, 800)
   }
 
   const onFailure = (res) => {

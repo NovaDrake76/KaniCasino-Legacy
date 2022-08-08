@@ -3,22 +3,22 @@ import { useState, useEffect } from "react"
 import Cases from ".././cases.json"
 
 function Profile() {
-  const info = JSON.parse(localStorage.getItem("info"))
   const token = localStorage.getItem("token")
+  const [info, setInfo] = useState([])
   const [inventory, setInventory] = useState([])
   const prizes = Cases.prizes
 
   useEffect(() => {
     AxiosKani.create(token)
-      .get("/inventory", {})
+      .get("/user/me", {})
       .then((res) => {
+        setInfo(res.data.data.profile)
         setInventory(res.data.data.inventory)
       })
       .catch((err) => {
         console.log(err)
       })
   }, [token])
-
   if (info === null) {
     return <div>You must be logged in</div>
   } else {
@@ -27,7 +27,7 @@ function Profile() {
         <div className="flex flex-col gap-8 p-5 w-[80vw]">
           <div className="flex gap-4">
             <img
-              src={info.imageUrl}
+              src={info.picture}
               alt="profile"
               className="w-32 h-32 rounded-full"
             />
@@ -50,7 +50,7 @@ function Profile() {
               }
               return (
                 <div
-                  key={key}
+                  key={key + Math.random()}
                   className="flex max-w-[150px]  flex-col items-center gap-2"
                 >
                   <img

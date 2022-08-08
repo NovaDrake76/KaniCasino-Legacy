@@ -1,35 +1,39 @@
 import React, { useState, useEffect } from "react"
 import Login from "./Auth/Login"
 import Logout from "./Auth/Logout"
-// import AxiosKani from "../utils/axiosKani"
+import AxiosKani from "../utils/axiosKani"
 
 const Navbar = () => {
   const [loggedIn, setLoggedIn] = useState(false)
   const [userInfo, setUserInfo] = useState("")
   const [info, setInfo] = useState([])
-  // const token = localStorage.getItem("token")
+  const token = localStorage.getItem("token")
   const [profilePic, setProfilePic] = useState(
     "https://www.gravatar.com/avatar/"
   )
 
+  // useEffect(() => {
+  //   if (localStorage.getItem("token")) {
+  //     setLoggedIn(true)
+  //     setInfo(JSON.parse(localStorage.getItem("info")))
+  //     setProfilePic(JSON.parse(localStorage.getItem("info")).imageUrl)
+  //   }
+  // }, [])
+
   useEffect(() => {
     if (localStorage.getItem("token")) {
-      setLoggedIn(true)
-      setInfo(JSON.parse(localStorage.getItem("info")))
-      setProfilePic(JSON.parse(localStorage.getItem("info")).imageUrl)
+      AxiosKani.create(token)
+        .get("/user/me", {})
+        .then((res) => {
+          setInfo(res.data.data.profile)
+          setProfilePic(res.data.data.profile.picture)
+          setLoggedIn(true)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
     }
-  }, [])
-
-  // useEffect(() => {
-  //   AxiosKani.create(token)
-  //     .get("/user/me", {})
-  //     .then((res) => {
-  //       setInfo(res.data)
-  //     })
-  //     .catch((err) => {
-  //       console.log(err)
-  //     })
-  // }, [token])
+  }, [token, info])
 
   useEffect(() => {
     function renderLogin() {
@@ -70,7 +74,7 @@ const Navbar = () => {
         <h1 className="font-bold ">KaniCasino</h1>
       </div>
       <div className="flex items-center gap-6">
-        <div className="hidden gap-2 px-5 py-2 border border-gray-500 rounded  md:flex">
+        <div className="hidden gap-2 px-5 py-2 border border-gray-500 rounded md:flex">
           <span className="text-gray-400">$</span>
           <span className="font-semibold">0.00</span>
         </div>

@@ -10,7 +10,6 @@ const Sidebar = (props) => {
 
   const toggleSidebar = () => {
     setSidebarWidth(sidebarWidth === "w-60" ? "w-[80px]" : "w-60")
-    console.log(sidebarWidth)
     setOpen(!open)
   }
 
@@ -22,8 +21,6 @@ const Sidebar = (props) => {
     }
     props.func(game)
   }
-
-  console.log(game)
 
   return (
     <div
@@ -40,7 +37,7 @@ const Sidebar = (props) => {
       <button
         className={`flex items-center ${
           open ? "justify-center" : "justify-start"
-        } w-full gap-3 hover:text-white`}
+        } w-full gap-3 hover:text-white ${game}`}
         onClick={() => {
           pullGame(2)
           window.history.replaceState(null, "KaniCasino - Crash", "/crash")

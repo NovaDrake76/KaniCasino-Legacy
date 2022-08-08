@@ -44,7 +44,6 @@ const Roulette = () => {
     for (let i = 0; i < probability.length; i++) {
       if (randomNumber <= probability[i][0]) {
         prizeRenderAux = probability[i][1]
-        console.log(prizeRenderAux)
 
         break
       }
@@ -59,7 +58,7 @@ const Roulette = () => {
         })
       )
       .then((res) => {
-        console.log(res)
+        return
       })
       .catch((err) => {
         console.log(err)
@@ -71,7 +70,7 @@ const Roulette = () => {
       setPrizeRouletteSpin(
         "-translate-x-[6080px] sm:-translate-x-[6000px]  md:-translate-x-[6050px] xl:-translate-x-[5960px] 2xl:-translate-x-[5900px] 3xl:-translate-x-[5820px] 4xl:-translate-x-[5760px] duration-[5000ms]"
       )
-    }, 1)
+    }, 11)
 
     setTimeout(() => {
       setSpining(false)
@@ -134,18 +133,18 @@ const Roulette = () => {
       </div>
     )
 
-    // if (spining) {
-    rouletteContainer = (
-      <div className="relative overflow-hidden w-[80vw] md:w-[40vw]  self-center flex">
-        <div className="absolute z-10 w-[2px] h-36 bg-blue-200 ml-[38%] md:ml-[50%] -mt-2" />
-        <div
-          className={`flex gap-1  ${prizeRouletteSpin} ease-[cubic-bezier(0.1, 0, 0.2, 1)]	`}
-        >
-          {prizeRoulette}
+    if (spining) {
+      rouletteContainer = (
+        <div className="relative overflow-hidden w-[80vw] md:w-[40vw]  self-center flex">
+          <div className="absolute z-10 w-[2px] h-36 bg-blue-200 ml-[38%] md:ml-[50%] -mt-2" />
+          <div
+            className={`flex gap-1  ${prizeRouletteSpin} ease-[cubic-bezier(0.1, 0, 0.2, 1)]	`}
+          >
+            {prizeRoulette}
+          </div>
         </div>
-      </div>
-    )
-    // }
+      )
+    }
 
     prizeRenderAux = (
       <div className="flex flex-col justify-center gap-5 align-center">
@@ -158,7 +157,7 @@ const Roulette = () => {
   possiblePrizes = prizes[container].case.map((prize, index) => {
     return (
       <img
-        className={`w-[150px] h-[110px] border-b-4 border-${prize.color}-500 bg-gray-400 bg-opacity-25 object-fill rounded`}
+        className={`w-[150px] h-[110px] border-b-4 border-${prize.color}-500 bg-gray-400 bg-opacity-25 object-cover rounded`}
         src={`${prize.image}`}
         alt={`${prize.name}`}
         key={index}
