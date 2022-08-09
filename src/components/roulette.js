@@ -157,7 +157,7 @@ const Roulette = () => {
   possiblePrizes = prizes[container].case.map((prize, index) => {
     return (
       <img
-        className={`w-[150px] h-[110px] border-b-4 border-${prize.color}-500 bg-gray-400 bg-opacity-25 object-cover rounded`}
+        className={`w-[150px] h-[110px] border-b-4 border-${prize.color}-500 bg-gray-400 bg-opacity-25 object-scale-down rounded`}
         src={`${prize.image}`}
         alt={`${prize.name}`}
         key={index}

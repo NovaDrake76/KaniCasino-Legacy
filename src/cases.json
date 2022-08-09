@@ -57,52 +57,769 @@
       ]
     },
     {
-      "name": "Scarlet Case",
+      "name": "ZUN's Case",
       "description": "yooo Reimu check this out",
       "image": "https://i.kym-cdn.com/entries/icons/facebook/000/038/773/clownpiece.jpg",
       "case": [
         {
-          "name": "Reimu",
-          "image": "https://en.touhouwiki.net/images/thumb/c/c8/Th18Reimu.png/278px-Th18Reimu.png",
+          "name":"Flandre",
+          "image":"https://i.imgur.com/qYjiPAO.png",
           "probability": 50,
-          "id": 8,
           "color": "yellow"
         },
         {
-          "name": "Marisa",
-          "image": "https://en.touhouwiki.net/images/thumb/c/cd/Th18Marisa.png/278px-Th18Marisa.png",
+          "name":"Koishi",
+          "image":"https://i.imgur.com/ro96otd.png",
           "probability": 100,
-          "id": 9,
-          "color": "red"
+          "color": "yellow"
         },
         {
-          "name": "Cirno",
-          "image": "https://en.touhouwiki.net/images/thumb/d/d5/Th14Cirno.png/235px-Th14Cirno.png",
+          "name":"Marisa",
+          "image":"https://i.imgur.com/jRAdwk3.png",
+          "probability": 150,
+          "color": "yellow"
+        },
+        {
+          "name":"Reimu",
+          "image":"https://i.imgur.com/ro5332x.png",
           "probability": 200,
-          "id": 10,
+          "color": "yellow"
+        },
+        {
+          "name":"Sakuya",
+          "image":"https://i.imgur.com/rEXysML.png",
+          "probability": 250,
+          "color": "yellow"
+        },
+        {
+          "name":"Youmu",
+          "image":"https://i.imgur.com/zVt2M83.png",
+          "probability": 300,
+          "color": "yellow"
+        },
+        {
+          "name":"Aya",
+          "image":"https://i.imgur.com/emVsfjf.png",
+          "probability": 400,
           "color": "red"
         },
         {
-          "name": "Patchouli",
-          "image": "https://en.touhouwiki.net/images/thumb/9/99/Th105Patchouli.png/275px-Th105Patchouli.png",
+          "name":"Cirno",
+          "image":"https://i.imgur.com/qM2hGas.png",
           "probability": 500,
-          "id": 11,
+          "color": "red"
+        },
+        {
+          "name":"Junko",
+          "image":"https://i.imgur.com/fDs93nU.png",
+          "probability": 600,
+          "color": "red"
+        },
+        {
+          "name":"Reisen",
+          "image":"https://i.imgur.com/2YebpYT.png",
+          "probability": 700,
+          "color": "red"
+        },
+        {
+          "name":"Remilia",
+          "image":"https://i.imgur.com/cmAfVID.png",
+          "probability": 800,
+          "color": "red"
+        },
+        {
+          "name":"Sanae",
+          "image":"https://i.imgur.com/c9vaJLy.png",
+          "probability": 900,
+          "color": "red"
+        },
+        {
+          "name":"Suika",
+          "image":"https://i.imgur.com/sF70Uq9.png",
+          "probability": 1000,
+          "color": "red"
+        },
+        {
+          "name":"Suwako",
+          "image":"https://i.imgur.com/lsvrTuv.png",
+          "probability": 1100,
+          "color": "red"
+        },
+        {
+          "name":"Yukari",
+          "image":"https://i.imgur.com/qazqRB3.png",
+          "probability": 1200,
+          "color": "red"
+        },
+        {
+          "name":"Yukari",
+          "image":"https://i.imgur.com/qazqRB3.png",
+          "probability": 1200,
+          "color": "red"
+        },
+        {
+          "name":"Yuyuko",
+          "image":"https://i.imgur.com/i7UfpNS.png",
+          "probability": 1300,
+          "color": "red"
+        },
+        {
+          "name":"Alice",
+          "image":"https://i.imgur.com/jRKq8Ui.png",
+          "probability": 1500,
+          "color": "pink"
+        },
+        {
+          "name":"Byakuren",
+          "image":"https://i.imgur.com/jq6KVqu.png",
+          "probability": 1700,
+          "color": "pink"
+        },
+        {
+          "name":"ClownPiece",
+          "image":"https://i.imgur.com/UYevrcT.png",
+          "probability": 1900,
+          "color": "pink"
+        },
+        {
+          "name":"Eirin",
+          "image":"https://i.imgur.com/iRBigRG.png",
+          "probability": 2100,
+          "color": "pink"
+        },
+        {
+          "name":"Kokoro",
+          "image":"https://i.imgur.com/YAniHS8.png",
+          "probability": 2300,
+          "color": "pink"
+        },
+        {
+          "name":"Mamizou",
+          "image":"https://i.imgur.com/Nyp1Fuo.png",
+          "probability": 2500,
+          "color": "pink"
+        },
+        {
+          "name":"Kaguya",
+          "image":"https://i.imgur.com/xWpJ6sD.png",
+          "probability": 2700,
+          "color": "pink"
+        },
+        {
+          "name":"Kanako",
+          "image":"https://i.imgur.com/TzqU7k0.png",
+          "probability": 2900,
+          "color": "pink"
+        },
+        {
+          "name":"Mima",
+          "image":"https://i.imgur.com/lYeAonB.png",
+          "probability": 3100,
+          "color": "pink"
+        },
+        {
+          "name":"Mokou",
+          "image":"https://i.imgur.com/XcTVJyv.png",
+          "probability": 3300,
+          "color": "pink"
+        },
+        {
+          "name":"Murasa",
+          "image":"https://i.imgur.com/UzB64e6.png",
+          "probability": 3500,
+          "color": "pink"
+        },
+        {
+          "name":"Nitori",
+          "image":"https://i.imgur.com/BLs5Eks.png",
+          "probability": 3700,
+          "color": "pink"
+        },
+        {
+          "name":"Satori",
+          "image":"https://i.imgur.com/qNoUqE5.png",
+          "probability": 3900,
+          "color": "pink"
+        },
+        {
+          "name":"Seija",
+          "image":"https://i.imgur.com/SyUGWMT.png",
+          "probability": 4100,
+          "color": "pink"
+        },
+        {
+          "name":"Tenshi",
+          "image":"https://i.imgur.com/E44OopK.png",
+          "probability": 4300,
+          "color": "pink"
+        },
+        {
+          "name":"Utsuho",
+          "image":"https://i.imgur.com/9UPwtAh.png",
+          "probability": 4500,
+          "color": "pink"
+        },
+        {
+          "name":"Yuuka",
+          "image":"https://i.imgur.com/8xXfyPE.png",
+          "probability": 4700,
+          "color": "pink"
+        },
+        {
+          "name":"Yuuma",
+          "image":"https://i.imgur.com/f6CNeWj.png",
+          "probability": 4900,
+          "color": "pink"
+        },
+        {
+          "name":"Yuuma",
+          "image":"https://i.imgur.com/f6CNeWj.png",
+          "probability": 5100,
+          "color": "pink"
+        },
+        {
+          "name":"Hecatia",
+          "image":"https://i.imgur.com/NVlGhm9.png",
+          "probability": 5300,
+          "color": "pink"
+        },
+        {
+          "name":"Chen",
+          "image":"https://i.imgur.com/SN4mnKX.png",
+          "probability": 5600,
           "color": "purple"
         },
         {
-          "name": "Sakuya",
-          "image": "https://en.touhouwiki.net/images/thumb/6/62/Th18Sakuya.png/276px-Th18Sakuya.png",
-          "probability": 700,
-          "id": 12,
-          "color": "blue"
+          "name":"Eiki",
+          "image":"https://i.imgur.com/Bk5Od7y.png",
+          "probability": 5900,
+          "color": "purple"
         },
         {
-          "name": "Remilia",
-          "image": "https://en.touhouwiki.net/images/thumb/e/e7/Th105Remilia.png/275px-Th105Remilia.png",
-          "probability": 1000,
-          "id": 13,
+          "name":"Elly",
+          "image":"https://i.imgur.com/ni4ih5j.png",
+          "probability": 6200,
+          "color": "purple"
+        },
+        {
+          "name":"Himemushi",
+          "image":"https://i.imgur.com/Jgcjdwx.png",
+          "probability": 6500,
+          "color": "purple"
+        },
+        {
+          "name":"Ichirin",
+          "image":"https://i.imgur.com/awEjiB2.png",
+          "probability": 6800,
+          "color": "purple"
+        },
+        {
+          "name":"Iku",
+          "image":"https://i.imgur.com/xeXrZVt.png",
+          "probability": 7100,
+          "color": "purple"
+        },
+        {
+          "name":"Joon",
+          "image":"https://i.imgur.com/tb54BN4.png",
+          "probability": 7400,
+          "color": "purple"
+        },
+        {
+          "name":"Shion",
+          "image":"https://i.imgur.com/Kex6q9r.png",
+          "probability": 7700,
+          "color": "purple"
+        },
+        {
+          "name":"Kasen",
+          "image":"https://i.imgur.com/pGEfBOU.png",
+          "probability": 8000,
+          "color": "purple"
+        },
+        {
+          "name":"Chimata",
+          "image":"https://i.imgur.com/Fdgg2h9.png",
+          "probability": 8300,
+          "color": "purple"
+        },
+        {
+          "name":"Komachi",
+          "image":"https://i.imgur.com/XA8ORqN.png",
+          "probability": 8600,
+          "color": "purple"
+        },
+        {
+          "name":"Keiki",
+          "image":"https://i.imgur.com/HPLFitC.png",
+          "probability": 8900,
+          "color": "purple"
+        },
+        {
+          "name":"Teireida",
+          "image":"https://i.imgur.com/ETfyT4b.png",
+          "probability": 9200,
+          "color": "purple"
+        },
+        {
+          "name":"Satono",
+          "image":"https://i.imgur.com/ypjuqXC.png",
+          "probability": 9500,
+          "color": "purple"
+        },
+        {
+          "name":"Maribel",
+          "image":"https://i.imgur.com/3g76xbq.png",
+          "probability": 9800,
+          "color": "purple"
+        },
+        {
+          "name":"Mayumi",
+          "image":"https://i.imgur.com/XynJN20.png",
+          "probability": 10100,
+          "color": "purple"
+        },
+        {
+          "name":"Megumu",
+          "image":"https://i.imgur.com/qPuPWdy.png",
+          "probability": 10400,
+          "color": "purple"
+        },
+        {
+          "name":"MeiLing",
+          "image":"https://i.imgur.com/hzIsV2x.png",
+          "probability": 10700,
+          "color": "purple"
+        },
+        {
+          "name":"Miyoi",
+          "image":"https://i.imgur.com/v2H1FcR.png",
+          "probability": 11000,
+          "color": "purple"
+        },
+        {
+          "name":"Momiji",
+          "image":"https://i.imgur.com/ac5hwOL.png",
+          "probability": 11300,
+          "color": "purple"
+        },
+        {
+          "name":"Mononobe",
+          "image":"https://i.imgur.com/WA8zxxz.png",
+          "probability": 11300,
+          "color": "purple"
+        },
+        {
+          "name":"Nue",
+          "image":"https://i.imgur.com/1AOksBV.png",
+          "probability": 11600,
+          "color": "purple"
+        },
+        {
+          "name":"Okina",
+          "image":"https://i.imgur.com/Ebi4dni.png",
+          "probability": 11900,
+          "color": "purple"
+        },
+        {
+          "name":"Patchouli",
+          "image":"https://i.imgur.com/IRgL284.png",
+          "probability": 12200,
+          "color": "purple"
+        },
+        {
+          "name":"Raiko",
+          "image":"https://i.imgur.com/ZbtjVok.png",
+          "probability": 12500,
+          "color": "purple"
+        },
+        {
+          "name":"Ran",
+          "image":"https://i.imgur.com/zqBlhbV.png",
+          "probability": 12800,
+          "color": "purple"
+        },
+        {
+          "name":"Reisen Flashback",
+          "image":"https://i.imgur.com/u4ZHl34.png",
+          "probability": 13100,
+          "color": "purple"
+        },
+        {
+          "name":"Renko",
+          "image":"https://i.imgur.com/MiDDZsD.png",
+          "probability": 13400,
+          "color": "purple"
+        },
+        {
+          "name":"Rin",
+          "image":"https://i.imgur.com/QuvN3b7.png",
+          "probability": 13700,
+          "color": "purple"
+        },
+        {
+          "name":"Sagume",
+          "image":"https://i.imgur.com/Krwfa8N.png",
+          "probability": 14000,
+          "color": "purple"
+        },
+        {
+          "name":"Saki",
+          "image":"https://i.imgur.com/svrasgJ.png",
+          "probability": 14300,
+          "color": "purple"
+        },
+        {
+          "name":"Seiga",
+          "image":"https://i.imgur.com/cFX1Icf.png",
+          "probability": 14600,
+          "color": "purple"
+        },
+        {
+          "name":"Sariel",
+          "image":"https://i.imgur.com/utEqfqN.png",
+          "probability": 14900,
+          "color": "purple"
+        },
+        {
+          "name":"Shiki",
+          "image":"https://i.imgur.com/rlntDLf.png",
+          "probability": 15200,
+          "color": "purple"
+        },
+        {
+          "name":"Shinmyoumaru",
+          "image":"https://i.imgur.com/6l3exAh.png",
+          "probability": 15500,
+          "color": "purple"
+        },
+        {
+          "name":"Shou",
+          "image":"https://i.imgur.com/yxl33JW.png",
+          "probability": 15800,
+          "color": "purple"
+        },
+        {
+          "name":"Sumireko",
+          "image":"https://i.imgur.com/8XeNfPb.png",
+          "probability": 16100,
+          "color": "purple"
+        },
+        {
+          "name":"Miko",
+          "image":"https://i.imgur.com/AE7unaM.png",
+          "probability": 16400,
+          "color": "purple"
+        },
+        {
+          "name":"Tsukasa",
+          "image":"https://i.imgur.com/fYDLjle.png",
+          "probability": 16700,
+          "color": "purple"
+        },
+        {
+          "name":"Yachie",
+          "image":"https://i.imgur.com/VEmIorS.png",
+          "probability": 17000,
+          "color": "purple"
+        },
+        {
+          "name":"Yoshika",
+          "image":"https://i.imgur.com/Hycw1LE.png",
+          "probability": 17300,
+          "color": "purple"
+        },
+        {
+          "name":"Yumemi",
+          "image":"https://i.imgur.com/7Tkj3om.png",
+          "probability": 17600,
+          "color": "purple"
+        },
+        {
+          "name":"Yuugi",
+          "image":"https://i.imgur.com/mrQnvJq.png",
+          "probability": 17900,
+          "color": "purple"
+        },
+        {
+          "name":"Aunn",
+          "image":"https://i.imgur.com/ZW2nvac.png",
+          "probability": 18300,
+          "color": "blue"
+        }, 
+        {
+          "name":"Benben",
+          "image":"https://i.imgur.com/cR4K2S5.png",
+          "probability": 18700,
+          "color": "blue"
+        }, 
+        {
+          "name":"Daiyousei",
+          "image":"https://i.imgur.com/7AbRsZY.png",
+          "probability": 19100,
+          "color": "blue"
+        }, 
+        {
+          "name":"Doremy",
+          "image":"https://i.imgur.com/su1Uw1W.png",
+          "probability": 19500,
+          "color": "blue"
+        }, 
+        {
+          "name":"Eternity",
+          "image":"https://i.imgur.com/gj4Nqwb.png",
+          "probability": 19900,
+          "color": "blue"
+        }, 
+        {
+          "name":"Eika",
+          "image":"https://i.imgur.com/d10f0Ob.png",
+          "probability": 20300,
+          "color": "blue"
+        }, 
+        {
+          "name":"Hatate",
+          "image":"https://i.imgur.com/o7TzasR.png",
+          "probability": 20700,
+          "color": "blue"
+        }, 
+        {
+          "name":"Mystia",
+          "image":"https://i.imgur.com/EKk1r1z.png",
+          "probability": 21100,
+          "color": "blue"
+        }, 
+        {
+          "name":"Hina",
+          "image":"https://i.imgur.com/fweAbCS.png",
+          "probability": 21500,
+          "color": "blue"
+        }, 
+        {
+          "name":"Kagerou",
+          "image":"https://i.imgur.com/SVysH5n.png",
+          "probability": 21900,
+          "color": "blue"
+        }, 
+        {
+          "name":"Keine",
+          "image":"https://i.imgur.com/ZQarBv2.png",
+          "probability": 22300,
+          "color": "blue"
+        }, 
+        {
+          "name":"Kyouko",
+          "image":"https://i.imgur.com/lnncqhd.png",
+          "probability": 22700,
+          "color": "blue"
+        }, 
+        {
+          "name":"Lunasa",
+          "image":"https://i.imgur.com/ZfcvxeN.png",
+          "probability": 23100,
+          "color": "blue"
+        }, 
+        {
+          "name":"Lyrica",
+          "image":"https://i.imgur.com/HEu2RrI.png",
+          "probability": 23500,
+          "color": "blue"
+        }, 
+        {
+          "name":"Merlin",
+          "image":"https://i.imgur.com/5yuijbv.png",
+          "probability": 23900,
+          "color": "blue"
+        }, 
+        {
+          "name":"Kisume",
+          "image":"https://i.imgur.com/SlIImT6.png",
+          "probability": 24300,
+          "color": "blue"
+        }, 
+        {
+          "name":"Koakuma",
+          "image":"https://i.imgur.com/1NmiYaL.png",
+          "probability": 24700,
+          "color": "blue"
+        }, 
+        {
+          "name":"Kutaka",
+          "image":"https://i.imgur.com/yvmVtMl.png",
+          "probability": 25100,
+          "color": "blue"
+        }, 
+        {
+          "name":"Kogasa",
+          "image":"https://i.imgur.com/6d4Xz0D.png",
+          "probability": 25500,
+          "color": "blue"
+        }, 
+        {
+          "name":"Letty",
+          "image":"https://i.imgur.com/AjWIXiy.png",
+          "probability": 25900,
+          "color": "blue"
+        }, 
+        {
+          "name":"Lily White",
+          "image":"https://i.imgur.com/EqCV6vT.png",
+          "probability": 26300,
+          "color": "blue"
+        }, 
+        {
+          "name":"Misumaru",
+          "image":"https://i.imgur.com/HEjRqWL.png",
+          "probability": 26700,
+          "color": "blue"
+        }, 
+        {
+          "name":"Minoriko",
+          "image":"https://i.imgur.com/3Xp8cjp.png",
+          "probability": 27100,
+          "color": "blue"
+        }, 
+        {
+          "name":"Luna Child",
+          "image":"https://i.imgur.com/9n1jkp8.png",
+          "probability": 27500,
+          "color": "blue"
+        }, 
+        {
+          "name":"Mike",
+          "image":"https://i.imgur.com/8NJTVpF.png",
+          "probability": 27900,
+          "color": "blue"
+        }, 
+        {
+          "name":"Medicine Melancholy",
+          "image":"https://i.imgur.com/zKzUiel.png",
+          "probability": 28300,
+          "color": "blue"
+        }, 
+        {
+          "name":"Narumi",
+          "image":"https://i.imgur.com/kbEbvI7.png",
+          "probability": 28700,
+          "color": "blue"
+        }, 
+        {
+          "name":"Nazrin",
+          "image":"https://i.imgur.com/4sglyuQ.png",
+          "probability": 29100,
+          "color": "blue"
+        }, 
+        {
+          "name":"Nemumo",
+          "image":"https://i.imgur.com/lfJiVtH.png",
+          "probability": 29500,
+          "color": "blue"
+        }, 
+        {
+          "name":"Soga no Tojiko",
+          "image":"https://i.imgur.com/3AnFUSm.png",
+          "probability": 29900, 
+          "color": "blue"
+        }, 
+        {
+          "name":"Parsee",
+          "image":"https://i.imgur.com/O9f1QfG.png",
+          "probability": 30300,
+          "color": "blue"
+        }, 
+        {
+          "name":"Ringo",
+          "image":"https://i.imgur.com/tJYcUe1.png",
+          "probability": 30700,
+          "color": "blue"
+        }, 
+        {
+          "name":"Rumia",
+          "image":"https://i.imgur.com/RG32QYn.png",
+          "probability": 31100,
+          "color": "blue"
+        }, 
+        {
+          "name":"Sannyo",
+          "image":"https://i.imgur.com/a9pECYr.png",
+          "probability": 31500,
+          "color": "blue"
+        }, 
+        {
+          "name":"Seiran",
+          "image":"https://i.imgur.com/3UefWbJ.png",
+          "probability": 31900,
+          "color": "blue"
+        }, 
+        {
+          "name":"Sekibanki",
+          "image":"https://i.imgur.com/3GPUONf.png",
+          "probability": 32300,
+          "color": "blue"
+        }, 
+        {
+          "name":"Shizuha",
+          "image":"https://i.imgur.com/cwloTef.png",
+          "probability": 32700,
+          "color": "blue"
+        }, 
+        {
+          "name":"Star Sapphire",
+          "image":"https://i.imgur.com/6NXxmPe.png",
+          "probability": 33100,
+          "color": "blue"
+        }, 
+        {
+          "name":"Sunny Milk",
+          "image":"https://i.imgur.com/AZv4PF2.png",
+          "probability": 33500,
+          "color": "blue"
+        }, 
+        {
+          "name":"Yamame",
+          "image":"https://i.imgur.com/RljVBeu.png",
+          "probability": 33900,
+          "color": "blue"
+        }, 
+        {
+          "name":"Takane",
+          "image":"https://i.imgur.com/BI2POLZ.png",
+          "probability": 34300,
+          "color": "blue"
+        }, 
+        {
+          "name":"Tewi",
+          "image":"https://i.imgur.com/HPFuC6c.png",
+          "probability": 34700,
+          "color": "blue"
+        }, 
+        {
+          "name":"Urumi",
+          "image":"https://i.imgur.com/09pSbjJ.png",
+          "probability": 35100,
+          "color": "blue"
+        }, 
+        {
+          "name":"Wakasagihime",
+          "image":"https://i.imgur.com/BjnHP5k.png",
+          "probability": 35500,
+          "color": "blue"
+        }, 
+        {
+          "name":"Wriggle Nightbug",
+          "image":"https://i.imgur.com/5ItLN9l.png",
+          "probability": 35900,
+          "color": "blue"
+        }, 
+        {
+          "name":"Yatsuhashi",
+          "image":"https://i.imgur.com/mfrbLXc.png",
+          "probability": 36300,
           "color": "blue"
         }
+
+
+        
       ]
     },
     {
