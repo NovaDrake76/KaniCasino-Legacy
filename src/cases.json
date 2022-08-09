@@ -152,12 +152,6 @@
           "color": "red"
         },
         {
-          "name":"Yukari",
-          "image":"https://i.imgur.com/qazqRB3.png",
-          "probability": 1200,
-          "color": "red"
-        },
-        {
           "name":"Yuyuko",
           "image":"https://i.imgur.com/i7UfpNS.png",
           "probability": 1300,
