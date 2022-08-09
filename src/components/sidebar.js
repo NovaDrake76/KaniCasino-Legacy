@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { ImRocket } from "react-icons/im"
 import { GiDoubleDiaphragm } from "react-icons/gi"
 import { GiHamburgerMenu } from "react-icons/gi"
+import { CgProfile } from "react-icons/cg"
 
 const Sidebar = (props) => {
   const [game, setGame] = useState(0)
@@ -37,14 +38,12 @@ const Sidebar = (props) => {
       <button
         className={`flex items-center ${
           open ? "justify-center" : "justify-start"
-        } w-full gap-3 hover:text-white ${game}`}
+        } w-full gap-3 hover:text-white`}
         onClick={() => {
-          pullGame(2)
-          window.history.replaceState(null, "KaniCasino - Crash", "/crash")
+          window.location.href = "/profile"
         }}
       >
-        <ImRocket className="text-2xl" />
-        {open ? "" : "Crash"}
+        <CgProfile className="text-2xl" /> {open ? "" : "Profile"}
       </button>
       <button
         className={`flex items-center ${
@@ -60,6 +59,18 @@ const Sidebar = (props) => {
         }}
       >
         <GiDoubleDiaphragm className="text-2xl" /> {open ? "" : "Case Roulette"}
+      </button>
+      <button
+        className={`flex items-center ${
+          open ? "justify-center" : "justify-start"
+        } w-full gap-3 hover:text-white ${game}`}
+        onClick={() => {
+          pullGame(2)
+          window.history.replaceState(null, "KaniCasino - Crash", "/crash")
+        }}
+      >
+        <ImRocket className="text-2xl" />
+        {open ? "" : "Crash"}
       </button>
     </div>
   )
