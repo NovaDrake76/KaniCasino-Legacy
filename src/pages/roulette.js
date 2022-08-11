@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import AxiosKani from "../utils/axiosKani"
-import Cases from ".././cases.json"
+import Cases from "../cases.json"
 
 const Roulette = () => {
   const [container, setContainer] = useState(0)
@@ -136,7 +136,7 @@ const Roulette = () => {
     if (spining) {
       rouletteContainer = (
         <div className="relative overflow-hidden w-[80vw] md:w-[40vw]  self-center flex">
-          <div className="absolute z-10 w-[2px] h-36 bg-blue-200 ml-[38%] md:ml-[50%] -mt-2" />
+          <div className="absolute z-10 w-[2px] h-36 bg-blue-200 ml-[50%] -mt-2" />
           <div
             className={`flex gap-1  ${prizeRouletteSpin} ease-[cubic-bezier(0.1, 0, 0.2, 1)]	`}
           >
@@ -166,7 +166,7 @@ const Roulette = () => {
   })
 
   return (
-    <>
+    <div className="flex justify-center">
       <div className="flex flex-col justify-center  w-screen md:w-[80vw] gap-4 p-5 max-w-[1280px]">
         <h2 className="flex text-xl">New and trending cases</h2>
         <div className="flex flex-wrap items-center justify-center gap-5 md:justify-start md:flex-row">
@@ -209,7 +209,7 @@ const Roulette = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

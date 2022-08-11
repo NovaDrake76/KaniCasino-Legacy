@@ -1,6 +1,7 @@
 import React from "react"
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import { Carousel } from "react-responsive-carousel"
+import { Link } from "react-router-dom"
 
 let renderCarouselImages
 let renderGames
@@ -41,20 +42,19 @@ const Landing = () => {
 
   renderGames = games.map((game) => {
     return (
-      <div
-        key={game.name}
-        className={`flex items-end p-4  rounded w-80 h-52 bg-${game.image} cursor-pointer`}
-        onClick={() => {
-          window.location.href = `/${game.image}`
-        }}
-      >
-        <span className="text-xl font-semibold">{game.name}</span>
-      </div>
+      <Link key={game.name} to={`/${game.image}`}>
+        <div
+          key={game.name}
+          className={`flex items-end p-4  rounded w-80 h-52 bg-${game.image} cursor-pointer`}
+        >
+          <span className="text-xl font-semibold">{game.name}</span>
+        </div>
+      </Link>
     )
   })
 
   return (
-    <div className="flex flex-col items-center justify-center gap-4 p-5 align-center">
+    <div className="flex flex-col items-center justify-center gap-4 p-5 align-center ">
       <Carousel
         autoPlay={true}
         interval={4000}
@@ -66,9 +66,10 @@ const Landing = () => {
       >
         {renderCarouselImages}
       </Carousel>
-      <span className="flex self-start text-2xl">Games:</span>
-      <div className="flex flex-col justify-center gap-8 xl:flex-row">
-        {renderGames}
+      <div className="flex flex-col gap-4 justify-center ">
+        <span className="flex self-start text-2xl">Games:</span>
+
+        <div className="flex flex-col xl:flex-row gap-8 ">{renderGames}</div>
       </div>
     </div>
   )

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import Login from "./Auth/Login"
 import Logout from "./Auth/Logout"
 import AxiosKani from "../utils/axiosKani"
+import { Link } from "react-router-dom"
 
 const Navbar = () => {
   const [loggedIn, setLoggedIn] = useState(false)
@@ -40,14 +41,13 @@ const Navbar = () => {
       if (loggedIn === true) {
         setUserInfo(
           <div className="flex">
-            <img
-              src={profilePic}
-              alt="profile"
-              className="w-12 h-12 rounded-full cursor-pointer"
-              onClick={() => {
-                window.location.href = "/profile"
-              }}
-            />
+            <Link to={"/profile"}>
+              <img
+                src={profilePic}
+                alt="profile"
+                className="w-12 h-12 rounded-full cursor-pointer"
+              />
+            </Link>
             <Logout />
           </div>
         )
@@ -59,20 +59,17 @@ const Navbar = () => {
   }, [loggedIn, profilePic, info])
 
   return (
-    <nav className="flex justify-between w-full h-16 p-6 text-base bg-slate-700">
-      <div
-        className="flex items-center cursor-pointer"
-        onClick={() => {
-          window.location.href = "/"
-        }}
-      >
-        <img
-          src="https://gametora.com/images/umamusume/og/default.png"
-          alt="site logo"
-          className="h-12"
-        />
-        <h1 className="font-bold ">KaniCasino</h1>
-      </div>
+    <nav className="flex justify-between w-full h-16 p-2 text-base bg-slate-700">
+      <Link to={"/"}>
+        <div className="flex items-center cursor-pointer">
+          <img
+            src="https://gametora.com/images/umamusume/og/default.png"
+            alt="site logo"
+            className="h-12"
+          />
+          <h1 className="font-bold ">KaniCasino</h1>
+        </div>
+      </Link>
       <div className="flex items-center gap-6">
         <div className="hidden gap-2 px-5 py-2 border border-gray-500 rounded md:flex">
           <span className="text-gray-400">$</span>

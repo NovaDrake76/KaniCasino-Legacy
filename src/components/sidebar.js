@@ -3,25 +3,58 @@ import { ImRocket } from "react-icons/im"
 import { GiDoubleDiaphragm } from "react-icons/gi"
 import { GiHamburgerMenu } from "react-icons/gi"
 import { CgProfile } from "react-icons/cg"
+import { GiCoinflip } from "react-icons/gi"
+import { Link } from "react-router-dom"
 
 const Sidebar = (props) => {
-  const [game, setGame] = useState(0)
   const [sidebarWidth, setSidebarWidth] = useState("w-60")
   const [open, setOpen] = useState(false)
+  let renderSidebarItems
 
   const toggleSidebar = () => {
     setSidebarWidth(sidebarWidth === "w-60" ? "w-[80px]" : "w-60")
     setOpen(!open)
   }
 
-  const pullGame = (game) => {
-    if (window.location.pathname === "/roulette") {
-      setGame(1)
-    } else if (window.location.pathname === "/crash") {
-      setGame(2)
-    }
-    props.func(game)
-  }
+  const sidebarItems = [
+    {
+      name: "Profile",
+      icon: <CgProfile className="text-2xl" />,
+      link: "/profile",
+    },
+    {
+      name: "Case Roulette",
+      icon: <GiDoubleDiaphragm className="text-2xl " />,
+      link: "/roulette",
+    },
+    {
+      name: "Crash",
+      icon: <ImRocket className="text-2xl" />,
+      link: "/crash",
+    },
+    {
+      name: "Coin Flip",
+      icon: <GiCoinflip className="text-2xl" />,
+      link: "/coinFlip",
+    },
+  ]
+
+  renderSidebarItems = sidebarItems.map((item) => {
+    return (
+      <Link
+        to={item.link}
+        key={item.name}
+        className={`w-full flex  ${
+          open ? "justify-center" : "justify-start"
+        }  hover:text-white`}
+      >
+        <button className="flex gap-3">
+          {item.icon}
+          {open ? "" : `${item.name}`}
+        </button>
+      </Link>
+    )
+  })
 
   return (
     <div
@@ -35,43 +68,7 @@ const Sidebar = (props) => {
       >
         <GiHamburgerMenu />
       </button>
-      <button
-        className={`flex items-center ${
-          open ? "justify-center" : "justify-start"
-        } w-full gap-3 hover:text-white`}
-        onClick={() => {
-          window.location.href = "/profile"
-        }}
-      >
-        <CgProfile className="text-2xl" /> {open ? "" : "Profile"}
-      </button>
-      <button
-        className={`flex items-center ${
-          open ? "justify-center" : "justify-start"
-        } w-full gap-3 hover:text-white`}
-        onClick={() => {
-          pullGame(1)
-          window.history.replaceState(
-            null,
-            "KaniCasino - Roulette",
-            "/roulette"
-          )
-        }}
-      >
-        <GiDoubleDiaphragm className="text-2xl" /> {open ? "" : "Case Roulette"}
-      </button>
-      <button
-        className={`flex items-center ${
-          open ? "justify-center" : "justify-start"
-        } w-full gap-3 hover:text-white ${game}`}
-        onClick={() => {
-          pullGame(2)
-          window.history.replaceState(null, "KaniCasino - Crash", "/crash")
-        }}
-      >
-        <ImRocket className="text-2xl" />
-        {open ? "" : "Crash"}
-      </button>
+      {renderSidebarItems}
     </div>
   )
 }
