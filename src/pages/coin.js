@@ -1,15 +1,84 @@
 import { useState, useEffect } from "react"
 import { Helmet } from "react-helmet"
+import { ToastContainer, toast, Slide } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
 const Coin = () => {
-  const [selectedFace, setSelectedFace] = useState("")
+  const [selectedFace, setSelectedFace] = useState(null)
   const [coin, setCoin] = useState([{ name: "" }])
   const [history, setHistory] = useState([])
+  const [historyAux, setHistoryAux] = useState(false)
+  const [startGame, setStartGame] = useState(false)
+
+  const toastWin = () =>
+    toast.success("You win!", {
+      position: "bottom-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      theme: "dark",
+      transition: Slide,
+    })
+  const toastLose = () =>
+    toast.error("You lose!", {
+      position: "bottom-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      theme: "dark",
+      transition: Slide,
+    })
 
   let buttons
   let renderButtons
   let renderSelectedFace
   let renderHistory
+
+  const flipCoin = () => {
+    setStartGame(true)
+    let randomNumber = Math.floor(Math.random() * 2)
+    if (randomNumber === 0) {
+      setCoin([
+        {
+          name: "Heads",
+          color: "green-600",
+        },
+      ])
+    } else {
+      setCoin([
+        {
+          name: "Tails",
+          color: "red-500",
+        },
+      ])
+    }
+    if (history.length >= 16) {
+      history.shift()
+    }
+    setHistoryAux(true)
+  }
+
+  useEffect(() => {
+    if (historyAux === true) {
+      setHistory([
+        ...history,
+        { face: coin[0].name, id: Math.random(), color: coin[0].color },
+      ])
+      setHistoryAux(false)
+    }
+  }, [coin, historyAux, history])
+
+  useEffect(() => {
+    if (startGame === true) {
+      if (selectedFace === coin[0].name) {
+        toastWin()
+      } else {
+        toastLose()
+      }
+    }
+  }, [coin, selectedFace, startGame])
 
   buttons = [
     {
@@ -64,37 +133,18 @@ const Coin = () => {
     }
   }
 
-  const flipCoin = () => {
-    let randomNumber = Math.floor(Math.random() * 2)
-    if (randomNumber === 0) {
-      setCoin([
-        {
-          name: "Heads",
-          color: "green-600",
-        },
-      ])
-    } else {
-      setCoin([
-        {
-          name: "Tails",
-          color: "red-500",
-        },
-      ])
-    }
-    if (history.length >= 16) {
-      history.shift()
-    }
-  }
-
-  useEffect(() => {
-    setHistory([
-      ...history,
-      { face: coin[0].name, id: Math.random(), color: coin[0].color },
-    ])
-  }, [coin])
-
   return (
     <>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        limit={2}
+      />
       <Helmet>
         <title>Coin Flip | KaniCasino</title>
       </Helmet>
