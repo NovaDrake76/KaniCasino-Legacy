@@ -197,7 +197,7 @@ const Roulette = () => {
 
                 <div className="flex justify-center">
                   <button
-                    className="flex justify-center w-1/4 px-12 py-2 transition-all duration-200 bg-blue-600 rounded hover:bg-blue-500"
+                    className="flex justify-center w-1/4 px-12 py-2 text-base transition-all duration-200 bg-blue-600 rounded hover:bg-blue-500"
                     id="spin"
                     onClick={getRandomPrize}
                   >
