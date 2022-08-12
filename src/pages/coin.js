@@ -13,8 +13,8 @@ const Coin = () => {
   const toastWin = () =>
     toast.success("You win!", {
       position: "bottom-right",
-      autoClose: 3000,
-      hideProgressBar: false,
+      autoClose: 1000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       theme: "dark",
@@ -23,8 +23,8 @@ const Coin = () => {
   const toastLose = () =>
     toast.error("You lose!", {
       position: "bottom-right",
-      autoClose: 3000,
-      hideProgressBar: false,
+      autoClose: 1000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       theme: "dark",
@@ -38,6 +38,8 @@ const Coin = () => {
 
   const flipCoin = () => {
     setStartGame(true)
+    document.getElementById("flip").disabled = true
+
     let randomNumber = Math.floor(Math.random() * 2)
     if (randomNumber === 0) {
       setCoin([
@@ -58,6 +60,9 @@ const Coin = () => {
       history.shift()
     }
     setHistoryAux(true)
+    setTimeout(() => {
+      document.getElementById("flip").disabled = false
+    }, 1000)
   }
 
   useEffect(() => {
@@ -77,6 +82,7 @@ const Coin = () => {
       } else {
         toastLose()
       }
+      setStartGame(false)
     }
   }, [coin, selectedFace, startGame])
 
@@ -120,14 +126,14 @@ const Coin = () => {
       return (
         <div className="flex gap-1">
           You are betting on
-          <span className="text-green-600">Heads</span>
+          <span className="font-bold text-green-600">Heads</span>
         </div>
       )
     } else {
       return (
         <div className="flex gap-1">
           You are betting on
-          <span className="text-red-500">Tails</span>
+          <span className="font-bold text-red-500">Tails</span>
         </div>
       )
     }
@@ -137,8 +143,8 @@ const Coin = () => {
     <>
       <ToastContainer
         position="bottom-right"
-        autoClose={2000}
-        hideProgressBar={false}
+        autoClose={1000}
+        hideProgressBar={true}
         newestOnTop={false}
         closeOnClick
         rtl={false}
@@ -168,6 +174,7 @@ const Coin = () => {
                 {selectedFace ? renderSelectedFace() : "Select a face"}
               </span>
               <button
+                id="flip"
                 className="w-full p-2 transition-all duration-200 bg-blue-600 rounded hover:bg-blue-500"
                 onClick={() => {
                   flipCoin()
@@ -183,7 +190,7 @@ const Coin = () => {
                 <img
                   src={`/images/coin${coin[0].name}.png`}
                   alt="coin"
-                  className="h-full p-2"
+                  className="h-full p-2 transition-all duration-200 "
                 />
               </div>
             </div>

@@ -2,9 +2,14 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   safelist: [
+    "bg-roulette",
+    "bg-crash",
+    "bg-coinFlip",
+    "bg-green-600",
+    "bg-red-500",
+
     {
       pattern: /border-.*-500/,
-      pattern: /bg-.*/,
     },
   ],
   theme: {
