@@ -169,7 +169,7 @@ const Roulette = () => {
   return (
     <>
       <Helmet>
-        <title>Coin Flip | KaniCasino</title>
+        <title>Roulette | KaniCasino</title>
       </Helmet>
       <div className="flex justify-center">
         <div className="flex flex-col justify-center  w-screen md:w-[80vw] gap-4 p-5 max-w-[1280px]">

@@ -68,7 +68,7 @@ function Profile() {
     return (
       <>
         <Helmet>
-          <title>Coin Flip | KaniCasino</title>
+          <title>Profile | KaniCasino</title>
         </Helmet>
         <div className="flex justify-center">
           <div className="flex flex-col gap-8 p-5 w-[80vw]">
