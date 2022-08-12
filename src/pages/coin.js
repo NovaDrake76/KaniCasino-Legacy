@@ -155,7 +155,7 @@ const Coin = () => {
         <title>Coin Flip | KaniCasino</title>
       </Helmet>
       <div className="flex justify-center text-base">
-        <div className="flex w-full max-w-3xl divide-x divide-gray-400 rounded bg-slate-500">
+        <div className="flex flex-col-reverse w-full max-w-3xl divide-x divide-gray-400 rounded md:flex-row bg-slate-500">
           <div className="flex flex-col h-full gap-2 p-4 max-h-72">
             <div className="flex py-2 rounded bg-slate-600">
               <span className="flex items-center px-2 text-gray-200">$</span>
@@ -168,7 +168,9 @@ const Coin = () => {
             <span className="flex justify-start text-gray-200">
               Choose a face:
             </span>
-            <div className="flex justify-between gap-2">{renderButtons}</div>
+            <div className="flex justify-around gap-2 md:justify-between">
+              {renderButtons}
+            </div>
             <div className="flex flex-col justify-end h-full">
               <span className="flex py-1 text-sm text-gray-200">
                 {selectedFace ? renderSelectedFace() : "Select a face"}
@@ -194,7 +196,7 @@ const Coin = () => {
                 />
               </div>
             </div>
-            <div className="flex flex-col gap-2 p-4">
+            <div className="flex-col hidden gap-2 p-4  lg:flex">
               <span className="flex text-xs font-bold text-gray-200">
                 PREVIOUS GAMES
               </span>

@@ -59,11 +59,11 @@ const Navbar = () => {
   }, [loggedIn, profilePic, info])
 
   return (
-    <nav className="flex justify-between w-full h-16 p-2 text-base bg-slate-700">
+    <nav className="flex justify-between w-full h-16 p-2 px-5 text-base bg-slate-700">
       <Link to={"/"}>
-        <div className="flex items-center cursor-pointer">
+        <div className="flex items-center gap-2 cursor-pointer">
           <img
-            src="https://gametora.com/images/umamusume/og/default.png"
+            src="https://i.imgur.com/cVLsYjJ.png"
             alt="site logo"
             className="h-12"
           />
