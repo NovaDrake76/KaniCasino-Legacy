@@ -18,7 +18,7 @@ root.render(
       <Navbar />
       <div className="flex w-full h-[calc(100vh-64px)]  divide-x divide-gray-500 bg-slate-600">
         <Sidebar />
-        <div className=" w-full overflow-auto">
+        <div className="w-full p-6 overflow-auto ">
           <Routes>
             <Route path="/" element={<App />} />
             <Route path="roulette" element={<Roulette />} />

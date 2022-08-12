@@ -2,6 +2,8 @@ import React from "react"
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import { Carousel } from "react-responsive-carousel"
 import { Link } from "react-router-dom"
+import { Helmet } from "react-helmet"
+
 
 let renderCarouselImages
 let renderGames
@@ -54,24 +56,29 @@ const Landing = () => {
   })
 
   return (
-    <div className="flex flex-col items-center justify-center gap-4 p-5 align-center ">
-      <Carousel
-        autoPlay={true}
-        interval={4000}
-        showStatus={false}
-        showArrows={false}
-        infiniteLoop={true}
-        showThumbs={false}
-        className="hidden max-w-screen-lg xl:flex"
-      >
-        {renderCarouselImages}
-      </Carousel>
-      <div className="flex flex-col gap-4 justify-center ">
-        <span className="flex self-start text-2xl">Games:</span>
+    <>
+      <Helmet>
+        <title>Home | KaniCasino</title>
+      </Helmet>
+      <div className="flex flex-col items-center justify-center gap-4 p-5 align-center ">
+        <Carousel
+          autoPlay={true}
+          interval={4000}
+          showStatus={false}
+          showArrows={false}
+          infiniteLoop={true}
+          showThumbs={false}
+          className="hidden max-w-screen-lg xl:flex"
+        >
+          {renderCarouselImages}
+        </Carousel>
+        <div className="flex flex-col justify-center gap-4 ">
+          <span className="flex self-start text-2xl">Games:</span>
 
-        <div className="flex flex-col xl:flex-row gap-8 ">{renderGames}</div>
+          <div className="flex flex-col gap-8 xl:flex-row ">{renderGames}</div>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 

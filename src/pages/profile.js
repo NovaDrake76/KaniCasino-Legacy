@@ -1,6 +1,7 @@
 import AxiosKani from "../utils/axiosKani"
 import { useState, useEffect } from "react"
 import Cases from ".././cases.json"
+import { Helmet } from "react-helmet"
 
 function Profile() {
   const token = localStorage.getItem("token")
@@ -29,7 +30,7 @@ function Profile() {
     }
     if (inventory.length > 0) {
       return (
-        <div className="flex flex-wrap gap-4 justify-center">
+        <div className="flex flex-wrap justify-center gap-4">
           {inventory.map((key) => {
             for (const i of prizes) {
               for (const j of i.case) {
@@ -65,26 +66,31 @@ function Profile() {
     return <div>You must be logged in</div>
   } else {
     return (
-      <div className="flex justify-center">
-        <div className="flex flex-col gap-8 p-5 w-[80vw]">
-          <div className="flex gap-4">
-            <img
-              src={info.picture}
-              alt="profile"
-              className="w-32 h-32 rounded-full"
-            />
-            <div className="flex flex-col justify-center">
-              <h2 className="text-2xl">{info.name}</h2>
+      <>
+        <Helmet>
+          <title>Coin Flip | KaniCasino</title>
+        </Helmet>
+        <div className="flex justify-center">
+          <div className="flex flex-col gap-8 p-5 w-[80vw]">
+            <div className="flex gap-4">
+              <img
+                src={info.picture}
+                alt="profile"
+                className="w-32 h-32 rounded-full"
+              />
+              <div className="flex flex-col justify-center">
+                <h2 className="text-2xl">{info.name}</h2>
+              </div>
+            </div>
+            <div className="flex flex-col items-start gap-3">
+              <span>Your items:</span>
+
+              <div className="w-full bg-slate-500 flex self-center  h-[2px]" />
+              {renderInventory()}
             </div>
           </div>
-          <div className="flex flex-col items-start gap-3">
-            <span>Your items:</span>
-
-            <div className="w-full bg-slate-500 flex self-center  h-[2px]" />
-            {renderInventory()}
-          </div>
         </div>
-      </div>
+      </>
     )
   }
 }

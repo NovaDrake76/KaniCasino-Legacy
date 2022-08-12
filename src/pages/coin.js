@@ -1,18 +1,16 @@
-import { useState } from "react"
+import { Helmet } from "react-helmet"
 
 const Coin = () => {
-  const [coin, setCoin] = useState(null)
-
-  const flipCoin = () => {
-    setCoin(Math.floor(Math.random() * 2))
-    console.log(coin)
-  }
-
   return (
-    <div>
-      <button onClick={flipCoin}>Flip Coin</button>
-      <p>{coin === 0 ? "Heads" : "Tails"}</p>
-    </div>
+    <>
+      <Helmet>
+        <title>Coin Flip | KaniCasino</title>
+      </Helmet>
+      <div className="flex divide-x divide-gray-400 rounded h-80 bg-slate-500">
+        <div className="flex w-1/4 p-4">menu</div>
+        <div className="flex p-4">game</div>
+      </div>
+    </>
   )
 }
 

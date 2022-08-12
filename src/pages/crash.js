@@ -1,4 +1,5 @@
 import React from "react"
+import { Helmet } from "react-helmet"
 
 const Crash = () => {
   // const [count, setCount] = useState(1)
@@ -22,14 +23,19 @@ const Crash = () => {
   // }, [count, crasher])
 
   return (
-    <div className="flex flex-col items-center">
-      <span>In development...</span>
-      <img
-        src="https://i.imgur.com/kj3fL6c.png"
-        alt="monkey"
-        className="max-w-10"
-      />
-    </div>
+    <>
+      <Helmet>
+        <title>Crash | KaniCasino</title>
+      </Helmet>
+      <div className="flex flex-col items-center">
+        <span>In development...</span>
+        <img
+          src="https://i.imgur.com/kj3fL6c.png"
+          alt="monkey"
+          className="max-w-10"
+        />
+      </div>
+    </>
   )
 }
 
