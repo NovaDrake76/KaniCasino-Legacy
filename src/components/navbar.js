@@ -7,6 +7,7 @@ import { Link } from "react-router-dom"
 const Navbar = () => {
   const [loggedIn, setLoggedIn] = useState(false)
   const [userInfo, setUserInfo] = useState("")
+  const [money, setMoney] = useState(0)
   const [info, setInfo] = useState([])
   const token = localStorage.getItem("token")
   const [profilePic, setProfilePic] = useState(
@@ -28,6 +29,7 @@ const Navbar = () => {
         .then((res) => {
           setInfo(res.data.data.profile)
           setProfilePic(res.data.data.profile.picture)
+          setMoney(res.data.data.money)
           setLoggedIn(true)
         })
         .catch((err) => {
@@ -40,7 +42,13 @@ const Navbar = () => {
     function renderLogin() {
       if (loggedIn === true) {
         setUserInfo(
-          <div className="flex">
+          <div className="flex items-center gap-6">
+            <div className="hidden gap-2 px-5 py-2 border border-gray-500 rounded md:flex">
+              <span className="text-gray-400">$</span>
+              <span className="font-semibold">
+                {parseFloat(money.toFixed(2))}
+              </span>
+            </div>
             <Link to={"/profile"}>
               <img
                 src={profilePic}
@@ -56,7 +64,7 @@ const Navbar = () => {
       }
     }
     return renderLogin()
-  }, [loggedIn, profilePic, info])
+  }, [loggedIn, profilePic, info, money])
 
   return (
     <nav className="flex justify-between w-full h-16 p-2 px-5 text-base bg-slate-700">
@@ -70,13 +78,7 @@ const Navbar = () => {
           <h1 className="font-bold ">KaniCasino</h1>
         </div>
       </Link>
-      <div className="flex items-center gap-6">
-        <div className="hidden gap-2 px-5 py-2 border border-gray-500 rounded md:flex">
-          <span className="text-gray-400">$</span>
-          <span className="font-semibold">0.00</span>
-        </div>
-        {userInfo}
-      </div>
+      <div className="flex items-center gap-6">{userInfo}</div>
     </nav>
   )
 }

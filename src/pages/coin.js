@@ -221,7 +221,12 @@ const Coin = () => {
                 <img
                   src={`/images/coin${coin[0].name}.png`}
                   alt="coin"
-                  className="h-full p-2 transition-all duration-200 "
+                  className="h-full p-2 duration-300 "
+                  style={{
+                    transform: `rotateY(${
+                      coin[0].name === "Heads" ? "0" : "180"
+                    }deg)`,
+                  }}
                 />
               </div>
             </div>

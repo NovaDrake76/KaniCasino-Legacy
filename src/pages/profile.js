@@ -43,7 +43,7 @@ function Profile() {
                 className="flex max-w-[150px]  flex-col items-center gap-2"
               >
                 <img
-                  className={`w-[150px] h-[110px] border-b-4 border-${imageLink.color}-500 bg-gray-400 bg-opacity-25 object-scale-down rounded`}
+                  className={`w-[150px] h-[110px] border-b-4 border-${imageLink.color}-500  bg-gray-400 bg-opacity-25 object-scale-down rounded`}
                   src={`${imageLink.image}`}
                   alt={`${imageLink.name}`}
                 />

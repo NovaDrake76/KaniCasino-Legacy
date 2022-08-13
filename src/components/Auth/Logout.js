@@ -19,7 +19,7 @@ function Logout() {
         disabledStyle={{ all: "none" }}
         render={(renderProps) => (
           <button
-            className="flex items-center justify-center p-5"
+            className="flex items-center justify-center p-2"
             onClick={renderProps.onClick}
             disabled={renderProps.disabled}
           >

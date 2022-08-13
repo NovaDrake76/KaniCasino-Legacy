@@ -16,28 +16,18 @@ function Login() {
       )
       .then((res) => {
         localStorage.setItem("token", res.data.data.token)
+        setTimeout(() => {
+          window.location.reload()
+        }, 800)
       })
       .catch((err) => {
         console.log(err)
       })
-    setTimeout(() => {
-      window.location.reload()
-    }, 800)
   }
 
   const onFailure = (res) => {
     console.log("[Login Failure] currentUser: ", res)
   }
-
-  // function componentDidMount() {
-  //   const reloadCount = sessionStorage.getItem("reloadCount")
-  //   if (reloadCount < 1) {
-  //     sessionStorage.setItem("reloadCount", String(reloadCount + 1))
-  //     window.location.reload()
-  //   } else {
-  //     sessionStorage.removeItem("reloadCount")
-  //   }
-  // }
 
   return (
     <div id="SignInButton">
