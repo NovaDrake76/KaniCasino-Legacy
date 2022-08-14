@@ -90,6 +90,12 @@ const Coin = ({ userInformation, updateUserInformation }) => {
   }
 
   useEffect(() => {
+    if (userInformation !== undefined) {
+      setMoney(userInformation.money)
+    }
+  }, [userInformation])
+
+  useEffect(() => {
     if (historyAux === true) {
       setHistory([
         ...history,
@@ -104,49 +110,56 @@ const Coin = ({ userInformation, updateUserInformation }) => {
       if (selectedFace === coin[0].name) {
         setMoney(money + bet * 2)
         if (localStorage.getItem("token")) {
-          // AxiosKani.create(token)
-          //   .put(
-          //     "/user/money",
-          //     JSON.stringify({
-          //       money: money + bet * 2,
-          //     })
-          //   )
-          //   .catch((err) => {
-          //     console.log(err)
-          //   })
+          AxiosKani.create(token)
+            .put(
+              "/user/money",
+              JSON.stringify({
+                money: money + bet * 2,
+              })
+            )
+            .then(() => {
+              AxiosKani.create(localStorage.getItem("token"))
+                .get("/user/me", {})
+                .then((res) => {
+                  updateUserInformation(res.data.data)
+                })
+                .catch((err) => {
+                  console.log(err)
+                })
+            })
+            .catch((err) => {
+              console.log(err)
+            })
         }
-
         toastWin()
       } else {
-        AxiosKani.create(token)
-          .put(
-            "/user/money",
-            JSON.stringify({
-              money: money,
+        if (localStorage.getItem("token")) {
+          AxiosKani.create(token)
+            .put(
+              "/user/money",
+              JSON.stringify({
+                money: money,
+              })
+            )
+            .then(() => {
+              AxiosKani.create(localStorage.getItem("token"))
+                .get("/user/me", {})
+                .then((res) => {
+                  updateUserInformation(res.data.data)
+                })
+                .catch((err) => {
+                  console.log(err)
+                })
             })
-          )
-
-          .catch((err) => {
-            console.log(err)
-          })
+            .catch((err) => {
+              console.log(err)
+            })
+        }
         toastLose()
       }
       setStartGame(false)
     }
-  }, [coin, selectedFace, startGame, bet, money, token])
-
-  useEffect(() => {
-    if (localStorage.getItem("token")) {
-      AxiosKani.create(token)
-        .get("/user/me", {})
-        .then((res) => {
-          setMoney(res.data.data.money)
-        })
-        .catch((err) => {
-          console.log(err)
-        })
-    }
-  }, [money, token])
+  }, [coin, selectedFace, startGame, bet, money, token, updateUserInformation])
 
   buttons = [
     {
@@ -216,10 +229,19 @@ const Coin = ({ userInformation, updateUserInformation }) => {
             money: money + 1,
           })
         )
+        .then(() => {
+          AxiosKani.create(localStorage.getItem("token"))
+            .get("/user/me", {})
+            .then((res) => {
+              updateUserInformation(res.data.data)
+            })
+            .catch((err) => {
+              console.log(err)
+            })
+        })
         .catch((err) => {
           console.log(err)
         })
-      setMoney(money + 1)
     }
   }
 
