@@ -8,6 +8,7 @@ const clientId =
 function Logout() {
   const onSuccess = () => {
     window.location.reload(false)
+    localStorage.removeItem("token")
   }
 
   return (

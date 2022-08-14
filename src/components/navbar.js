@@ -29,8 +29,6 @@ const Navbar = ({ userInformation, updateUserInformation }) => {
         </div>
       )
     }
-
-    console.log(userInformation)
   }, [userInformation])
 
   return (

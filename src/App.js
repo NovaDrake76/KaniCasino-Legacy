@@ -41,7 +41,15 @@ function App() {
         <div className="w-full p-6 overflow-auto ">
           <Routes>
             <Route path="/" element={<Landing />} />
-            <Route path="roulette" element={<Roulette />} />
+            <Route
+              path="roulette"
+              element={
+                <Roulette
+                  userInformation={userInformation}
+                  updateUserInformation={updateUserInformation}
+                />
+              }
+            />
             <Route path="crash" element={<Crash />} />
             <Route
               path="profile"

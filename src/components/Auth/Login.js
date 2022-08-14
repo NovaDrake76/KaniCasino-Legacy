@@ -15,6 +15,8 @@ function Login({ updateUserInformation }) {
         })
       )
       .then((res) => {
+        localStorage.setItem("token", res.data.data.token)
+
         AxiosKani.create(res.data.data.token)
           .get("/user/me", {})
           .then((res) => {

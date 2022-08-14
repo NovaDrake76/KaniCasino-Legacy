@@ -3,7 +3,7 @@ import AxiosKani from "../utils/axiosKani"
 import Cases from "../cases.json"
 import Helmet from "react-helmet"
 
-const Roulette = () => {
+const Roulette = ({ userInformation, updateUserInformation }) => {
   const [container, setContainer] = useState(0)
   const [prize, setPrize] = useState(null)
   const [prizeDefined, setPrizeDefined] = useState(false)
@@ -58,8 +58,15 @@ const Roulette = () => {
           name: prizeRenderAux.name,
         })
       )
-      .then((res) => {
-        return
+      .then(() => {
+        AxiosKani.create(localStorage.getItem("token"))
+          .get("/user/me", {})
+          .then((res) => {
+            updateUserInformation(res.data.data)
+          })
+          .catch((err) => {
+            console.log(err)
+          })
       })
       .catch((err) => {
         console.log(err)
