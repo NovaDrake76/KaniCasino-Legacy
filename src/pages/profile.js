@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 import Cases from ".././cases.json"
 import { Helmet } from "react-helmet"
 
-function Profile() {
+function Profile(userInformation) {
   const token = localStorage.getItem("token")
   const [info, setInfo] = useState([])
   const [inventory, setInventory] = useState([])

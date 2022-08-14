@@ -4,7 +4,7 @@ import { ToastContainer, toast, Slide } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import AxiosKani from "../utils/axiosKani"
 
-const Coin = () => {
+const Coin = ({ userInformation, updateUserInformation }) => {
   const [selectedFace, setSelectedFace] = useState(null)
   const [coin, setCoin] = useState([{ name: "" }])
   const [history, setHistory] = useState([])
@@ -104,17 +104,16 @@ const Coin = () => {
       if (selectedFace === coin[0].name) {
         setMoney(money + bet * 2)
         if (localStorage.getItem("token")) {
-          AxiosKani.create(token)
-            .put(
-              "/user/money",
-              JSON.stringify({
-                money: money + bet * 2,
-              })
-            )
-
-            .catch((err) => {
-              console.log(err)
-            })
+          // AxiosKani.create(token)
+          //   .put(
+          //     "/user/money",
+          //     JSON.stringify({
+          //       money: money + bet * 2,
+          //     })
+          //   )
+          //   .catch((err) => {
+          //     console.log(err)
+          //   })
         }
 
         toastWin()

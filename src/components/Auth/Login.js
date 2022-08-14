@@ -5,7 +5,7 @@ import AxiosKani from "../../utils/axiosKani"
 const clientId =
   "1013639015004-4qhnf7ocuabkob525tpoddastpi47ico.apps.googleusercontent.com"
 
-function Login() {
+function Login({ updateUserInformation }) {
   const onSuccess = (res) => {
     AxiosKani.create()
       .post(
@@ -15,10 +15,14 @@ function Login() {
         })
       )
       .then((res) => {
-        localStorage.setItem("token", res.data.data.token)
-        setTimeout(() => {
-          window.location.reload()
-        }, 800)
+        AxiosKani.create(res.data.data.token)
+          .get("/user/me", {})
+          .then((res) => {
+            updateUserInformation(res.data.data)
+          })
+          .catch((err) => {
+            console.log(err)
+          })
       })
       .catch((err) => {
         console.log(err)
