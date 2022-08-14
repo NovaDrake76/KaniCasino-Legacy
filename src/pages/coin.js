@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { Helmet } from "react-helmet"
 import { ToastContainer, toast, Slide } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
+import AxiosKani from "../utils/axiosKani"
 
 const Coin = () => {
   const [selectedFace, setSelectedFace] = useState(null)
@@ -11,7 +12,8 @@ const Coin = () => {
   const [startGame, setStartGame] = useState(false)
   const [placeBet, setPlaceBet] = useState(false)
   const [bet, setBet] = useState(0)
-  const [money, setMoney] = useState(10)
+  const [money, setMoney] = useState(0)
+  const token = localStorage.getItem("token")
 
   const toastWin = () =>
     toast.success("You win!", {
@@ -101,13 +103,51 @@ const Coin = () => {
     if (startGame === true) {
       if (selectedFace === coin[0].name) {
         setMoney(money + bet * 2)
+        if (localStorage.getItem("token")) {
+          AxiosKani.create(token)
+            .put(
+              "/user/money",
+              JSON.stringify({
+                money: money + bet * 2,
+              })
+            )
+
+            .catch((err) => {
+              console.log(err)
+            })
+        }
+
         toastWin()
       } else {
+        AxiosKani.create(token)
+          .put(
+            "/user/money",
+            JSON.stringify({
+              money: money,
+            })
+          )
+
+          .catch((err) => {
+            console.log(err)
+          })
         toastLose()
       }
       setStartGame(false)
     }
-  }, [coin, selectedFace, startGame, bet, money])
+  }, [coin, selectedFace, startGame, bet, money, token])
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      AxiosKani.create(token)
+        .get("/user/me", {})
+        .then((res) => {
+          setMoney(res.data.data.money)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    }
+  }, [money, token])
 
   buttons = [
     {
@@ -162,6 +202,27 @@ const Coin = () => {
     }
   }
 
+  const preventMinus = (e) => {
+    if (e.code === "Minus") {
+      e.preventDefault()
+    }
+  }
+
+  const addMoney = () => {
+    if (localStorage.getItem("token")) {
+      AxiosKani.create(token)
+        .put(
+          "/user/money",
+          JSON.stringify({
+            money: money + 1,
+          })
+        )
+        .catch((err) => {
+          console.log(err)
+        })
+    }
+  }
+
   return (
     <>
       <ToastContainer
@@ -180,15 +241,15 @@ const Coin = () => {
       <div className="flex justify-center text-base">
         <div className="flex flex-col-reverse w-full max-w-3xl divide-x divide-gray-400 rounded md:flex-row bg-slate-500">
           <div className="flex flex-col h-full gap-2 p-4 max-h-72">
-            fake money: {parseFloat(money.toFixed(2))}
             <div className="flex py-2 rounded bg-slate-600">
               <span className="flex items-center px-2 text-gray-200">$</span>
               <input
                 type="number"
                 className="w-5/6 p-1 transition-all duration-200 outline-none bg-slate-600 invalid:text-red-600"
                 placeholder="Place your bet"
-                min={0}
+                min={0.0}
                 max={money}
+                onKeyPress={preventMinus}
                 onChange={(e) => {
                   setPlaceBet(e.target.value)
                 }}
@@ -200,10 +261,14 @@ const Coin = () => {
             <div className="flex justify-around gap-2 md:justify-between">
               {renderButtons}
             </div>
+            <button onClick={addMoney}>
+              <span className="text-sm text-blue-300">Get Daily Bonus</span>
+            </button>
             <div className="flex flex-col justify-end h-full">
               <span className="flex py-1 text-sm text-gray-200">
                 {selectedFace ? renderSelectedFace() : "Select a face"}
               </span>
+
               <button
                 id="flip"
                 className="w-full p-2 transition-all duration-200 bg-blue-600 rounded hover:bg-blue-500"

@@ -14,14 +14,6 @@ const Navbar = () => {
     "https://www.gravatar.com/avatar/"
   )
 
-  // useEffect(() => {
-  //   if (localStorage.getItem("token")) {
-  //     setLoggedIn(true)
-  //     setInfo(JSON.parse(localStorage.getItem("info")))
-  //     setProfilePic(JSON.parse(localStorage.getItem("info")).imageUrl)
-  //   }
-  // }, [])
-
   useEffect(() => {
     if (localStorage.getItem("token")) {
       AxiosKani.create(token)
@@ -45,9 +37,7 @@ const Navbar = () => {
           <div className="flex items-center gap-6">
             <div className="hidden gap-2 px-5 py-2 border border-gray-500 rounded md:flex">
               <span className="text-gray-400">$</span>
-              <span className="font-semibold">
-                {parseFloat(money.toFixed(2))}
-              </span>
+              <span className="font-semibold">{money.toFixed(2)}</span>
             </div>
             <Link to={"/profile"}>
               <img
