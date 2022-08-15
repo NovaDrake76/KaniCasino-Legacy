@@ -161,6 +161,37 @@ const Coin = ({ userInformation, updateUserInformation }) => {
     }
   }, [coin, selectedFace, startGame, bet, money, token, updateUserInformation])
 
+  const preventMinus = (e) => {
+    if (e.code === "Minus") {
+      e.preventDefault()
+    }
+  }
+
+  const addMoney = () => {
+    if (localStorage.getItem("token")) {
+      AxiosKani.create(token)
+        .put(
+          "/user/money",
+          JSON.stringify({
+            money: money + 1,
+          })
+        )
+        .then(() => {
+          AxiosKani.create(localStorage.getItem("token"))
+            .get("/user/me", {})
+            .then((res) => {
+              updateUserInformation(res.data.data)
+            })
+            .catch((err) => {
+              console.log(err)
+            })
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    }
+  }
+
   buttons = [
     {
       text: "Heads",
@@ -190,7 +221,7 @@ const Coin = ({ userInformation, updateUserInformation }) => {
 
   renderHistory = history.map((item) => {
     return (
-      <div key={item.id} className={`w-6 h-6 bg-${item.color} rounded-full`}>
+      <div key={item.id} className={`w-6 h-6 bg-${item.color} rounded-full `}>
         {item.result}
       </div>
     )
@@ -211,37 +242,6 @@ const Coin = ({ userInformation, updateUserInformation }) => {
           <span className="font-bold text-red-500">Tails</span>
         </div>
       )
-    }
-  }
-
-  const preventMinus = (e) => {
-    if (e.code === "Minus") {
-      e.preventDefault()
-    }
-  }
-
-  const addMoney = () => {
-    if (localStorage.getItem("token")) {
-      AxiosKani.create(token)
-        .put(
-          "/user/money",
-          JSON.stringify({
-            money: money + 1,
-          })
-        )
-        .then(() => {
-          AxiosKani.create(localStorage.getItem("token"))
-            .get("/user/me", {})
-            .then((res) => {
-              updateUserInformation(res.data.data)
-            })
-            .catch((err) => {
-              console.log(err)
-            })
-        })
-        .catch((err) => {
-          console.log(err)
-        })
     }
   }
 

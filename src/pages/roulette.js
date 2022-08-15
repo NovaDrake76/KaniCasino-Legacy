@@ -101,7 +101,7 @@ const Roulette = ({ userInformation, updateUserInformation }) => {
         key={index}
       >
         <img
-          className="w-[100px] h-[100px] object-cover rounded cursor-pointer"
+          className="w-[100px] h-[100px] object-cover rounded cursor-pointer hover:scale-110 transition-all duration-150"
           src={`${prizes[index].image}`}
           alt={`${prizes[index].name}`}
         />

@@ -3,57 +3,107 @@
     {
       "name": "Dogs Case",
       "description": "A case full of dogs",
-      "image": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/22475212-6b9c-42c8-9e9e-ec412980781f/depngmn-3d94a57d-8ebb-4029-968c-62f3cf7562d2.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzIyNDc1MjEyLTZiOWMtNDJjOC05ZTllLWVjNDEyOTgwNzgxZlwvZGVwbmdtbi0zZDk0YTU3ZC04ZWJiLTQwMjktOTY4Yy02MmYzY2Y3NTYyZDIuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.8Co9s_iMUicAV_sf9oiiYCwnymx0VMaMhzEW_6IV3c8",
+      "image": "https://i.imgur.com/IYaibjC.png",
       "case": [
         {
-          "name": "Dog 1",
-          "image": "https://images.dog.ceo/breeds/mountain-bernese/n02107683_4494.jpg",
-          "probability": 5,
-          "id": 1,
+          "name": "Butter Dog",
+          "image": "https://i.imgur.com/uUfJSwW.png",
+          "probability": 50,
           "color": "yellow"
         },
         {
-          "name": "Dog 2",
-          "image": "https://images.dog.ceo/breeds/terrier-wheaten/n02098105_97.jpg",
-          "probability": 10,
-          "id": 2,
+          "name": "Shiba Inu",
+          "image": "https://i.imgur.com/m5U0fh6.jpg",
+          "probability": 100,
+          "color": "yellow"
+        },
+        {
+          "name": "Dachshund",
+          "image": "https://i.imgur.com/7BYTEfC.png",
+          "probability": 200,
           "color": "red"
         },
         {
-          "name": "Dog 3",
-          "image": "https://images.dog.ceo/breeds/african/n02116738_1739.jpg",
-          "probability": 20,
-          "id": 3,
+          "name": "Siberian Huskies",
+          "image": "https://i.imgur.com/nwDmE6K.png",
+          "probability": 300,
           "color": "red"
         },
         {
-          "name": "Dog 4",
-          "image": "https://images.dog.ceo/breeds/weimaraner/n02092339_6209.jpg",
-          "probability": 30,
-          "id": 4,
+          "name": "German Shepherd",
+          "image": "https://i.imgur.com/pORugRB.png",
+          "probability": 500,
+          "color": "pink"
+        },
+        {
+          "name": "Golden Retriever",
+          "image": "https://i.imgur.com/TJf8wal.png",
+          "probability": 700,
+          "color": "pink"
+        },
+        {
+          "name": "Beagle",
+          "image": "https://i.imgur.com/BDc8zjU.png",
+          "probability": 900,
+          "color": "pink"
+        },
+        {
+          "name": "Labrador",
+          "image": "https://i.imgur.com/dW3iN9q.png",
+          "probability": 1200,
           "color": "purple"
         },
         {
-          "name": "Dog 5",
-          "image": "https://images.dog.ceo/breeds/hound-ibizan/n02091244_2838.jpg",
-          "probability": 40,
-          "id": 5,
+          "name": "French Bulldogs",
+          "image": "https://i.imgur.com/7F1iiIX.png",
+          "probability": 1500,
+          "color": "purple"
+        },{
+          "name": "Yorkshire Terriers",
+          "image": "https://i.imgur.com/eBBY8LQ.jpg",
+          "probability": 1800,
+          "color": "purple"
+        },{
+          "name": "Pembroke Welsh Corgis",
+          "image": "https://i.imgur.com/8UqNo44.png",
+          "probability": 2100,
+          "color": "purple"
+        },{
+          "name": "Alaskan Malamute",
+          "image": "https://i.imgur.com/MnIiAiR.png",
+          "probability": 2400,
+          "color": "purple"
+        },{
+          "name": "Bichon Frise",
+          "image": "https://i.imgur.com/Oy05Kxn.png",
+          "probability": 2800,
           "color": "blue"
-        },
-        {
-          "name": "Dog 6",
-          "image": "https://images.dog.ceo/breeds/pug/n02110958_10186.jpg",
-          "probability": 70,
-          "id": 6,
+        },{
+          "name": "Airedale Terrier",
+          "image": "https://i.imgur.com/VRnehJH.png",
+          "probability": 3200,
           "color": "blue"
-        },
-        {
-          "name": "Dog 7",
-          "image": "https://images.dog.ceo/breeds/ovcharka-caucasian/IMG_20200205_163615.jpg",
-          "probability": 100,
-          "id": 7,
+        },{
+          "name": "Lhasa Apso",
+          "image": "https://i.imgur.com/A37HGAv.png",
+          "probability": 3600,
           "color": "blue"
-        }
+        },{
+          "name": "Jack Russell Terrier",
+          "image": "https://i.imgur.com/ye6FgGY.png",
+          "probability": 4000,
+          "color": "blue"
+        },{
+          "name": "Borzoi",
+          "image": "https://i.imgur.com/2WtxP1p.png",
+          "probability": 4400,
+          "color": "blue"
+        },{
+          "name": "Japanese Chin",
+          "image": "https://i.imgur.com/5pkIr6R.jpg",
+          "probability": 4800,
+          "color": "blue"
+        } 
       ]
     },
     {

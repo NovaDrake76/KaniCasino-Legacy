@@ -6,7 +6,7 @@ import { CgProfile } from "react-icons/cg"
 import { GiCoinflip } from "react-icons/gi"
 import { Link } from "react-router-dom"
 
-const Sidebar = (props) => {
+const Sidebar = () => {
   const [sidebarWidth, setSidebarWidth] = useState("w-60")
   const [open, setOpen] = useState(false)
   let renderSidebarItems
