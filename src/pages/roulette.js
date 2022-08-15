@@ -3,7 +3,7 @@ import AxiosKani from "../utils/axiosKani"
 import Cases from "../cases.json"
 import Helmet from "react-helmet"
 
-const Roulette = ({ userInformation, updateUserInformation }) => {
+const Roulette = ({ updateUserInformation }) => {
   const [container, setContainer] = useState(0)
   const [prize, setPrize] = useState(null)
   const [prizeDefined, setPrizeDefined] = useState(false)
@@ -187,10 +187,10 @@ const Roulette = ({ userInformation, updateUserInformation }) => {
           <div className="flex flex-col gap-3">
             <h2 className="text-2xl font-bold">{prizes[container].name}</h2>
             <div className="w-3/4 bg-slate-500 flex self-center  h-[2px]" />
-            <div className="flex flex-col gap-4 md:flex-row">
-              <div className="flex flex-col items-center gap-2">
+            <div className="flex flex-col justify-around gap-4 md:flex-row">
+              <div className="flex flex-col items-center w-2/5 gap-2">
                 <img
-                  className="w-[120px] h-[120px] md:min-w-[300px] md:h-[300px] object-cover rounded "
+                  className="w-[150px] h-[150px] md:min-w-[300px] md:h-[300px] object-cover rounded "
                   src={`${prizes[container].image}`}
                   alt={`${prizes[container].name}`}
                 />
@@ -198,7 +198,7 @@ const Roulette = ({ userInformation, updateUserInformation }) => {
                   {prizes[container].description}
                 </span>
               </div>
-              <div className="flex flex-col justify-center w-full gap-4 align-center">
+              <div className="flex flex-col justify-center w-3/5 gap-4 align-center">
                 {prizeRenderAux}
                 <div className="flex gap-4"></div>
 

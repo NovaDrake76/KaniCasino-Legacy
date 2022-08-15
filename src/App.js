@@ -44,10 +44,7 @@ function App() {
             <Route
               path="roulette"
               element={
-                <Roulette
-                  userInformation={userInformation}
-                  updateUserInformation={updateUserInformation}
-                />
+                <Roulette updateUserInformation={updateUserInformation} />
               }
             />
             <Route path="crash" element={<Crash />} />
