@@ -4,38 +4,48 @@ import { Helmet } from "react-helmet"
 
 function Profile(userInformation) {
   const [renderInventory, setRenderInventory] = useState(undefined)
+  const [inventory, setInventory] = useState([])
   const prizes = Cases.prizes
-  let imageLink
+
+  useEffect(() => {
+    if (userInformation.userInformation !== undefined) {
+      userInformation.userInformation.inventory.map((key) => {
+        for (const i of prizes) {
+          for (const j of i.case) {
+            //eslint-disable-next-line
+            if (j.name === key) {
+              setInventory((prevState) => [...prevState, j])
+            }
+          }
+        }
+        return null
+      })
+    }
+  }, [userInformation, prizes])
 
   useEffect(() => {
     if (userInformation.userInformation !== undefined) {
       setRenderInventory(
         <div className="flex flex-wrap justify-center gap-4">
-          {userInformation.userInformation.inventory.map((key) => {
-            for (const i of prizes) {
-              for (const j of i.case) {
-                //eslint-disable-next-line
-                if (j.name === key) imageLink = j
-              }
-            }
+          {inventory.map((key) => {
             return (
               <div
-                key={key + Math.random()}
+                key={key.probability + Math.random()}
                 className="flex max-w-[150px]  flex-col items-center gap-2"
               >
                 <img
-                  className={`w-[150px] h-[110px] border-b-4 border-${imageLink.color}-500  bg-gray-400 bg-opacity-25 object-scale-down rounded`}
-                  src={`${imageLink.image}`}
-                  alt={`${imageLink.name}`}
+                  className={`w-[150px] h-[110px] border-b-4 border-${key.color}-500  bg-gray-400 bg-opacity-25 object-scale-down rounded`}
+                  src={`${key.image}`}
+                  alt={`${key.name}`}
                 />
-                <p className="text-sm">{key}</p>
+                <p className="text-sm">{key.name}</p>
               </div>
             )
           })}
         </div>
       )
     }
-  }, [userInformation])
+  }, [userInformation, inventory])
 
   if (userInformation.userInformation !== undefined) {
     return (
@@ -61,7 +71,7 @@ function Profile(userInformation) {
               <span>Your items:</span>
 
               <div className="w-full bg-slate-500 flex self-center  h-[2px]" />
-              {userInformation.userInformation.inventory.length > 0 ? (
+              {inventory.length > 0 ? (
                 renderInventory
               ) : (
                 <div className="flex items-center gap-3">
