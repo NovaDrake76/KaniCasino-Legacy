@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react"
 import Cases from ".././cases.json"
 import { Helmet } from "react-helmet"
-import { BsSortAlphaDown } from "react-icons/bs"
+import { BsSortAlphaDown, BsSortAlphaUp, BsStars } from "react-icons/bs"
+import { TbStarOff } from "react-icons/tb"
 
 function Profile(userInformation) {
   const [inventory, setInventory] = useState([])
   const [renderInventory, setRenderInventory] = useState("")
-  const [sort, setSort] = useState(false)
+  const [sortName, setSortName] = useState(false)
+  const [sortRarity, setSortRarity] = useState(false)
 
   const prizes = Cases.prizes
 
@@ -26,8 +28,23 @@ function Profile(userInformation) {
   }, [userInformation, prizes])
 
   function sortByName() {
-    setInventory(inventory.sort((a, b) => a.name.localeCompare(b.name)))
-    setSort(true)
+    if (sortName === false) {
+      setInventory(inventory.sort((a, b) => a.name.localeCompare(b.name)))
+      setSortName(true)
+    } else {
+      setInventory(inventory.sort((a, b) => b.name.localeCompare(a.name)))
+      setSortName(false)
+    }
+  }
+
+  function sortByRarity() {
+    if (sortRarity === false) {
+      setInventory(inventory.sort((a, b) => b.color.localeCompare(a.color)))
+      setSortRarity(true)
+    } else {
+      setInventory(inventory.sort((a, b) => a.color.localeCompare(b.color)))
+      setSortRarity(false)
+    }
   }
 
   useEffect(() => {
@@ -52,7 +69,7 @@ function Profile(userInformation) {
         </div>
       )
     }
-  }, [inventory, sort, userInformation.userInformation])
+  }, [inventory, sortName, sortRarity, userInformation.userInformation])
 
   if (userInformation.userInformation !== undefined) {
     return (
@@ -79,9 +96,12 @@ function Profile(userInformation) {
               <span>Your items</span>
 
               <div className="w-full bg-slate-500 flex self-center  h-[2px]" />
-              <div className="flex gap-4">
-                <button onClick={sortByName} className="text-2xl py-4">
-                  <BsSortAlphaDown />
+              <div className="flex gap-4 py-4">
+                <button onClick={sortByName} className="text-2xl ">
+                  {sortName === false ? <BsSortAlphaDown /> : <BsSortAlphaUp />}
+                </button>
+                <button onClick={sortByRarity} className="text-2xl">
+                  {sortRarity === false ? <BsStars /> : <TbStarOff />}
                 </button>
               </div>
               {inventory.length > 0 ? (
