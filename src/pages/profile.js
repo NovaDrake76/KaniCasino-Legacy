@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react"
 import Cases from ".././cases.json"
 import { Helmet } from "react-helmet"
+import { BsSortAlphaDown } from "react-icons/bs"
 
 function Profile(userInformation) {
-  const [renderInventory, setRenderInventory] = useState(undefined)
   const [inventory, setInventory] = useState([])
+  const [renderInventory, setRenderInventory] = useState("")
+  const [sort, setSort] = useState(false)
+
   const prizes = Cases.prizes
 
   useEffect(() => {
@@ -12,7 +15,6 @@ function Profile(userInformation) {
       userInformation.userInformation.inventory.map((key) => {
         for (const i of prizes) {
           for (const j of i.case) {
-            //eslint-disable-next-line
             if (j.name === key) {
               setInventory((prevState) => [...prevState, j])
             }
@@ -22,6 +24,11 @@ function Profile(userInformation) {
       })
     }
   }, [userInformation, prizes])
+
+  function sortByName() {
+    setInventory(inventory.sort((a, b) => a.name.localeCompare(b.name)))
+    setSort(true)
+  }
 
   useEffect(() => {
     if (userInformation.userInformation !== undefined) {
@@ -45,7 +52,7 @@ function Profile(userInformation) {
         </div>
       )
     }
-  }, [userInformation, inventory])
+  }, [inventory, sort, userInformation.userInformation])
 
   if (userInformation.userInformation !== undefined) {
     return (
@@ -67,10 +74,16 @@ function Profile(userInformation) {
                 </h2>
               </div>
             </div>
+
             <div className="flex flex-col items-start gap-3">
-              <span>Your items:</span>
+              <span>Your items</span>
 
               <div className="w-full bg-slate-500 flex self-center  h-[2px]" />
+              <div className="flex gap-4">
+                <button onClick={sortByName} className="text-2xl py-4">
+                  <BsSortAlphaDown />
+                </button>
+              </div>
               {inventory.length > 0 ? (
                 renderInventory
               ) : (

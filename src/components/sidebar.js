@@ -48,8 +48,8 @@ const Sidebar = () => {
           open ? "justify-center" : "justify-start"
         }  hover:text-white`}
       >
-        <button className="flex gap-3">
-          {item.icon}
+        <button className="flex gap-3 text-ellipsis">
+          <span>{item.icon}</span>
           {open ? "" : `${item.name}`}
         </button>
       </Link>
@@ -65,6 +65,7 @@ const Sidebar = () => {
           open ? "justify-center" : "justify-start"
         } w-full text-3xl hover:text-white `}
         onClick={toggleSidebar}
+        aria-label="Open or close the sidebar"
       >
         <GiHamburgerMenu />
       </button>

@@ -36,7 +36,7 @@ function Login({ updateUserInformation }) {
   }
 
   return (
-    <div id="SignInButton">
+    <div id="SignInButton" aria-label="Sign in">
       <GoogleLogin
         clientId={clientId}
         buttonText="Login"

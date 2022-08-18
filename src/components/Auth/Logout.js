@@ -12,7 +12,7 @@ function Logout() {
   }
 
   return (
-    <div id="SignOutButton">
+    <div id="SignOutButton" aria-label="Sign Out">
       <GoogleLogout
         clientId={clientId}
         disabledStyle={{ all: "none" }}
