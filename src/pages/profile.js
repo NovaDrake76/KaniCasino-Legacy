@@ -83,8 +83,14 @@ function Profile(userInformation) {
 
   renderCases = prizes.map((key) => {
     return (
-      <button key={key.name} onClick={() => chooseCase(key.name)}>
-        <span className="text-gray-300 hover:text-white">{key.name}</span>
+      <button
+        key={key.name}
+        onClick={() => chooseCase(key.name)}
+        className={
+          "border p-2 border-gray-500 hover:border-gray-300 transition-all hover:text-white text-gray-300 rounded"
+        }
+      >
+        <span>{key.name}</span>
       </button>
     )
   })
@@ -95,7 +101,7 @@ function Profile(userInformation) {
 
     if (userInformation.userInformation !== undefined) {
       setInventory([])
-      userInformation.userInformation.inventory.reverse().map((key) => {
+      userInformation.userInformation.inventory.map((key) => {
         for (const j of caseToRender.case) {
           if (j.name === key) {
             setInventory((prevState) => [...prevState, j])
@@ -134,7 +140,7 @@ function Profile(userInformation) {
               </div>
 
               <div className="w-full bg-slate-500 flex self-center  h-[2px]" />
-              <div className="flex gap-4 py-4 text-gray-300 ">
+              <div className="flex gap-4 py-2 text-gray-300 ">
                 <button
                   onClick={sortByName}
                   className="text-2xl hover:text-white"
@@ -147,7 +153,12 @@ function Profile(userInformation) {
                 >
                   {sortRarity === false ? <BsStars /> : <TbStarOff />}
                 </button>
-                <button onClick={getInventory} className={"hover:text-white"}>
+                <button
+                  onClick={getInventory}
+                  className={
+                    "hover:text-white border p-2 border-gray-500 hover:border-gray-300 transition-all text-gray-300 rounded"
+                  }
+                >
                   All
                 </button>
                 {renderCases}
