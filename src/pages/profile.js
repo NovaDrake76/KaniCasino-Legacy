@@ -9,23 +9,33 @@ function Profile(userInformation) {
   const [renderInventory, setRenderInventory] = useState("")
   const [sortName, setSortName] = useState(false)
   const [sortRarity, setSortRarity] = useState(false)
+  const [totalItems, setTotalItems] = useState(0)
 
   const prizes = Cases.prizes
+  let renderCases
 
   useEffect(() => {
+    getInventory()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userInformation, prizes])
+
+  function getInventory() {
     if (userInformation.userInformation !== undefined) {
-      userInformation.userInformation.inventory.map((key) => {
+      setInventory([])
+      setTotalItems(0)
+      userInformation.userInformation.inventory.reverse().map((key) => {
         for (const i of prizes) {
           for (const j of i.case) {
             if (j.name === key) {
               setInventory((prevState) => [...prevState, j])
+              setTotalItems((prevState) => prevState + 1)
             }
           }
         }
         return null
       })
     }
-  }, [userInformation, prizes])
+  }
 
   function sortByName() {
     if (sortName === false) {
@@ -71,6 +81,31 @@ function Profile(userInformation) {
     }
   }, [inventory, sortName, sortRarity, userInformation.userInformation])
 
+  renderCases = prizes.map((key) => {
+    return (
+      <button key={key.name} onClick={() => chooseCase(key.name)}>
+        <span className="text-gray-300 hover:text-white">{key.name}</span>
+      </button>
+    )
+  })
+
+  function chooseCase(e) {
+    //get the case from prizes with the name of the choosen case
+    const caseToRender = prizes.find((key) => key.name === e)
+
+    if (userInformation.userInformation !== undefined) {
+      setInventory([])
+      userInformation.userInformation.inventory.reverse().map((key) => {
+        for (const j of caseToRender.case) {
+          if (j.name === key) {
+            setInventory((prevState) => [...prevState, j])
+          }
+        }
+        return null
+      })
+    }
+  }
+
   if (userInformation.userInformation !== undefined) {
     return (
       <>
@@ -93,16 +128,29 @@ function Profile(userInformation) {
             </div>
 
             <div className="flex flex-col items-start gap-3">
-              <span>Your items</span>
+              <div className="flex flex-col items-start ">
+                <span className="text-xs text-gray-400">{totalItems}</span>
+                <span>Your items</span>
+              </div>
 
               <div className="w-full bg-slate-500 flex self-center  h-[2px]" />
-              <div className="flex gap-4 py-4">
-                <button onClick={sortByName} className="text-2xl ">
+              <div className="flex gap-4 py-4 text-gray-300 ">
+                <button
+                  onClick={sortByName}
+                  className="text-2xl hover:text-white"
+                >
                   {sortName === false ? <BsSortAlphaDown /> : <BsSortAlphaUp />}
                 </button>
-                <button onClick={sortByRarity} className="text-2xl">
+                <button
+                  onClick={sortByRarity}
+                  className="text-2xl hover:text-white"
+                >
                   {sortRarity === false ? <BsStars /> : <TbStarOff />}
                 </button>
+                <button onClick={getInventory} className={"hover:text-white"}>
+                  All
+                </button>
+                {renderCases}
               </div>
               {inventory.length > 0 ? (
                 renderInventory
