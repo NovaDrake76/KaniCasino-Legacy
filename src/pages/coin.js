@@ -221,7 +221,10 @@ const Coin = ({ userInformation, updateUserInformation }) => {
 
   renderHistory = history.map((item) => {
     return (
-      <div key={item.id} className={`w-6 h-6 bg-${item.color} rounded-full `}>
+      <div
+        key={item.id}
+        className={`w-6 max-h-6 bg-${item.color} rounded-full `}
+      >
         {item.result}
       </div>
     )
