@@ -307,7 +307,7 @@ const Coin = ({ userInformation, updateUserInformation }) => {
           </div>
           <div className="flex flex-col w-full h-full divide-y divide-gray-400">
             <div className="flex p-4">
-              <div className="flex items-center justify-center w-full rounded bg-slate-600 max-h-64">
+              <div className="flex items-center justify-center w-full h-64 rounded bg-slate-600">
                 <img
                   src={`/images/coin${coin[0].name}.png`}
                   alt="coin"
