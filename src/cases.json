@@ -919,6 +919,12 @@
           "probability": 100,
           "id": 19,
           "color": "blue"
+        },
+        {
+          "name": "snke",
+          "image": "https://i.imgur.com/0iwjG0k.png",
+          "probability": 120,
+          "color": "blue"
         }
       ]
     },
