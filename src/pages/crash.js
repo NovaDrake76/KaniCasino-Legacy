@@ -10,37 +10,46 @@ const Crash = () => {
   const [multiplier, setMultiplier] = useState(1.0)
   const [multiplierLembrance, setMultiplierLembrance] = useState(null)
   const [intervalPeriod, setIntervalPeriod] = useState(100)
+  const [multiplierDefined, setMultiplierDefined] = useState(false)
+  const [randomNumber, setRandomNumber] = useState(0)
+  const E = 2**52
 
   let renderCrash
 
   useEffect(() => {
+    if(multiplierDefined === false) {
+       setRandomNumber((0.99*(E))/(E - Math.random()*(E)))
+       setMultiplierDefined(true)
+    }
     if (startGame) {
-      let randomNumber = Math.floor(Math.random() * 100)
-
       const interval = setInterval(() => {
         if (multiplier < randomNumber) {
           setMultiplier((multiplier) => multiplier + 0.01)
+          console.log( randomNumber + " and " + multiplier) 
+
         } else {
           clearInterval(interval)
           setEndGame(true)
           setMultiplierLembrance(multiplier)
+          
         }
 
         if (intervalPeriod > 10) {
           setIntervalPeriod(
-            (intervalPeriod) => intervalPeriod - intervalPeriod * 0.001
+            (intervalPeriod) => intervalPeriod - intervalPeriod * 0.003
           )
         }
       }, intervalPeriod)
       return () => clearInterval(interval)
     }
-  }, [startGame, intervalPeriod, multiplier])
+  }, [startGame, multiplier, intervalPeriod, E, randomNumber, multiplierDefined])
 
   useEffect(() => {
     if (endGame) {
       setMultiplier(1.0)
       setIntervalPeriod(100)
       setStartGame(false)
+      setMultiplierDefined(false)
       setTimeout(() => {
         document.getElementById("start").disabled = false
       }, 1000)
