@@ -36,10 +36,7 @@ const Coin = ({ userInformation, updateUserInformation }) => {
       transition: Slide,
     })
 
-  let buttons
-  let renderButtons
-  let renderSelectedFace
-  let renderHistory
+  let buttons, renderButtons, renderSelectedFace, renderHistory
 
   const flipCoin = () => {
     if (placeBet > money) {

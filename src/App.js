@@ -47,7 +47,9 @@ function App() {
                 <Roulette updateUserInformation={updateUserInformation} />
               }
             />
-            <Route path="crash" element={<Crash />} />
+            <Route path="crash" element={<Crash  userInformation={userInformation}
+                  updateUserInformation={updateUserInformation} />} 
+                />
             <Route
               path="profile"
               element={<Profile userInformation={userInformation} />}

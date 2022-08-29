@@ -12,15 +12,7 @@ const Roulette = ({ updateUserInformation }) => {
   const [spining, setSpining] = useState(false)
   const prizes = Cases.prizes
 
-  let prizeRenderAux
-  let caseRender
-  let prizeRoulette
-  let prizeRouletteAux
-  let prizeInfo
-  let possiblePrizes
-  let probability
-  let randomNumber
-  let rouletteContainer
+  let prizeRenderAux, caseRender, prizeRoulette, prizeRouletteAux, prizeInfo, possiblePrizes, probability, randomNumber, rouletteContainer
 
   const getRandomPrize = () => {
     setSpining(true)
