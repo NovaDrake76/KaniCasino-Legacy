@@ -4,7 +4,7 @@ import AxiosKani from "../utils/axiosKani"
 import { ToastContainer, toast, Slide } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 
-const Crash = ({userInformation, updateUserInformation}) => {
+const Crash = ({ userInformation, updateUserInformation }) => {
   const [startGame, setStartGame] = useState(false)
   const [endGame, setEndGame] = useState(false)
   const [endGameMesage, setEndGameMessage] = useState("")
@@ -18,21 +18,19 @@ const Crash = ({userInformation, updateUserInformation}) => {
   const [randomNumber, setRandomNumber] = useState(0)
   const [history, setHistory] = useState([])
   const token = localStorage.getItem("token")
-  const E = 2**52
+  const E = 2 ** 52
 
   let renderCrash, renderHistory
 
   useEffect(() => {
-
-    if(multiplierDefined === false) {
-       setRandomNumber((0.99*(E))/(E - Math.random()*(E)))
-       setMultiplierDefined(true)
+    if (multiplierDefined === false) {
+      setRandomNumber((0.99 * E) / (E - Math.random() * E))
+      setMultiplierDefined(true)
     }
     if (startGame) {
       const interval = setInterval(() => {
         if (multiplier < randomNumber) {
           setMultiplier((multiplier) => multiplier + 0.01)
-
         } else {
           clearInterval(interval)
           setEndGame(true)
@@ -70,7 +68,17 @@ const Crash = ({userInformation, updateUserInformation}) => {
       }, intervalPeriod)
       return () => clearInterval(interval)
     }
-  }, [startGame, multiplier, intervalPeriod, E, randomNumber, multiplierDefined, money, token, updateUserInformation])
+  }, [
+    startGame,
+    multiplier,
+    intervalPeriod,
+    E,
+    randomNumber,
+    multiplierDefined,
+    money,
+    token,
+    updateUserInformation,
+  ])
 
   useEffect(() => {
     if (endGame) {
@@ -79,7 +87,6 @@ const Crash = ({userInformation, updateUserInformation}) => {
       setStartGame(false)
       setMultiplierDefined(false)
       setHistory([...history, multiplierLembrance])
-   
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [endGame, multiplierLembrance])
@@ -103,11 +110,12 @@ const Crash = ({userInformation, updateUserInformation}) => {
       })
     } else {
       setStartGame(true)
-    if (placeBet.length > 0) {
-      setBet(placeBet)
-      setMoney(money - placeBet)
+      if (placeBet.length > 0) {
+        setBet(placeBet)
+        setMoney(money - placeBet)
+      }
     }
-  }}
+  }
 
   const preventMinus = (e) => {
     if (e.code === "Minus") {
@@ -120,15 +128,24 @@ const Crash = ({userInformation, updateUserInformation}) => {
   }
 
   if (startGame === true) {
-    renderCrash = <span>{multiplier.toFixed(2)}</span>
+    renderCrash = (
+      <div className="flex flex-col items-center justify-center gap-3 ">
+        <span>{multiplier.toFixed(2)}X</span>
+        <img src="spin.gif" alt="spinning" />
+      </div>
+    )
   } else if (endGame) {
-    renderCrash = <span>{endGameMesage} {multiplierLembrance.toFixed(2)}</span>
+    renderCrash = (
+      <span>
+        {endGameMesage} {multiplierLembrance.toFixed(2)}
+      </span>
+    )
   }
 
   const cashout = () => {
-      setMoney(money + bet * multiplier)
-      setMultiplierLembrance(multiplier)
-      setEndGameMessage("Landed!")
+    setMoney(money + bet * multiplier)
+    setMultiplierLembrance(multiplier)
+    setEndGameMessage("Landed!")
 
     if (localStorage.getItem("token")) {
       AxiosKani.create(token)
@@ -153,29 +170,32 @@ const Crash = ({userInformation, updateUserInformation}) => {
         })
     }
     setEndGame(true)
-
   }
 
   renderHistory = history.map((item, index) => {
     if (item > 1.81) {
       return (
-        <div key={index} className="text-green-500">
+        <div key={index} className="w-12 bg-green-600 rounded ">
           {item.toFixed(2)}
         </div>
       )
-    }else{
+    } else {
       return (
-        <div key={index} className="text-red-500">
-          {item.toFixed(2)}
+        <div className="flex items-center justify-center rounded">
+          <div
+            key={index}
+            className="items-center justify-center w-12 text-gray-300 rounded text-clip bg-slate-600"
+          >
+            {item.toFixed(2)}
+          </div>
         </div>
       )
     }
   })
 
-
   return (
     <>
-     <ToastContainer
+      <ToastContainer
         position="bottom-right"
         autoClose={1000}
         hideProgressBar={true}
@@ -190,7 +210,7 @@ const Crash = ({userInformation, updateUserInformation}) => {
       </Helmet>
       <div className="flex justify-center text-base">
         <div className="flex flex-col-reverse w-full max-w-3xl divide-x divide-gray-400 rounded md:flex-row bg-slate-500">
-          <div className="flex flex-col h-full gap-2 p-4 max-h-72">
+          <div className="flex flex-col h-full gap-2 p-4 w-60 max-h-72">
             <div className="flex py-2 rounded bg-slate-600">
               <span className="flex items-center px-2 text-gray-200">$</span>
               <input
@@ -208,8 +228,13 @@ const Crash = ({userInformation, updateUserInformation}) => {
 
             <div className="flex flex-col h-full">
               {startGame ? (
-                <button id="cashout" className="w-full p-2 transition-all duration-200 bg-blue-600 rounded hover:bg-blue-500 "  onClick={() => {
-                  cashout()}}>
+                <button
+                  id="cashout"
+                  className="w-full p-2 transition-all duration-200 bg-blue-600 rounded hover:bg-blue-500 "
+                  onClick={() => {
+                    cashout()
+                  }}
+                >
                   Cashout
                 </button>
               ) : (
@@ -231,12 +256,12 @@ const Crash = ({userInformation, updateUserInformation}) => {
                 {renderCrash}
               </div>
             </div>
-            <div className="flex-col hidden gap-2 p-4 lg:flex">
+            <div className="flex-col hidden gap-2 p-3 lg:flex">
               <span className="flex text-xs font-bold text-gray-200">
                 PREVIOUS GAMES
               </span>
               <div className="flex self-end h-6 max-w-[500px] gap-2 overflow-hidden ">
-              {renderHistory}
+                {renderHistory}
               </div>
             </div>
           </div>
