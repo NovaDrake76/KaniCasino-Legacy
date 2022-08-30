@@ -7,7 +7,7 @@ import "react-toastify/dist/ReactToastify.css"
 const Crash = ({ userInformation, updateUserInformation }) => {
   const [startGame, setStartGame] = useState(false)
   const [endGame, setEndGame] = useState(false)
-  const [endGameMesage, setEndGameMessage] = useState("")
+  const [endGameMessage, setEndGameMessage] = useState("")
   const [placeBet, setPlaceBet] = useState(false)
   const [bet, setBet] = useState(0)
   const [money, setMoney] = useState(0)
@@ -17,6 +17,7 @@ const Crash = ({ userInformation, updateUserInformation }) => {
   const [multiplierDefined, setMultiplierDefined] = useState(false)
   const [randomNumber, setRandomNumber] = useState(0)
   const [history, setHistory] = useState([])
+  const [backgroundColor, setBackgroundColor] = useState("")
   const token = localStorage.getItem("token")
   const E = 2 ** 52
 
@@ -34,6 +35,7 @@ const Crash = ({ userInformation, updateUserInformation }) => {
         } else {
           clearInterval(interval)
           setEndGame(true)
+          setBackgroundColor("bg-red-500")
           setEndGameMessage("Crashed!")
           setMultiplierLembrance(multiplier)
           if (localStorage.getItem("token")) {
@@ -87,7 +89,12 @@ const Crash = ({ userInformation, updateUserInformation }) => {
       setStartGame(false)
       setMultiplierDefined(false)
       setHistory([...history, multiplierLembrance])
+      if (history.length >= 9) {
+        history.shift()
+      }
+
     }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [endGame, multiplierLembrance])
 
@@ -123,28 +130,10 @@ const Crash = ({ userInformation, updateUserInformation }) => {
     }
   }
 
-  if (multiplierLembrance == null) {
-    renderCrash = <span>Crash</span>
-  }
-
-  if (startGame === true) {
-    renderCrash = (
-      <div className="flex flex-col items-center justify-center gap-3 ">
-        <span>{multiplier.toFixed(2)}X</span>
-        <img src="spin.gif" alt="spinning" />
-      </div>
-    )
-  } else if (endGame) {
-    renderCrash = (
-      <span>
-        {endGameMesage} {multiplierLembrance.toFixed(2)}
-      </span>
-    )
-  }
-
   const cashout = () => {
     setMoney(money + bet * multiplier)
     setMultiplierLembrance(multiplier)
+    setBackgroundColor("bg-green-500")
     setEndGameMessage("Landed!")
 
     if (localStorage.getItem("token")) {
@@ -172,6 +161,30 @@ const Crash = ({ userInformation, updateUserInformation }) => {
     setEndGame(true)
   }
 
+
+  if (multiplierLembrance == null) {
+    renderCrash = <div className="flex justify-center items-center">
+      <img src={`/images/crash.png`} alt="crash" className="w-4/5"/>
+    </div>
+  }
+
+  if (startGame === true) {
+    renderCrash = (
+      <div className="flex flex-col items-center justify-center gap-3 ">
+        <div className="p-3 bg-gray-700 rounded"><span className="text-2xl font-bold tracking-wider ">{multiplier.toFixed(2)}X</span></div>
+        <img src="spin.gif" alt="spinning" />
+      </div>
+    )
+  } else if (endGame) {
+    renderCrash = (
+      <div className={`p-3 ${backgroundColor} rounded`}><span className="text-2xl font-semibold ">
+        {endGameMessage} {multiplierLembrance.toFixed(2)}
+      </span></div>
+
+    )
+  }
+
+
   renderHistory = history.map((item, index) => {
     if (item > 1.81) {
       return (
@@ -181,9 +194,8 @@ const Crash = ({ userInformation, updateUserInformation }) => {
       )
     } else {
       return (
-        <div className="flex items-center justify-center rounded">
+        <div  key={index} className="flex items-center justify-center rounded">
           <div
-            key={index}
             className="items-center justify-center w-12 text-gray-300 rounded text-clip bg-slate-600"
           >
             {item.toFixed(2)}
@@ -209,8 +221,8 @@ const Crash = ({ userInformation, updateUserInformation }) => {
         <title>Crash | KaniCasino</title>
       </Helmet>
       <div className="flex justify-center text-base">
-        <div className="flex flex-col-reverse w-full max-w-3xl divide-x divide-gray-400 rounded md:flex-row bg-slate-500">
-          <div className="flex flex-col h-full gap-2 p-4 w-60 max-h-72">
+        <div className="flex flex-col-reverse w-full max-w-3xl md:divide-x items-center md:items-start divide-gray-400 rounded md:flex-row bg-slate-500">
+          <div className="flex flex-col h-full gap-2 p-4 max-h-72">
             <div className="flex py-2 rounded bg-slate-600">
               <span className="flex items-center px-2 text-gray-200">$</span>
               <input
@@ -260,7 +272,7 @@ const Crash = ({ userInformation, updateUserInformation }) => {
               <span className="flex text-xs font-bold text-gray-200">
                 PREVIOUS GAMES
               </span>
-              <div className="flex self-end h-6 max-w-[500px] gap-2 overflow-hidden ">
+              <div className="flex self-end h-6 max-w-[550px] gap-2 overflow-hidden ">
                 {renderHistory}
               </div>
             </div>

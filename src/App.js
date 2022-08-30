@@ -36,7 +36,7 @@ function App() {
         userInformation={userInformation}
         updateUserInformation={updateUserInformation}
       />
-      <div className="flex w-full h-[calc(100vh-64px)]  divide-x divide-gray-500 bg-slate-600">
+      <div className="flex w-full h-[calc(100vh-64px)]   md:divide-x divide-gray-500 bg-slate-600">
         <Sidebar />
         <div className="w-full p-6 overflow-auto ">
           <Routes>
