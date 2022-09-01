@@ -5,16 +5,22 @@ import { GiHamburgerMenu } from "react-icons/gi"
 import { CgProfile } from "react-icons/cg"
 import { GiCoinflip } from "react-icons/gi"
 import { Link } from "react-router-dom"
+import { useEffect } from "react"
 
-const Sidebar = () => {
+const Sidebar = ({sidebarOpen, setSidebarOpen }) => {
   const [sidebarWidth, setSidebarWidth] = useState("w-60")
-  const [open, setOpen] = useState(false)
   let renderSidebarItems
 
-  const toggleSidebar = () => {
-    setSidebarWidth(sidebarWidth === "w-60" ? "w-[80px]" : "w-60")
-    setOpen(!open)
-  }
+  useEffect(() => {
+    if (sidebarOpen) {
+      setSidebarWidth("w-60")
+    } else {
+      setSidebarWidth("w-[80px]")
+    }
+
+  
+    console.log("sidebarOpen: ", sidebarOpen)
+  }, [sidebarOpen])
 
   const sidebarItems = [
     {
@@ -45,12 +51,12 @@ const Sidebar = () => {
         to={item.link}
         key={item.name}
         className={`w-full flex  ${
-          open ? "justify-center" : "justify-start"
+          sidebarOpen ? "justify-start"  : "justify-center" 
         }  hover:text-white`}
       >
         <button className="flex gap-3 text-ellipsis">
           <span>{item.icon}</span>
-          {open ? "" : `${item.name}`}
+          {sidebarOpen ? `${item.name}` : ""}
         </button>
       </Link>
     )
@@ -58,13 +64,13 @@ const Sidebar = () => {
 
   return (
     <div
-      className={`flex-col text-[#c5c9d4] items-start hidden gap-5 p-5 ${sidebarWidth} md:flex transition-all duration-300 ease-in-out`}
+      className={`flex-col text-[#c5c9d4] items-start ${sidebarOpen ? "hidden" : "flex"} gap-5 p-5 ${sidebarWidth} md:flex md:transition-all md:duration-300 ease-in-out`}
     >
       <button
-        className={`flex ${
-          open ? "justify-center" : "justify-start"
+        className={`hidden md:flex ${
+          sidebarOpen ? "justify-start" : "justify-center"
         } w-full text-3xl hover:text-white `}
-        onClick={toggleSidebar}
+        onClick={() => setSidebarOpen(!sidebarOpen)}
         aria-label="Open or close the sidebar"
       >
         <GiHamburgerMenu />

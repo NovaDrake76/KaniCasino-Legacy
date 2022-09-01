@@ -15,6 +15,7 @@ const clientId =
 
 function App() {
   const [userInformation, updateUserInformation] = useState(undefined)
+  const [sidebarOpen, setSidebarOpen] = useState(true)
 
   useEffect(() => {
     function start() {
@@ -35,9 +36,13 @@ function App() {
       <Navbar
         userInformation={userInformation}
         updateUserInformation={updateUserInformation}
+        sidebarOpen={sidebarOpen}
+        setSidebarOpen={setSidebarOpen}
       />
       <div className="flex w-full h-[calc(100vh-64px)]   md:divide-x divide-gray-500 bg-slate-600">
-        <Sidebar />
+        <Sidebar
+          sidebarOpen={sidebarOpen}
+          setSidebarOpen={setSidebarOpen}/>
         <div className="w-full p-6 overflow-auto ">
           <Routes>
             <Route path="/" element={<Landing />} />
