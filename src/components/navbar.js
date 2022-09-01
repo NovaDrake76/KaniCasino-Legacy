@@ -17,7 +17,7 @@ const Navbar = ({ userInformation, updateUserInformation, sidebarOpen, setSideba
           <div className="gap-2 px-2 md:px-5 py-2 border border-gray-500 rounded flex">
             <span className="text-gray-400">$</span>
             <span className="font-semibold text-sm md:text-lg flex  items-center">
-              <NumberFormat value={userInformation.money} displayType={'text'} thousandSeparator={true}  decimalScale={2}/>
+              <NumberFormat value={userInformation.money} displayType={'text'} thousandSeparator={true} fixedDecimalScale={true} decimalScale={2}/>
             </span>
           </div>
           <Link to={"/profile"}>

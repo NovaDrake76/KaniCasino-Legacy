@@ -18,6 +18,8 @@ const Crash = ({ userInformation, updateUserInformation }) => {
   const [randomNumber, setRandomNumber] = useState(0)
   const [history, setHistory] = useState([])
   const [backgroundColor, setBackgroundColor] = useState("")
+  //eslint-disable-next-line
+  const [disableButton, setDisableButton] = useState(false)
   const token = localStorage.getItem("token")
   const E = 2 ** 52
 
@@ -131,7 +133,11 @@ const Crash = ({ userInformation, updateUserInformation }) => {
   }
 
   const cashout = () => {
-    setMoney(money + bet * multiplier)
+    // setDisableButton(true)
+    // setTimeout(() => {
+    //   setDisableButton(false)
+    // }, 1000)
+    setMoney(money + (bet * multiplier))
     setMultiplierLembrance(multiplier)
     setBackgroundColor("bg-green-500")
     setEndGameMessage("Landed!")
@@ -243,6 +249,7 @@ const Crash = ({ userInformation, updateUserInformation }) => {
                 <button
                   id="cashout"
                   className="w-full p-2 transition-all duration-200 bg-blue-600 rounded hover:bg-blue-500 "
+                  disabled={disableButton}
                   onClick={() => {
                     cashout()
                   }}
@@ -253,6 +260,7 @@ const Crash = ({ userInformation, updateUserInformation }) => {
                 <button
                   id="start"
                   className="w-full p-2 transition-all duration-200 bg-blue-600 rounded hover:bg-blue-500"
+                  disabled={disableButton}
                   onClick={() => {
                     start()
                   }}
