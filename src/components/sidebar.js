@@ -8,18 +8,17 @@ import { Link } from "react-router-dom"
 import { useEffect } from "react"
 
 const Sidebar = ({sidebarOpen, setSidebarOpen }) => {
-  const [sidebarWidth, setSidebarWidth] = useState("w-60")
+  const [sidebarWidth, setSidebarWidth] = useState("w-screen md:w-60")
   let renderSidebarItems
 
   useEffect(() => {
     if (sidebarOpen) {
-      setSidebarWidth("w-60")
+      setSidebarWidth(" w-screen md:w-60")
     } else {
-      setSidebarWidth("w-[80px]")
+      setSidebarWidth("hidden md:flex md:w-[80px]")
     }
 
   
-    console.log("sidebarOpen: ", sidebarOpen)
   }, [sidebarOpen])
 
   const sidebarItems = [
@@ -64,7 +63,7 @@ const Sidebar = ({sidebarOpen, setSidebarOpen }) => {
 
   return (
     <div
-      className={`flex-col text-[#c5c9d4] items-start ${sidebarOpen ? "hidden" : "flex"} gap-5 p-5 ${sidebarWidth} md:flex md:transition-all md:duration-300 ease-in-out`}
+      className={`absolute md:static flex-col text-[#c5c9d4] items-start h-full z-10 bg-slate-600 gap-5 p-5 ${sidebarWidth} flex md:transition-all md:duration-300 ease-in-out border-r border-gray-500`}
     >
       <button
         className={`hidden md:flex ${

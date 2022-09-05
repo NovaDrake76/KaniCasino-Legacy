@@ -140,7 +140,7 @@ function Profile(userInformation) {
               </div>
 
               <div className="w-full bg-slate-500 flex self-center  h-[2px]" />
-              <div className="flex gap-4 py-2 text-gray-300 ">
+              <div className="flex flex-wrap justify-center gap-4 py-2 text-gray-300 ">
                 <button
                   onClick={sortByName}
                   className="text-2xl hover:text-white"

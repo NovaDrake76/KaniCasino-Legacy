@@ -7,6 +7,7 @@ import AxiosKani from "../utils/axiosKani"
 const Coin = ({ userInformation, updateUserInformation }) => {
   const [selectedFace, setSelectedFace] = useState(null)
   const [coin, setCoin] = useState([{ name: "" }])
+  const [coinFlipped, setCoinFlipped] = useState(false)
   const [history, setHistory] = useState([])
   const [historyAux, setHistoryAux] = useState(false)
   const [startGame, setStartGame] = useState(false)
@@ -51,6 +52,7 @@ const Coin = ({ userInformation, updateUserInformation }) => {
       })
     } else {
       setStartGame(true)
+      setCoinFlipped(false)
       document.getElementById("flip").disabled = true
 
       let randomNumber = Math.floor(Math.random() * 2)
@@ -79,10 +81,17 @@ const Coin = ({ userInformation, updateUserInformation }) => {
         history.shift()
       }
 
+      setTimeout(() => {
+        setCoinFlipped(true)
+      }
+      , 200)
+
       setHistoryAux(true)
       setTimeout(() => {
         document.getElementById("flip").disabled = false
+
       }, 1000)
+
     }
   }
 
@@ -261,7 +270,7 @@ const Coin = ({ userInformation, updateUserInformation }) => {
         <title>Coin Flip | KaniCasino</title>
       </Helmet>
       <div className="flex justify-center text-base">
-        <div className="flex flex-col-reverse w-full max-w-3xl divide-x divide-gray-400 rounded md:flex-row bg-slate-500">
+        <div className="flex flex-col-reverse w-full max-w-3xl md:divide-x divide-gray-400 rounded md:flex-row bg-slate-500">
           <div className="flex flex-col h-full gap-2 p-4 max-h-72">
             <div className="flex py-2 rounded bg-slate-600">
               <span className="flex items-center px-2 text-gray-200">$</span>
@@ -311,8 +320,8 @@ const Coin = ({ userInformation, updateUserInformation }) => {
                   className="h-full p-2 duration-300 "
                   style={{
                     transform: `rotateY(${
-                      coin[0].name === "Heads" ? "0" : "180"
-                    }deg)`,
+                      coinFlipped === true ? "0" : "150"
+                    }deg)`
                   }}
                 />
               </div>

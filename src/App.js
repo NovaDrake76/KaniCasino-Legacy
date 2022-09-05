@@ -39,7 +39,7 @@ function App() {
         sidebarOpen={sidebarOpen}
         setSidebarOpen={setSidebarOpen}
       />
-      <div className="flex w-full h-[calc(100vh-64px)]   md:divide-x divide-gray-500 bg-slate-600">
+      <div className="flex w-full h-[calc(100vh-64px)]   bg-slate-600">
         <Sidebar
           sidebarOpen={sidebarOpen}
           setSidebarOpen={setSidebarOpen}/>
