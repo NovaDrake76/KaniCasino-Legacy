@@ -1,25 +1,49 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { ImRocket } from "react-icons/im"
 import { GiDoubleDiaphragm } from "react-icons/gi"
 import { GiHamburgerMenu } from "react-icons/gi"
 import { CgProfile } from "react-icons/cg"
 import { GiCoinflip } from "react-icons/gi"
 import { Link } from "react-router-dom"
-import { useEffect } from "react"
 
 const Sidebar = ({sidebarOpen, setSidebarOpen }) => {
-  const [sidebarWidth, setSidebarWidth] = useState("w-screen md:w-60")
+  const [sidebarWidth, setSidebarWidth] = useState()
+  const [windowDimenion, detectHW] = useState({
+    winWidth: window.innerWidth,
+  })
+
+  const detectSize = () => {
+    detectHW({
+      winWidth: window.innerWidth,
+    })
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', detectSize)
+
+    return () => {
+      window.removeEventListener('resize', detectSize)
+    }
+  }, [windowDimenion])
   let renderSidebarItems
 
   useEffect(() => {
-    if (sidebarOpen) {
-      setSidebarWidth(" w-screen md:w-60")
-    } else {
-      setSidebarWidth("hidden md:flex md:w-[80px]")
+    if(windowDimenion.winWidth > 768) {
+      if (sidebarOpen) {
+        setSidebarWidth(" w-screen md:w-60")
+      } else {
+        setSidebarWidth("hidden md:flex md:w-[80px]")
+      }
+    }else{
+      if (sidebarOpen) {
+        setSidebarWidth("hidden")
+      } else {
+        setSidebarWidth("w-screen md:w-60")
+      }
     }
 
   
-  }, [sidebarOpen])
+  }, [sidebarOpen, windowDimenion.winWidth])
 
   const sidebarItems = [
     {
@@ -50,12 +74,12 @@ const Sidebar = ({sidebarOpen, setSidebarOpen }) => {
         to={item.link}
         key={item.name}
         className={`w-full flex  ${
-          sidebarOpen ? "justify-start"  : "justify-center" 
-        }  hover:text-white`}
+          sidebarOpen || windowDimenion.winWidth < 768 ? "justify-start"  : "justify-center" 
+        }  hover:text-white border-b-[1px] border-gray-300/20 pb-1`}
       >
         <button className="flex gap-3 text-ellipsis">
           <span>{item.icon}</span>
-          {sidebarOpen ? `${item.name}` : ""}
+          {sidebarOpen || windowDimenion.winWidth < 768 ? `${item.name}` : ""}
         </button>
       </Link>
     )
