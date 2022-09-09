@@ -66,6 +66,12 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
     },
   ]
 
+  function closeSidebar() {
+    if (windowDimenion.winWidth < 768) {
+      setSidebarOpen(true)
+    }
+  }
+
   renderSidebarItems = sidebarItems.map((item) => {
     return (
       <Link
@@ -77,7 +83,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
             : "justify-center"
         }  hover:text-white border-b-[1px] md:border-0 border-gray-300/20 pb-1`}
       >
-        <button className="flex gap-3 text-ellipsis">
+        <button className="flex gap-3 text-ellipsis"
+          onClick={() => {closeSidebar()}}
+>
           <span>{item.icon}</span>
           {sidebarOpen || windowDimenion.winWidth < 768 ? `${item.name}` : ""}
         </button>
