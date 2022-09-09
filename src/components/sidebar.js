@@ -6,7 +6,7 @@ import { CgProfile } from "react-icons/cg"
 import { GiCoinflip } from "react-icons/gi"
 import { Link } from "react-router-dom"
 
-const Sidebar = ({sidebarOpen, setSidebarOpen }) => {
+const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
   const [sidebarWidth, setSidebarWidth] = useState()
   const [windowDimenion, detectHW] = useState({
     winWidth: window.innerWidth,
@@ -19,30 +19,28 @@ const Sidebar = ({sidebarOpen, setSidebarOpen }) => {
   }
 
   useEffect(() => {
-    window.addEventListener('resize', detectSize)
+    window.addEventListener("resize", detectSize)
 
     return () => {
-      window.removeEventListener('resize', detectSize)
+      window.removeEventListener("resize", detectSize)
     }
   }, [windowDimenion])
   let renderSidebarItems
 
   useEffect(() => {
-    if(windowDimenion.winWidth > 768) {
+    if (windowDimenion.winWidth > 768) {
       if (sidebarOpen) {
         setSidebarWidth(" w-screen md:w-60")
       } else {
         setSidebarWidth("hidden md:flex md:w-[80px]")
       }
-    }else{
+    } else {
       if (sidebarOpen) {
         setSidebarWidth("hidden")
       } else {
         setSidebarWidth("w-screen md:w-60")
       }
     }
-
-  
   }, [sidebarOpen, windowDimenion.winWidth])
 
   const sidebarItems = [
@@ -74,8 +72,10 @@ const Sidebar = ({sidebarOpen, setSidebarOpen }) => {
         to={item.link}
         key={item.name}
         className={`w-full flex  ${
-          sidebarOpen || windowDimenion.winWidth < 768 ? "justify-start"  : "justify-center" 
-        }  hover:text-white border-b-[1px] border-gray-300/20 pb-1`}
+          sidebarOpen || windowDimenion.winWidth < 768
+            ? "justify-start"
+            : "justify-center"
+        }  hover:text-white border-b-[1px] md:border-0 border-gray-300/20 pb-1`}
       >
         <button className="flex gap-3 text-ellipsis">
           <span>{item.icon}</span>

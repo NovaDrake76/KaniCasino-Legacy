@@ -1077,6 +1077,188 @@
 
         
       ]
+    },
+    {
+      "name": "Hell's case",
+      "description": "If you have a god, better start praying",
+      "image": "https://i.imgur.com/EMtgKwr.jpg",
+      "case": [
+        {
+          "name": "Oshino Shinobu",
+          "image": "https://i.imgur.com/V99ZqRu.jpg",
+          "probability":  50,
+          "color": "yellow"
+        },
+        {
+          "name": "Illya",
+          "image": "https://i.imgur.com/KVWrOdF.jpg",
+          "probability":  100,
+          "color": "yellow"
+        },
+        {
+          "name": "Ononoki",
+          "image": "https://i.imgur.com/Upc4fEW.jpg",
+          "probability":  150,
+          "color": "yellow"
+        },
+        {
+          "name": "Arisu",
+          "image": "https://i.imgur.com/FPmPKza.png",
+          "probability":  250,
+          "color": "red"
+        },
+        {
+          "name": "Chloe",
+          "image": "https://i.imgur.com/JwuZJX5.png",
+          "probability":  350,
+          "color": "red"
+        },
+        {
+          "name": "Hachikuji",
+          "image": "https://i.imgur.com/bzfP0gW.jpg",
+          "probability":  450,
+          "color": "red"
+        },
+        {
+          "name": "Mutsuki",
+          "image": "https://i.imgur.com/CH4HS1R.png",
+          "probability":  550,
+          "color": "red"
+        },
+        {
+          "name": "Takagi",
+          "image": "https://i.imgur.com/sjEArCT.png",
+          "probability":  750,
+          "color": "pink"
+        },
+        {
+          "name": "Jashin-Chan",
+          "image": "https://i.imgur.com/Oi2OUTT.png",
+          "probability":  950,
+          "color": "pink"
+        },
+        {
+          "name": "Hina",
+          "image": "https://i.imgur.com/xBGwJOz.png",
+          "probability":  1150,
+          "color": "pink"
+        },
+        {
+          "name": "Karyl",
+          "image": "https://i.imgur.com/ovVcPgY.jpg",
+          "probability":  1350,
+          "color": "pink"
+        },
+        {
+          "name": "Marnie",
+          "image": "https://i.imgur.com/50xboeJ.png",
+          "probability":  1550,
+          "color": "pink"
+        },
+        {
+          "name": "Rena",
+          "image": "https://i.imgur.com/pSHpbcc.jpg",
+          "probability":  1750,
+          "color": "pink"
+        },
+        {
+          "name": "Rika",
+          "image": "https://i.imgur.com/G2rH9zq.jpg",
+          "probability":  2050,
+          "color": "purple"
+        },
+        {
+          "name": "Satoko",
+          "image": "https://i.imgur.com/QiDqkTz.png",
+          "probability":  2350,
+          "color": "purple"
+        },
+        {
+          "name": "Elma",
+          "image": "https://i.imgur.com/aNJuC5e.jpg",
+          "probability":  2650,
+          "color": "purple"
+        },
+        {
+          "name": "Setsuna",
+          "image": "https://i.imgur.com/oQbh7ij.jpg",
+          "probability":  2950,
+          "color": "purple"
+        },
+        {
+          "name": "Makima",
+          "image": "https://i.imgur.com/OkFu9VO.png",
+          "probability":  3250,
+          "color": "purple"
+        },
+        {
+          "name": "Elma Fla",
+          "image": "https://i.imgur.com/avPsZqh.jpg",
+          "probability":  3550,
+          "color": "purple"
+        },
+        {
+          "name": "Shun",
+          "image": "https://i.imgur.com/6kDdHoI.png",
+          "probability":  3850,
+          "color": "purple"
+        },
+        {
+          "name": "Elaina",
+          "image": "https://i.imgur.com/92p8et9.jpg",
+          "probability":  4150,
+          "color": "purple"
+        },
+        {
+          "name": "Chocola",
+          "image": "https://i.imgur.com/pJDAnUW.jpg",
+          "probability":  4550,
+          "color": "blue"
+        },
+        {
+          "name": "Vanilla",
+          "image": "https://i.imgur.com/g0qIqe8.jpg",
+          "probability":  4950,
+          "color": "blue"
+        },
+        {
+          "name": "Kanna",
+          "image": "https://i.imgur.com/XPz8Vhb.jpg",
+          "probability":  5350,
+          "color": "blue"
+        },
+        {
+          "name": "Jahy",
+          "image": "https://i.imgur.com/ZNyvwd6.jpg",
+          "probability":  5750,
+          "color": "blue"
+        },
+        {
+          "name": "Kiriya",
+          "image": "https://i.imgur.com/GCtOn1z.png",
+          "probability":  6150,
+          "color": "blue"
+        },
+        {
+          "name": "Hayasaka",
+          "image": "https://i.imgur.com/ENyfXwg.jpg",
+          "probability":  6550,
+          "color": "blue"
+        },
+        {
+          "name": "You",
+          "image": "https://i.imgur.com/mytmxPA.png",
+          "probability":  6950,
+          "color": "blue"
+        },
+        {
+          "name": "Saber",
+          "image": "https://i.imgur.com/vEgXl6F.png",
+          "probability":  7350,
+          "color": "blue"
+        }
+
+      ]
     }
   ]
 }
