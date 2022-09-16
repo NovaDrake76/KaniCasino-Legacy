@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { ImRocket } from "react-icons/im"
-import { GiDoubleDiaphragm } from "react-icons/gi"
-import { GiHamburgerMenu } from "react-icons/gi"
+import { GiDoubleDiaphragm, GiCardAceSpades, GiCoinflip, GiHamburgerMenu } from "react-icons/gi"
 import { CgProfile } from "react-icons/cg"
-import { GiCoinflip } from "react-icons/gi"
 import { Link } from "react-router-dom"
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
@@ -63,6 +61,11 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
       name: "Coin Flip",
       icon: <GiCoinflip className="text-2xl" />,
       link: "/coinFlip",
+    },
+    {
+      name: "Blackjack",
+      icon: <GiCardAceSpades className="text-2xl" />,
+      link: "/blackjack",
     },
   ]
 
