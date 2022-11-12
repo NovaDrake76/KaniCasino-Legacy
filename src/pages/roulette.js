@@ -12,7 +12,15 @@ const Roulette = ({ updateUserInformation }) => {
   const [spining, setSpining] = useState(false)
   const prizes = Cases.prizes
 
-  let prizeRenderAux, caseRender, prizeRoulette, prizeRouletteAux, prizeInfo, possiblePrizes, probability, randomNumber, rouletteContainer
+  let prizeRenderAux,
+    caseRender,
+    prizeRoulette,
+    prizeRouletteAux,
+    prizeInfo,
+    possiblePrizes,
+    probability,
+    randomNumber,
+    rouletteContainer
 
   const getRandomPrize = () => {
     setSpining(true)
@@ -172,7 +180,9 @@ const Roulette = ({ updateUserInformation }) => {
       </Helmet>
       <div className="flex justify-center">
         <div className="flex flex-col justify-center  w-screen md:w-[80vw] gap-4 p-5 max-w-[1280px]">
-          <h2 className="flex text-xl justify-center md:justify-start">New and trending cases</h2>
+          <h2 className="flex text-xl justify-center md:justify-start">
+            New and trending cases
+          </h2>
           <div className="flex flex-wrap items-center justify-center gap-5 md:justify-start md:flex-row">
             {caseRender}
           </div>
