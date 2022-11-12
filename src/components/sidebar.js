@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { ImRocket } from "react-icons/im"
-import { GiDoubleDiaphragm } from "react-icons/gi"
-import { GiHamburgerMenu } from "react-icons/gi"
+import { GiDoubleDiaphragm, GiCardAceSpades, GiCoinflip, GiHamburgerMenu } from "react-icons/gi"
 import { CgProfile } from "react-icons/cg"
-import { GiCoinflip } from "react-icons/gi"
 import { Link } from "react-router-dom"
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
@@ -64,7 +62,18 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
       icon: <GiCoinflip className="text-2xl" />,
       link: "/coinFlip",
     },
+    {
+      name: "Blackjack",
+      icon: <GiCardAceSpades className="text-2xl" />,
+      link: "/blackjack",
+    },
   ]
+
+  function closeSidebar() {
+    if (windowDimenion.winWidth < 768) {
+      setSidebarOpen(true)
+    }
+  }
 
   renderSidebarItems = sidebarItems.map((item) => {
     return (
@@ -77,7 +86,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
             : "justify-center"
         }  hover:text-white border-b-[1px] md:border-0 border-gray-300/20 pb-1`}
       >
-        <button className="flex gap-3 text-ellipsis">
+        <button className="flex gap-3 text-ellipsis"
+          onClick={() => {closeSidebar()}}
+>
           <span>{item.icon}</span>
           {sidebarOpen || windowDimenion.winWidth < 768 ? `${item.name}` : ""}
         </button>

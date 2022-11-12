@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-import AxiosKani from "../utils/axiosKani"
-import Cases from "../cases.json"
+import AxiosKani from "../../utils/axiosKani"
+import Cases from "../../cases.json"
 import Helmet from "react-helmet"
 
 const Roulette = ({ updateUserInformation }) => {

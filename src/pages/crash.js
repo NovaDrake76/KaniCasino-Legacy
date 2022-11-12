@@ -287,14 +287,6 @@ const Crash = ({ userInformation, updateUserInformation }) => {
           </div>
         </div>
       </div>
-      {/* <div className="flex flex-col items-center">
-        <span>In development...</span>
-        <img
-          src="https://i.imgur.com/kj3fL6c.png"
-          alt="monkey"
-          className="max-w-10"
-        />
-      </div> */}
     </>
   )
 }

@@ -4,9 +4,10 @@ import React, { useEffect, useState } from "react"
 import { Routes, Route } from "react-router-dom"
 import { gapi } from "gapi-script"
 import Crash from "./pages/crash"
-import Roulette from "./pages/roulette"
+import Roulette from "./pages/roulette/roulette"
 import Profile from "./pages/profile"
 import CoinFlip from "./pages/coin"
+import BlackJack from "./pages/blackjack"
 import Navbar from "./components/navbar"
 import Sidebar from "./components/sidebar"
 
@@ -63,6 +64,15 @@ function App() {
               path="coinFlip"
               element={
                 <CoinFlip
+                  userInformation={userInformation}
+                  updateUserInformation={updateUserInformation}
+                />
+              }
+            />
+            <Route
+              path="blackjack"
+              element={
+                <BlackJack
                   userInformation={userInformation}
                   updateUserInformation={updateUserInformation}
                 />
