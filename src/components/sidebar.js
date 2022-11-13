@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react"
 import { ImRocket } from "react-icons/im"
-import { GiDoubleDiaphragm, GiCardAceSpades, GiCoinflip, GiHamburgerMenu } from "react-icons/gi"
+import {
+  GiDoubleDiaphragm,
+  GiCardAceSpades,
+  GiCoinflip,
+  GiHamburgerMenu,
+} from "react-icons/gi"
 import { CgProfile } from "react-icons/cg"
 import { Link } from "react-router-dom"
 
@@ -28,7 +33,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
   useEffect(() => {
     if (windowDimenion.winWidth > 768) {
       if (sidebarOpen) {
-        setSidebarWidth(" w-screen md:w-60")
+        setSidebarWidth(" w-screen md:w-64")
       } else {
         setSidebarWidth("hidden md:flex md:w-[80px]")
       }
@@ -86,9 +91,12 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
             : "justify-center"
         }  hover:text-white border-b-[1px] md:border-0 border-gray-300/20 pb-1`}
       >
-        <button className="flex gap-3 text-ellipsis"
-          onClick={() => {closeSidebar()}}
->
+        <button
+          className="flex gap-3 text-ellipsis"
+          onClick={() => {
+            closeSidebar()
+          }}
+        >
           <span>{item.icon}</span>
           {sidebarOpen || windowDimenion.winWidth < 768 ? `${item.name}` : ""}
         </button>

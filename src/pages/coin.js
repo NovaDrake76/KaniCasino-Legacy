@@ -83,15 +83,12 @@ const Coin = ({ userInformation, updateUserInformation }) => {
 
       setTimeout(() => {
         setCoinFlipped(true)
-      }
-      , 200)
+      }, 200)
 
       setHistoryAux(true)
       setTimeout(() => {
         document.getElementById("flip").disabled = false
-
       }, 1000)
-
     }
   }
 
@@ -270,8 +267,8 @@ const Coin = ({ userInformation, updateUserInformation }) => {
         <title>Coin Flip | KaniCasino</title>
       </Helmet>
       <div className="flex justify-center text-base">
-        <div className="flex flex-col-reverse w-full max-w-3xl md:divide-x divide-gray-400 rounded md:flex-row bg-slate-500">
-          <div className="flex flex-col h-full gap-2 p-4 max-h-72">
+        <div className="flex flex-col-reverse mt-4  w-[60vw] divide-gray-400 rounded md:divide-x md:flex-row bg-slate-500">
+          <div className="flex flex-col gap-2 p-4 ">
             <div className="flex py-2 rounded bg-slate-600">
               <span className="flex items-center px-2 text-gray-200">$</span>
               <input
@@ -295,7 +292,7 @@ const Coin = ({ userInformation, updateUserInformation }) => {
             <button onClick={addMoney}>
               <span className="text-sm text-blue-300">Get Daily Bonus</span>
             </button>
-            <div className="flex flex-col justify-end h-full">
+            <div className="flex flex-col ">
               <span className="flex py-1 text-sm text-gray-200">
                 {selectedFace ? renderSelectedFace() : "Select a face"}
               </span>
@@ -313,7 +310,7 @@ const Coin = ({ userInformation, updateUserInformation }) => {
           </div>
           <div className="flex flex-col w-full h-full divide-y divide-gray-400">
             <div className="flex p-4">
-              <div className="flex items-center justify-center w-full h-64 rounded bg-slate-600">
+              <div className="flex items-center justify-center w-full h-[60vh] rounded bg-slate-600">
                 <img
                   src={`/images/coin${coin[0].name}.png`}
                   alt="coin"
@@ -321,7 +318,7 @@ const Coin = ({ userInformation, updateUserInformation }) => {
                   style={{
                     transform: `rotateY(${
                       coinFlipped === true ? "0" : "150"
-                    }deg)`
+                    }deg)`,
                   }}
                 />
               </div>

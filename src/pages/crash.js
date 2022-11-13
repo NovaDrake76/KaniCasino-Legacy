@@ -94,7 +94,6 @@ const Crash = ({ userInformation, updateUserInformation }) => {
       if (history.length >= 9) {
         history.shift()
       }
-
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -137,7 +136,7 @@ const Crash = ({ userInformation, updateUserInformation }) => {
     // setTimeout(() => {
     //   setDisableButton(false)
     // }, 1000)
-    setMoney(money + (bet * multiplier))
+    setMoney(money + bet * multiplier)
     setMultiplierLembrance(multiplier)
     setBackgroundColor("bg-green-500")
     setEndGameMessage("Landed!")
@@ -167,29 +166,34 @@ const Crash = ({ userInformation, updateUserInformation }) => {
     setEndGame(true)
   }
 
-
   if (multiplierLembrance == null) {
-    renderCrash = <div className="flex justify-center items-center">
-      <img src={`/images/crash.png`} alt="crash" className="w-4/5"/>
-    </div>
+    renderCrash = (
+      <div className="flex items-center justify-center">
+        <img src={`/images/crash.png`} alt="crash" className="w-4/5" />
+      </div>
+    )
   }
 
   if (startGame === true) {
     renderCrash = (
       <div className="flex flex-col items-center justify-center gap-3 ">
-        <div className="p-3 bg-gray-700 rounded"><span className="text-2xl font-bold tracking-wider ">{multiplier.toFixed(2)}X</span></div>
+        <div className="p-3 bg-gray-700 rounded">
+          <span className="text-2xl font-bold tracking-wider ">
+            {multiplier.toFixed(2)}X
+          </span>
+        </div>
         <img src="spin.gif" alt="spinning" />
       </div>
     )
   } else if (endGame) {
     renderCrash = (
-      <div className={`p-3 ${backgroundColor} rounded`}><span className="text-2xl font-semibold ">
-        {endGameMessage} {multiplierLembrance.toFixed(2)}
-      </span></div>
-
+      <div className={`p-3 ${backgroundColor} rounded`}>
+        <span className="text-2xl font-semibold ">
+          {endGameMessage} {multiplierLembrance.toFixed(2)}
+        </span>
+      </div>
     )
   }
-
 
   renderHistory = history.map((item, index) => {
     if (item > 1.81) {
@@ -200,10 +204,8 @@ const Crash = ({ userInformation, updateUserInformation }) => {
       )
     } else {
       return (
-        <div  key={index} className="flex items-center justify-center rounded">
-          <div
-            className="items-center justify-center w-12 text-gray-300 rounded text-clip bg-slate-600"
-          >
+        <div key={index} className="flex items-center justify-center rounded">
+          <div className="items-center justify-center w-12 text-gray-300 rounded text-clip bg-slate-600">
             {item.toFixed(2)}
           </div>
         </div>
@@ -227,8 +229,8 @@ const Crash = ({ userInformation, updateUserInformation }) => {
         <title>Crash | KaniCasino</title>
       </Helmet>
       <div className="flex justify-center text-base">
-        <div className="flex flex-col-reverse w-full max-w-3xl md:divide-x items-center md:items-start divide-gray-400 rounded md:flex-row bg-slate-500">
-          <div className="flex flex-col h-full gap-2 p-4 max-h-72">
+        <div className="flex flex-col-reverse items-center mt-4 w-[60vw] divide-gray-400 rounded md:divide-x md:items-start md:flex-row bg-slate-500">
+          <div className="flex flex-col w-1/3 gap-2 p-4 ">
             <div className="flex py-2 rounded bg-slate-600">
               <span className="flex items-center px-2 text-gray-200">$</span>
               <input
@@ -272,7 +274,7 @@ const Crash = ({ userInformation, updateUserInformation }) => {
           </div>
           <div className="flex flex-col w-full h-full divide-y divide-gray-400">
             <div className="flex p-4">
-              <div className="flex items-center justify-center w-full h-64 rounded bg-slate-600">
+              <div className="flex items-center justify-center w-full rounded h-[60vh] bg-slate-600">
                 {renderCrash}
               </div>
             </div>

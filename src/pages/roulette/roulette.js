@@ -132,7 +132,7 @@ const Roulette = ({ updateUserInformation }) => {
 
     prizeInfo = (
       <div className="flex flex-col items-center justify-center">
-        <h2 className="text-2xl">You won a {prize.name}!</h2>
+        <h2 className="text-2xl ">You won a {prize.name}!</h2>
         <img
           className="self-center rounded max-h-[300px] object-max-w-xs"
           src={`${prize.image}`}
@@ -180,7 +180,7 @@ const Roulette = ({ updateUserInformation }) => {
       </Helmet>
       <div className="flex justify-center">
         <div className="flex flex-col justify-center  w-screen md:w-[80vw] gap-4 p-5 max-w-[1280px]">
-          <h2 className="flex text-xl justify-center md:justify-start">
+          <h2 className="flex justify-center text-xl md:justify-start">
             New and trending cases
           </h2>
           <div className="flex flex-wrap items-center justify-center gap-5 md:justify-start md:flex-row">
@@ -202,7 +202,6 @@ const Roulette = ({ updateUserInformation }) => {
               </div>
               <div className="flex flex-col justify-center w-3/5 gap-4 align-center">
                 {prizeRenderAux}
-                <div className="flex gap-4"></div>
 
                 <div className="flex justify-center">
                   <button
